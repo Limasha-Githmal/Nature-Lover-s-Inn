@@ -20,7 +20,7 @@ const Footer = () => {
                 {/* Column 1 */}
                 <Grid item xs={12} sm={4}>
                     <Typography variant="h6" gutterBottom>
-                        Your Company Name
+                        Nature-Lover's-Inn
                     </Typography>
                     <Typography variant="body2">
                         © {new Date().getFullYear()} All rights reserved.
