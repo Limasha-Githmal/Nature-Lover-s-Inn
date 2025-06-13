@@ -6,11 +6,19 @@ function App() {
 
 
   return (
-    <Container sx={{
+    <Container
+        maxWidth={false}
+        disableGutters
+        sx={{
         width: '100vw',
         height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
+        padding:'0',
+        margin:'0',
+        border:'0',
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center',
+
     }}>
 
 
