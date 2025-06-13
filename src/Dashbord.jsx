@@ -2,6 +2,7 @@ import React from 'react';
 import {Container} from "@mui/material";
 import ResponsiveAppBar from "./component/NavBar.jsx";
 import Footer from "./component/Footer.jsx";
+import FooterBottom from "./component/FooterBottom.jsx";
 import ContactBar from "./component/InContactBar.jsx";
 import Box from "@mui/material/Box";
 
@@ -21,9 +22,10 @@ function Dashbord() {
 
         }}>
 
-<ContactBar/>
-<ResponsiveAppBar/>
-             <Footer/>
+            <ContactBar/>
+            <ResponsiveAppBar/>
+            <Footer/>
+            <FooterBottom />
 
         </Box>
     );
