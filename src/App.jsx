@@ -8,7 +8,7 @@ function App() {
         <Box
 
             sx={{
-                width: '98vw',
+                width: '98.2vw',
                 height: '100vh',
                 overflowX:'hidden',
                 display: 'flex',

@@ -8,7 +8,7 @@ const Footer = () => {
 
             component="footer"
             sx={{
-                backgroundColor: 'primary.main',
+                backgroundColor: '#010d1a',
                 color: 'white',
                 py: 4,
                 px: { xs: 2, sm: 8 }, // Horizontal padding responsive
@@ -16,7 +16,7 @@ const Footer = () => {
                 mt: 'auto',
             }}
         >
-            <Grid container spacing={4}>
+            <Grid container spacing={5}>
                 {/* Column 1 */}
                 <Grid item xs={12} sm={4}>
                     <Typography variant="h6" gutterBottom>
