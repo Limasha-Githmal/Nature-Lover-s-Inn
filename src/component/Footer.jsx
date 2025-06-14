@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, IconButton } from '@mui/material';
+import { Facebook, Email } from '@mui/icons-material';
 
 const Footer = () => {
     return (
@@ -9,65 +10,178 @@ const Footer = () => {
                 backgroundColor: '#0b233b',
                 color: 'white',
                 py: 4,
-                px: { xs: 2, sm: 8 },
+                px: { xs: 2, sm: 4, md: 8 },
                 width: '100%',
                 mt: 'auto',
             }}
         >
-            <Grid container spacing={{ xs: 3, md: 30 }} sx={{ display: 'flex' }}>
-                {/* Left Column - Google Map (aligned left) */}
-                <Grid item xs={12} md={6}>
-                    <Box sx={{
-                        width: '100%',
-                        height: { xs: '200px', md: '250px' },
-                        borderRadius: '8px',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        justifyContent: 'flex-start'
+            {/* Outer container */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    justifyContent: 'space-between',
+                    alignItems: { xs: 'center', md: 'flex-start' },
+                    position: 'relative',
+                }}
+            >
+                {/* Left Section: Location */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        mb: { xs: 4, md: 0 },
+                        pr: { md: 4 },
+                        textAlign: { xs: 'center', md: 'left' },
+                    }}
+                >
+                    <Typography variant="h6" gutterBottom sx={{
+                        fontWeight: 'bold',
+                        mb: 2,
+                        paddingLeft: '10%',
+                        color: '#11c24c' // Added green color
                     }}>
+                        Location
+                    </Typography>
+                    <Box
+                        sx={{
+                            width: '100%',
+                            maxWidth: '350px',
+                            height: '200px',
+                            borderRadius: '8px',
+                            overflow: 'hidden',
+                            margin: { xs: '0 auto', md: '0' },
+                        }}
+                    >
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3296.170592903695!2d79.93348265463015!3d6.819048074194564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae247bbdb73d83f%3A0xa9760ac35f65e17c!2sArtistic%20Insights%20Studios!5e1!3m2!1sen!2slk!4v1749824099519!5m2!1sen!2slk"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3296.1705870874653!2d79.93307297403024!3d6.819048919660284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae247bbdb73d83f%3A0xa9760ac35f65e17c!2sArtistic%20Insights%20Studios!5e1!3m2!1sen!2slk!4v1749889033459!5m2!1sen!2slk"
+                            style={{ border: 0, paddingLeft: '10%' }}
+                            width={'80%'}
+                            height={'100%'}
                             allowFullScreen=""
                             loading="lazy"
+                            title="Map Location"
                         ></iframe>
                     </Box>
-                </Grid>
+                </Box>
 
-                {/* Right Column - Contact Info (centered) */}
-                <Grid item xs={12} md={6}>
+                {/* Center Section: Contact Us */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        mb: { xs: 4, md: 0 },
+                        px: { md: 2 },
+                        textAlign: { xs: 'center', md: 'left' },
+                    }}
+                >
+                    <Typography variant="h6" gutterBottom sx={{
+                        fontWeight: 'bold',
+                        mb: 2,
+                        color: '#11c24c' // Added green color
+                    }}>
+                        Contact Us
+                    </Typography>
+                    <Typography variant="body1" sx={{ mb: 1.5 }}>
+                        <b>Kalametiya Bird Watching & Ecotourism</b>
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 1.5 }}>
+                        No: 95/1, Bata Atha South<br />
+                        Hungama, Sri Lanka<br />
+                        82120
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 1.5 }}>
+                        Phone / WhatsApp: +94 77 706 0920<br />
+                        Email: kalametiyasafari@gmail.com
+                    </Typography>
+                </Box>
+
+                {/* Right Section: Follow Us */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        pl: { md: 4 },
+                        textAlign: { xs: 'center', md: 'left' },
+                        position: { md: 'relative' },
+                        right: { md: '5%' },
+                    }}
+                >
+                    <Typography variant="h6" gutterBottom sx={{
+                        fontWeight: 'bold',
+                        mb: 2,
+                        color: '#11c24c' // Added green color
+                    }}>
+                        Follow Us
+                    </Typography>
                     <Box sx={{
                         display: 'flex',
-                        justifyContent: { xs: 'flex-start', md: 'center' },
-                        alignItems: 'center',
-                        height: '100%',
-                        margin: '0',
-                        textAlign: { xs: 'left', md: 'left' }
+                        justifyContent: { xs: 'center', md: 'flex-start' },
+                        gap: 2,
+                        mb: 3
                     }}>
-                        <Box sx={{
-                            maxWidth: '400px',
-                            width: { xs: '100%', md: 'auto' }
-                        }}>
-                            <Typography variant="h5" gutterBottom sx={{color:'#11c24c',fontFamily: 'system-ui,Georgia, serif'} }>
-                                <b>CONTACT US</b>
-                            </Typography>
-                            <Typography variant="body1" sx={{ mb: 1 }}>
-                                <b>Nature-Lover's-Inn</b> <br /> </Typography>
-                                <Typography variant="body1" sx={{ mb: 1 }} >No 95/1 Bataatha South <br />
-                                Hungama, Sri Lanka <br />
-                                82120 <br />
-                                <br />
-                            </Typography>
-                            <Typography variant="body2">
-                                Phone/WhatsApp: +94 77 123 4567<br />
-                                Email: info@example.com
-                            </Typography>
-                        </Box>
+                        <IconButton
+                            aria-label="Facebook"
+                            sx={{
+                                backgroundColor: 'white',
+                                p: 1,
+                                borderRadius: '50%',
+                                '&:hover': {
+                                    backgroundColor: 'white',
+                                },
+                            }}
+                        >
+                            <Facebook sx={{ color: '#0b233b', fontSize: '28px' }} />
+                        </IconButton>
+
+                        {/* TripAdvisor Logo */}
+                        <img
+                            src="/src/assets/image/tripadvisorlogo.png"
+                            alt="TripAdvisor Logo"
+                            style={{
+                                height: '40px',
+                                cursor: 'pointer',
+                                borderRadius: '50%',
+                                objectFit: 'cover'
+                            }}
+                            onClick={() => window.open('https://www.tripadvisor.com', '_blank')}
+                        />
+
+                        <IconButton
+                            aria-label="Email"
+                            sx={{
+                                backgroundColor: 'white',
+                                p: 1,
+                                borderRadius: '50%',
+                                '&:hover': {
+                                    backgroundColor: 'white',
+                                },
+                            }}
+                        >
+                            <Email sx={{ color: '#0b233b', fontSize: '28px' }} />
+                        </IconButton>
                     </Box>
-                </Grid>
-            </Grid>
+                    <Box>
+                        <Typography variant="caption" sx={{
+                            display: 'block',
+                            mb: 1,
+                            color: '#11c24c',
+                            fontWeight: 'bold'
+                        }}>
+                            RECOMMENDED ON
+                        </Typography>
+                        <img
+                            src="https://media-cdn.tripadvisor.com/media/photo-s/0c/49/2c/2b/the-commercial-hotel.jpg"
+                            alt="TripAdvisor Recommended"
+                            style={{
+                                height: '50px',
+                                width: 'auto',
+                                maxWidth: '120px'
+                            }}
+                        />
+                        <Typography variant="body2" sx={{ mt: 1 }}>
+                            Kalametiya Bird Watching & Ecotourism
+                        </Typography>
+                    </Box>
+                </Box>
+            </Box>
         </Box>
     );
 };

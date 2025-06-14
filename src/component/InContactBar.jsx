@@ -1,20 +1,20 @@
 import React from 'react';
-import { Box, Button, Container, Typography, useMediaQuery, useTheme, keyframes } from '@mui/material';
+import { Box, Button, Container, Typography, useMediaQuery, useTheme, keyframes, IconButton } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Facebook from '@mui/icons-material/Facebook';
+import Twitter from '@mui/icons-material/Twitter';
+import Instagram from '@mui/icons-material/Instagram';
+import LinkedIn from '@mui/icons-material/LinkedIn';
+import Email from '@mui/icons-material/Email';
 
 // Define the bubble animation
 const bubbleAnimation = keyframes`
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 `;
 
 const ContactBar = () => {
@@ -57,7 +57,7 @@ const ContactBar = () => {
                     </Box>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                        <EmailIcon color="primary" fontSize={isSmallScreen ? 'small' : 'medium'} />
+                        <Email color="primary" fontSize={isSmallScreen ? 'small' : 'medium'} />
                         <Typography variant={isSmallScreen ? 'body2' : 'body1'}>
                             info@example.com
                         </Typography>
@@ -77,10 +77,43 @@ const ContactBar = () => {
                         alignItems: 'center',
                         gap: isSmallScreen ? 0.5 : 1,
                     }}>
-                        <FacebookIcon fontSize={isSmallScreen ? 'small' : 'medium'} />
-                        <TwitterIcon fontSize={isSmallScreen ? 'small' : 'medium'} />
-                        <InstagramIcon fontSize={isSmallScreen ? 'small' : 'medium'} />
-                        <LinkedInIcon fontSize={isSmallScreen ? 'small' : 'medium'} />
+                        <IconButton
+                            aria-label="Facebook"
+                            sx={{
+                                backgroundColor: 'white',
+                                p: 1,
+                                borderRadius: '50%',
+                                '&:hover': {
+                                    backgroundColor: 'white',
+                                },
+                            }}
+                        >
+                            <Facebook sx={{ color: '#0b233b', fontSize: '28px', borderRadius: '50%' }} />
+                        </IconButton>
+
+                        <IconButton
+                            aria-label="Email"
+                            sx={{
+                                backgroundColor: 'white',
+                                p: 1,
+                                borderRadius: '50%',
+                                '&:hover': {
+                                    backgroundColor: 'white',
+                                },
+                            }}
+                        >
+                            <Email sx={{ color: '#0b233b', fontSize: '28px' }} />
+                        </IconButton>
+
+
+
+
+                        <img
+                            src="/src/assets/image/tripadvisorlogo.png" // Adjust the path if hosted or bundled
+                            alt="TripAdvisor Logo"
+                            style={{ height: '40px', cursor: 'pointer', borderRadius: '50%' }}
+                            onClick={() => window.open('https://www.tripadvisor.com', '_blank')}
+                        />
                     </Box>
 
                     {/* Booking Button with continuous animation */}
