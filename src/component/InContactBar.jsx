@@ -89,7 +89,7 @@ const ContactBar = () => {
                         size={isSmallScreen ? 'small' : 'medium'}
                         sx={{
                             width: isSmallScreen ? '100%' : 'auto',
-                            backgroundColor: '#001F3F',
+                            backgroundColor: '#11c24c',
                             color: 'white',
                             animation: `${bubbleAnimation} 2s ease-in-out infinite`,
                             '&:hover': {
