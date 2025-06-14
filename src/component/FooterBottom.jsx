@@ -6,6 +6,7 @@ function FooterBottom() {
         <Box
             sx={{
                 width: '100%',
+                fontFamily:'sans-serif,Roboto, Arial',
                 backgroundColor: '#051c33',
                 color: 'white',
                 paddingTop: 3,      // Top padding = 8px (1 * 8px)
@@ -29,8 +30,16 @@ function FooterBottom() {
                     </Grid>
 
                     <Grid item>
-                        <Typography variant="body2" color="white">
-                            © {new Date().getFullYear()} YourCompany. All rights reserved.
+                        <Typography variant="body1" color="white" align="center">
+                            Copyright © {new Date().getFullYear()}{' '}
+                            <Link href="https://yourcompanywebsite.com" target="_blank" underline="hover" color="inherit"
+                                sx={{
+                                    color: '#00bfff', // Light blue
+                                    textShadow: '1px 1px 2px rgba(0, 191, 255, 0.5)',
+                                    fontWeight: 'bold',
+                            }}>
+                                Kozaa
+                            </Link>. All rights reserved.
                         </Typography>
                     </Grid>
                 </Grid>
