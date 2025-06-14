@@ -1,24 +1,19 @@
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import Dashbord from "./Dashbord.jsx";
-import Box from "@mui/material/Box";
 
 
 function App() {
     return (
         <Box
-
             sx={{
-                width: '98.2vw',
-                height: '100vh',
-                overflowX:'hidden',
+                width: '100%',
+                minHeight: '100vh',
+                overflowX: 'hidden',
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent:'center',
-                alignItems:'center'
-
+                flexDirection: 'column'
             }}
         >
-         <Dashbord/>
+     <Dashbord/>
         </Box>
     );
 }

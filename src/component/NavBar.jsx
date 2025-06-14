@@ -10,19 +10,40 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { keyframes } from '@mui/system';
+import { keyframes, styled } from '@mui/system';
 
 const pages = ['Home', 'Lagoon Tour', 'Rooms', 'Offers', 'Gallery', 'Contact Us'];
 
-// Bubble animation keyframes
+// Animation keyframes
 const bubble = keyframes`
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 `;
+
+const flyIn = keyframes`
+    0% { 
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+`;
+
+const LogoImage = styled('img')(({ theme }) => ({
+    height: '80px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    animation: `${flyIn} 0.8s ease-out forwards`,
+    '&:hover': {
+        transform: 'scale(1.05)',
+        filter: 'drop-shadow(0 0 8px rgba(16, 55, 133, 0.3))'
+    },
+    [theme.breakpoints.down('sm')]: {
+        height: '60px'
+    }
+}));
 
 export default function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -45,16 +66,29 @@ export default function ResponsiveAppBar() {
             elevation={0}
             sx={{
                 backgroundColor: 'white',
-                width: '100%',
-                maxWidth: '100%'
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.3s ease'
             }}
         >
-            <Toolbar sx={{ maxWidth: '100%', margin: '0 auto', width: '100%' }}>
-                <Box sx={{ flexGrow: 1 }}>
-                    <img
+            <Toolbar sx={{
+                justifyContent: 'space-between',
+                maxWidth: 'lg',
+                mx: 'auto',
+                width: '100%',
+                px: { xs: 2, sm: 4 }
+            }}>
+                <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    '&:hover': {
+                        '& img': {
+                            transform: 'scale(1.02)'
+                        }
+                    }
+                }}>
+                    <LogoImage
                         src="/src/assets/image/logo.png"
-                        alt="Logo"
-                        style={{ height: '25%', width: '25%', cursor: 'pointer' }}
+                        alt="Nature Lover's Inn Logo"
                         onClick={() => setActivePage('Home')}
                     />
                 </Box>
@@ -63,22 +97,27 @@ export default function ResponsiveAppBar() {
                     <>
                         <IconButton
                             size="large"
-                            aria-label="menu"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            sx={{ color: '#103785' }}
+                            sx={{
+                                color: '#103785',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(16, 55, 133, 0.1)'
+                                }
+                            }}
                         >
-                            <MenuIcon />
+                            <MenuIcon fontSize="large" />
                         </IconButton>
                         <Menu
-                            id="menu-appbar"
                             anchorEl={anchorElNav}
-                            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                            keepMounted
-                            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                             open={Boolean(anchorElNav)}
                             onClose={() => handleCloseNavMenu(activePage)}
+                            sx={{
+                                '& .MuiPaper-root': {
+                                    borderRadius: '12px',
+                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                                    minWidth: '200px'
+                                }
+                            }}
                         >
                             {pages.map((page) => (
                                 <MenuItem
@@ -87,22 +126,27 @@ export default function ResponsiveAppBar() {
                                     sx={{
                                         color: '#103785',
                                         fontWeight: 'bold',
+                                        fontSize: '1rem',
+                                        py: 1.5,
                                         backgroundColor: activePage === page ? '#f0f4ff' : 'transparent',
-                                        whiteSpace: 'nowrap',
                                         '&:hover': {
+                                            backgroundColor: 'rgba(16, 55, 133, 0.05)',
                                             animation: `${bubble} 0.5s ease`
-                                        }
+                                        },
+                                        transition: 'all 0.2s ease'
                                     }}
                                 >
-                                    <Typography textAlign="center" sx={{ whiteSpace: 'nowrap' }}>
-                                        {page}
-                                    </Typography>
+                                    {page}
                                 </MenuItem>
                             ))}
                         </Menu>
                     </>
                 ) : (
-                    <Box sx={{ display: 'flex', gap: 3, paddingX: '20px' }}>
+                    <Box sx={{
+                        display: 'flex',
+                        gap: { sm: 1, md: 2 },
+                        alignItems: 'center'
+                    }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
@@ -110,25 +154,27 @@ export default function ResponsiveAppBar() {
                                 sx={{
                                     color: '#103785',
                                     fontWeight: 'bold',
+                                    fontSize: '1rem',
+                                    textTransform: 'none',
+                                    letterSpacing: '0.5px',
                                     position: 'relative',
-                                    padding: '8px 16px',
-                                    whiteSpace: 'nowrap',
                                     '&:hover': {
-                                        animation: `${bubble} 0.5s ease`
+                                        animation: `${bubble} 0.5s ease`,
+                                        backgroundColor: 'transparent',
+                                        '&::after': {
+                                            width: '100%'
+                                        }
                                     },
                                     '&::after': {
                                         content: '""',
                                         position: 'absolute',
                                         width: activePage === page ? '100%' : '0',
-                                        height: '2px',
-                                        left: 0,
+                                        height: '3px',
                                         bottom: 0,
-                                        backgroundColor: '#103785',
-                                        transition: 'width 0.3s ease-in-out',
-                                    },
-                                    '&:hover::after': {
-                                        width: '100%',
-                                    },
+                                        left: 0,
+                                        backgroundColor: '#11c24c',
+                                        transition: 'width 0.3s ease'
+                                    }
                                 }}
                             >
                                 {page}

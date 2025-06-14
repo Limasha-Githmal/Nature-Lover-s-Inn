@@ -1,34 +1,42 @@
-import React from 'react';
-import {Container} from "@mui/material";
+import { Box } from "@mui/material";
 import ResponsiveAppBar from "./component/NavBar.jsx";
 import Footer from "./component/Footer.jsx";
 import FooterBottom from "./component/FooterBottom.jsx";
 import ContactBar from "./component/InContactBar.jsx";
-import Box from "@mui/material/Box";
+import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx";
 
-function Dashbord() {
+function Dashboard() {
     return (
         <Box
-
             sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+                width: '100%',
+                overflowX: 'hidden'
+            }}
+        >
+            <ContactBar />
+            <ResponsiveAppBar />
+            <SanctuaryDashboard/>
 
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-                justifyContent:'center',
-                alignItems:'center'
+            <Box
+                component="main"
+                sx={{
+                    flexGrow: 1,
+                    width: '100%',
+                    overflowX: 'hidden',
+                    px: { xs: 1, sm: 2 },
+                    boxSizing: 'border-box'
+                }}
+            >
+                {/* Your main content goes here */}
+            </Box>
 
-
-        }}>
-
-            <ContactBar/>
-            <ResponsiveAppBar/>
-            <Footer/>
+            <Footer />
             <FooterBottom />
-
         </Box>
     );
 }
 
-export default Dashbord;
+export default Dashboard;

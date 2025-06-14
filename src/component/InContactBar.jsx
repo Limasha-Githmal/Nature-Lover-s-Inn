@@ -1,25 +1,27 @@
 import React from 'react';
-import { Box, Button, Container, Typography, useMediaQuery, useTheme, keyframes, IconButton } from '@mui/material';
+import {
+    Box,
+    Button,
+    Container,
+    Typography,
+    useMediaQuery,
+    useTheme,
+    keyframes,
+    IconButton
+} from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Facebook from '@mui/icons-material/Facebook';
-import Twitter from '@mui/icons-material/Twitter';
-import Instagram from '@mui/icons-material/Instagram';
-import LinkedIn from '@mui/icons-material/LinkedIn';
 import Email from '@mui/icons-material/Email';
 
-// Define the bubble animation
+// Bubble animation
 const bubbleAnimation = keyframes`
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 `;
 
 const ContactBar = () => {
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
         <Box
@@ -28,6 +30,8 @@ const ContactBar = () => {
                 width: '100%',
                 py: 1,
                 px: 2,
+                borderBottom: '1px solid #ddd',
+                display: { xs: 'block', md: 'block' }
             }}
         >
             <Container
@@ -37,58 +41,67 @@ const ContactBar = () => {
                     flexDirection: isSmallScreen ? 'column' : 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: isSmallScreen ? 1 : 0,
+                    gap: isSmallScreen ? 2 : 0,
                     width: '100%',
                 }}
             >
-                {/* Left Section: Contact Details Only */}
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: isSmallScreen ? 'column' : 'row',
-                    alignItems: 'center',
-                    gap: isSmallScreen ? 1 : 2,
-                    flexWrap: 'wrap',
-                }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                {/* Contact Details */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: isSmallScreen ? 'column' : 'row',
+                        alignItems: 'center',
+                        gap: isSmallScreen ? 1 : 3,
+                        flexWrap: 'wrap',
+                        justifyContent: isSmallScreen ? 'center' : 'flex-start',
+                        width: isSmallScreen ? '100%' : 'auto',
+                    }}
+                >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <WhatsAppIcon color="success" fontSize={isSmallScreen ? 'small' : 'medium'} />
                         <Typography variant={isSmallScreen ? 'body2' : 'body1'}>
-                            +94 71 234 5678
+                            +94 77 706 0920
                         </Typography>
                     </Box>
 
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <Email color="primary" fontSize={isSmallScreen ? 'small' : 'medium'} />
                         <Typography variant={isSmallScreen ? 'body2' : 'body1'}>
-                            info@example.com
+                            kalametiyasafari@gmail.com
                         </Typography>
                     </Box>
                 </Box>
 
-                {/* Right Section: Social Media + Booking Button */}
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: isSmallScreen ? 'column-reverse' : 'row',
-                    alignItems: 'center',
-                    gap: isSmallScreen ? 1 : 2,
-                }}>
-                    {/* Social Media Icons */}
-                    <Box sx={{
+                {/* Social Media + Booking Button */}
+                <Box
+                    sx={{
                         display: 'flex',
+                        flexDirection: isSmallScreen ? 'column' : 'row',
                         alignItems: 'center',
-                        gap: isSmallScreen ? 0.5 : 1,
-                    }}>
+                        gap: isSmallScreen ? 1 : 3,
+                        justifyContent: isSmallScreen ? 'center' : 'flex-end',
+                        width: isSmallScreen ? '100%' : 'auto',
+                        mt: isSmallScreen ? 1 : 0,
+                    }}
+                >
+                    {/* Social Icons */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1,
+                        }}
+                    >
                         <IconButton
                             aria-label="Facebook"
                             sx={{
                                 backgroundColor: 'white',
                                 p: 1,
                                 borderRadius: '50%',
-                                '&:hover': {
-                                    backgroundColor: 'white',
-                                },
+                                '&:hover': { backgroundColor: 'white' },
                             }}
                         >
-                            <Facebook sx={{ color: '#0b233b', fontSize: '28px', borderRadius: '50%' }} />
+                            <Facebook sx={{ color: '#0b233b', fontSize: '28px' }} />
                         </IconButton>
 
                         <IconButton
@@ -97,43 +110,50 @@ const ContactBar = () => {
                                 backgroundColor: 'white',
                                 p: 1,
                                 borderRadius: '50%',
-                                '&:hover': {
-                                    backgroundColor: 'white',
-                                },
+                                '&:hover': { backgroundColor: 'white' },
                             }}
                         >
                             <Email sx={{ color: '#0b233b', fontSize: '28px' }} />
                         </IconButton>
 
-
-
-
-                        <img
-                            src="/src/assets/image/tripadvisorlogo.png" // Adjust the path if hosted or bundled
-                            alt="TripAdvisor Logo"
-                            style={{ height: '40px', cursor: 'pointer', borderRadius: '50%' }}
+                        <IconButton
+                            aria-label="TripAdvisor"
                             onClick={() => window.open('https://www.tripadvisor.com', '_blank')}
-                        />
+                            sx={{
+                                p: 0,
+                                '&:hover': { transform: 'scale(1.1)' },
+                                transition: 'transform 0.3s ease',
+                            }}
+                        >
+                            <img
+                                src="/src/assets/image/tripadvisorlogo.png"
+                                alt="TripAdvisor"
+                                style={{
+                                    height: '40px',
+                                    borderRadius: '50%',
+                                    objectFit: 'cover'
+                                }}
+                            />
+                        </IconButton>
                     </Box>
 
-                    {/* Booking Button with continuous animation */}
+                    {/* Booking Button */}
                     <Button
                         variant="contained"
-                        size={isSmallScreen ? 'small' : 'medium'}
+                        size={isSmallScreen ? 'medium' : 'medium'}
                         sx={{
-                            width: isSmallScreen ? '100%' : 'auto',
                             backgroundColor: '#11c24c',
                             color: 'white',
                             animation: `${bubbleAnimation} 2s ease-in-out infinite`,
+                            minWidth: '150px',
                             '&:hover': {
-                                backgroundColor: '#003366',
-                                boxShadow: '0 0 8px #0074D9',
+                                backgroundColor: '#0e9d3d',
                                 animation: `${bubbleAnimation} 0.5s ease-in-out infinite`,
                             },
                             transition: 'all 0.3s ease',
                         }}
                     >
-                        Booking Now
+                        Book Now
                     </Button>
                 </Box>
             </Container>
