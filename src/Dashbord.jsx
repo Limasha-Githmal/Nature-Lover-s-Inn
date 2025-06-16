@@ -4,6 +4,7 @@ import Footer from "./component/Footer.jsx";
 import FooterBottom from "./component/FooterBottom.jsx";
 import ContactBar from "./component/InContactBar.jsx";
 import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx";
+import AboutUs from "./service/home/AboutUs.jsx";
 
 function Dashboard() {
     return (
@@ -19,6 +20,7 @@ function Dashboard() {
             <ContactBar />
             <ResponsiveAppBar />
             <SanctuaryDashboard/>
+      <AboutUs/>
 
             <Box
                 component="main"
