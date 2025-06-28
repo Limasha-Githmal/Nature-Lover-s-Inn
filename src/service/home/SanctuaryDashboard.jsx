@@ -134,9 +134,10 @@ const SanctuaryDashboard = () => {
                                 backgroundColor: 'primary.dark',
                             },
                             transition: 'all 0.3s ease',
-                            borderRadius: '4px',
+                            borderRadius: '30px',
                             minWidth: { xs: '180px', sm: '220px' },
                             textTransform: 'none',
+                            mt: 4,
                         }}
                     >
                         Book Now

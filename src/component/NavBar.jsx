@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -14,18 +13,17 @@ import { keyframes, styled } from '@mui/system';
 
 const pages = ['Home', 'Lagoon Tour', 'Rooms', 'Offers', 'Gallery', 'Contact Us'];
 
-// Animation keyframes
 const bubble = keyframes`
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 `;
 
 const flyIn = keyframes`
-    0% { 
+    0% {
         transform: translateX(-100px);
         opacity: 0;
     }
-    100% { 
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
@@ -62,12 +60,14 @@ export default function ResponsiveAppBar() {
 
     return (
         <AppBar
-            position="static"
+            position="fixed"
             elevation={0}
             sx={{
                 backgroundColor: 'white',
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                top: { xs: '97px', md: '57px' }, // Height of ContactBar
+                zIndex: 1100,
             }}
         >
             <Toolbar sx={{
@@ -102,7 +102,9 @@ export default function ResponsiveAppBar() {
                                 color: '#103785',
                                 '&:hover': {
                                     backgroundColor: 'rgba(16, 55, 133, 0.1)'
-                                }
+                                },
+                                marginLeft: '4px', // Add this line to move it left
+                                padding: '14px', // Optional: adjust padding if needed
                             }}
                         >
                             <MenuIcon fontSize="large" />
@@ -157,24 +159,25 @@ export default function ResponsiveAppBar() {
                                     fontSize: '1rem',
                                     textTransform: 'none',
                                     letterSpacing: '0.5px',
-                                    position: 'relative',
+                                    position: 'relative', // Required for `&::after`
+                                    overflow: 'visible', // Ensures hover effects are visible
                                     '&:hover': {
                                         animation: `${bubble} 0.5s ease`,
                                         backgroundColor: 'transparent',
                                         '&::after': {
-                                            width: '100%'
-                                        }
+                                            width: '100%',
+                                        },
                                     },
                                     '&::after': {
                                         content: '""',
                                         position: 'absolute',
                                         width: activePage === page ? '100%' : '0',
                                         height: '3px',
-                                        bottom: 0,
+                                        bottom: '-4px', // Adjust to make it visible below text
                                         left: 0,
                                         backgroundColor: '#11c24c',
-                                        transition: 'width 0.3s ease'
-                                    }
+                                        transition: 'width 0.3s ease',
+                                    },
                                 }}
                             >
                                 {page}

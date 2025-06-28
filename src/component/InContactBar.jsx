@@ -1,160 +1,110 @@
-import React from 'react';
+import React from "react";
 import {
     Box,
-    Button,
     Container,
     Typography,
-    useMediaQuery,
     useTheme,
+    useMediaQuery,
+    IconButton,
+    Button,
     keyframes,
-    IconButton
-} from '@mui/material';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import Facebook from '@mui/icons-material/Facebook';
-import Email from '@mui/icons-material/Email';
+    styled
+} from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import Facebook from "@mui/icons-material/Facebook";
+import Email from "@mui/icons-material/Email";
 
-// Bubble animation
-const bubbleAnimation = keyframes`
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+// Pure jumping animation (no shadows/ripples)
+const jump = keyframes`
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 `;
+
+// Styled button with jumping animation
+const JumpingButton = styled(Button)({
+    animation: `${jump} 1.5s infinite cubic-bezier(0.25, 0.12, 0.25, 1)
+ `,
+});
 
 const ContactBar = () => {
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
     return (
         <Box
             sx={{
-                backgroundColor: '#f4f4f4',
-                width: '100%',
+                position: "fixed",
+                top: 0,
+                zIndex: 1200,
+                width: "100%",
+                backgroundColor: "#f4f4f4",
+                borderBottom: "1px solid #ddd",
                 py: 1,
                 px: 2,
-                borderBottom: '1px solid #ddd',
-                display: { xs: 'block', md: 'block' }
+                boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
             }}
         >
             <Container
                 maxWidth="xl"
                 sx={{
-                    display: 'flex',
-                    flexDirection: isSmallScreen ? 'column' : 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: isSmallScreen ? 2 : 0,
-                    width: '100%',
+                    display: "flex",
+                    flexDirection: isSmallScreen ? "column" : "row",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    gap: isSmallScreen ? 2 : 4,
+                    textAlign: "left",
                 }}
             >
                 {/* Contact Details */}
                 <Box
                     sx={{
-                        display: 'flex',
-                        flexDirection: isSmallScreen ? 'column' : 'row',
-                        alignItems: 'center',
-                        gap: isSmallScreen ? 1 : 3,
-                        flexWrap: 'wrap',
-                        justifyContent: isSmallScreen ? 'center' : 'flex-start',
-                        width: isSmallScreen ? '100%' : 'auto',
+                        display: "flex",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        gap: 1,
                     }}
                 >
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <WhatsAppIcon color="success" fontSize={isSmallScreen ? 'small' : 'medium'} />
-                        <Typography variant={isSmallScreen ? 'body2' : 'body1'}>
-                            +94 77 706 0920
-                        </Typography>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <WhatsAppIcon color="success" />
+                        <Typography variant="body2">+94 77 706 0920</Typography>
                     </Box>
-
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <Email color="primary" fontSize={isSmallScreen ? 'small' : 'medium'} />
-                        <Typography variant={isSmallScreen ? 'body2' : 'body1'}>
-                            kalametiyasafari@gmail.com
-                        </Typography>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.1 }}>
+                        <Email color="primary" />
+                        <Typography variant="body2">kalametiyasafari@gmail.com</Typography>
                     </Box>
                 </Box>
 
-                {/* Social Media + Booking Button */}
+                {/* Social Icons and Booking Button */}
                 <Box
                     sx={{
-                        display: 'flex',
-                        flexDirection: isSmallScreen ? 'column' : 'row',
-                        alignItems: 'center',
-                        gap: isSmallScreen ? 1 : 3,
-                        justifyContent: isSmallScreen ? 'center' : 'flex-end',
-                        width: isSmallScreen ? '100%' : 'auto',
-                        mt: isSmallScreen ? 1 : 0,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                        ml: isSmallScreen ? 2 : 64,
                     }}
                 >
-                    {/* Social Icons */}
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1,
-                        }}
-                    >
-                        <IconButton
-                            aria-label="Facebook"
-                            sx={{
-                                backgroundColor: 'white',
-                                p: 1,
-                                borderRadius: '50%',
-                                '&:hover': { backgroundColor: 'white' },
-                            }}
-                        >
-                            <Facebook sx={{ color: '#0b233b', fontSize: '28px' }} />
-                        </IconButton>
-
-                        <IconButton
-                            aria-label="Email"
-                            sx={{
-                                backgroundColor: 'white',
-                                p: 1,
-                                borderRadius: '50%',
-                                '&:hover': { backgroundColor: 'white' },
-                            }}
-                        >
-                            <Email sx={{ color: '#0b233b', fontSize: '28px' }} />
-                        </IconButton>
-
-                        <IconButton
-                            aria-label="TripAdvisor"
-                            onClick={() => window.open('https://www.tripadvisor.com', '_blank')}
-                            sx={{
-                                p: 0,
-                                '&:hover': { transform: 'scale(1.1)' },
-                                transition: 'transform 0.3s ease',
-                            }}
-                        >
-                            <img
-                                src="/src/assets/image/tripadvisorlogo.png"
-                                alt="TripAdvisor"
-                                style={{
-                                    height: '40px',
-                                    borderRadius: '50%',
-                                    objectFit: 'cover'
-                                }}
-                            />
-                        </IconButton>
-                    </Box>
-
-                    {/* Booking Button */}
-                    <Button
+                    <IconButton>
+                        <Facebook sx={{ color: "#0b233b" }} />
+                    </IconButton>
+                    <IconButton>
+                        <Email sx={{ color: "#0b233b" }} />
+                    </IconButton>
+                    <JumpingButton
                         variant="contained"
-                        size={isSmallScreen ? 'medium' : 'medium'}
+                        color="success"
                         sx={{
-                            backgroundColor: '#11c24c',
-                            color: 'white',
-                            animation: `${bubbleAnimation} 2s ease-in-out infinite`,
-                            minWidth: '150px',
-                            '&:hover': {
-                                backgroundColor: '#0e9d3d',
-                                animation: `${bubbleAnimation} 0.5s ease-in-out infinite`,
-                            },
-                            transition: 'all 0.3s ease',
+                            fontWeight: 'bold',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1px',
+                            padding: '8px 20px'
                         }}
                     >
                         Book Now
-                    </Button>
+                    </JumpingButton>
                 </Box>
             </Container>
         </Box>
