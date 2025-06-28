@@ -5,6 +5,8 @@ import FooterBottom from "./component/FooterBottom.jsx";
 import ContactBar from "./component/InContactBar.jsx";
 import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx";
 import AboutUs from "./service/home/AboutUs.jsx";
+import Offers from "./service/home/Offers.jsx";
+import Gallery from "./service/home/Gallery.jsx";
 
 function Dashboard() {
     return (
@@ -20,7 +22,10 @@ function Dashboard() {
             <ContactBar />
             <ResponsiveAppBar />
             <SanctuaryDashboard/>
-      <AboutUs/>
+            <AboutUs/>
+            <Offers/>
+            <Gallery/>
+
 
             <Box
                 component="main"

@@ -7,26 +7,26 @@ const App = () => {
         {
             id: 1,
             image: '',
-            title: 'Room',
-            description: 'One of best place to watching water birds',
+            title: 'Lagoon Tour',
+            description: 'One of best  lagoon tour to watching birds',
         },
         {
             id: 2,
             image: '',
-            title: 'Paddle Boats Safari',
-            description: 'Zero CO2 emissions carbon neutral event',
+            title: 'Rooms',
+            description: 'Peaceful, and incredibly comfortable room',
         },
         {
             id: 3,
             image: '',
-            title: 'Lagoon',
-            description: 'Climbing rocks middle in the lagoon',
+            title: 'Restaurant',
+            description: 'Fresh, flavorful meals every day',
         },
     ];
 
     return (
         <Box sx={{
-            minHeight: '100vh',
+            minHeight: '60%',
             bgcolor: 'background.paper',
             p: { xs: 2, sm: 3, lg: 4 },
             fontFamily: 'Inter, sans-serif',
@@ -39,13 +39,13 @@ const App = () => {
                     color: 'text.secondary',
                     mb: 1
                 }}>
-                    The best value tours in Kalametiya Bird Sanctuary
+                    Discover nature and coastal charm at Kalametiya.
                 </Typography>
                 <Typography variant="h3" sx={{
                     fontWeight: 'semibold',
                     lineHeight: 'tight'
                 }}>
-                    Your Local Experts in Sri Lanka
+                    Your Local Experts in Kalametiya
                 </Typography>
             </Box>
 
