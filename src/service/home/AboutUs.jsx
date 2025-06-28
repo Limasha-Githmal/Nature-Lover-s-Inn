@@ -1,97 +1,111 @@
-import { Box, Typography, Grid, Card, CardContent,CardMedia } from "@mui/material";
+import React from 'react';
+import { Box, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
 
-export default function AboutUs() {
+const App = () => {
+
+    const tourData = [
+        {
+            id: 1,
+            image: '',
+            title: 'Room',
+            description: 'One of best place to watching water birds',
+        },
+        {
+            id: 2,
+            image: '',
+            title: 'Paddle Boats Safari',
+            description: 'Zero CO2 emissions carbon neutral event',
+        },
+        {
+            id: 3,
+            image: '',
+            title: 'Lagoon',
+            description: 'Climbing rocks middle in the lagoon',
+        },
+    ];
+
     return (
-        <Box sx={{ textAlign: "center", p: 4 }}>
-            {/* About Us */}
-            <Typography variant="h6" gutterBottom>
-                About Us
-            </Typography>
-            <Typography variant="h4" gutterBottom>
-                Welcome to Our Peaceful Getaway
-            </Typography>
-            <Typography variant="body1" sx={{ maxWidth: "600px", mx: "auto", mb: 6 }}>
-                Discover a serene escape nestled near the Kalametiya Bird Sanctuary and Fishing Beach.
-                Our hotel offers comfortable rooms, exciting tours, and a delightful restaurant experience—all in one place.
-            </Typography>
+        <Box sx={{
+            minHeight: '100vh',
+            bgcolor: 'background.paper',
+            p: { xs: 2, sm: 3, lg: 4 },
+            fontFamily: 'Inter, sans-serif',
+            color: 'text.primary'
+        }}>
+            {/* Header Section */}
+            <Box sx={{ textAlign: 'center', mb: 6 }}>
+                <Typography variant="subtitle1" sx={{
+                    fontWeight: 'medium',
+                    color: 'text.secondary',
+                    mb: 1
+                }}>
+                    The best value tours in Kalametiya Bird Sanctuary
+                </Typography>
+                <Typography variant="h3" sx={{
+                    fontWeight: 'semibold',
+                    lineHeight: 'tight'
+                }}>
+                    Your Local Experts in Sri Lanka
+                </Typography>
+            </Box>
 
-            {/* One Row - 3 Columns */}
-            <Grid container spacing={4} justifyContent="center">
-                <Grid item xs={12} sm={4}>
-                    <Card>
-                        <Typography variant="h6"> Lagoon Tours</Typography>
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image="/images/lagoon-tour.jpg" // replace with your image path or URL
-
-                        />
-                        <CardContent>
-
-                            <Typography variant="body2">
-                                Escape into nature at the breathtaking Kalametiya Bird Lagoon!
-                                Join us for an unforgettable Boat Ride and Bird Watching experience amidst the serene
-                                beauty of the Kalametiya Lagoon. Glide through calm waters surrounded by mangroves as
-                                you spot a variety of native and migratory birds in their natural habitat. To enhance your experience,
-                                we provide binoculars for birdwatching, life jackets for your safety, and refreshments including
-                                chips, fresh fruits, and bottled water. It's the perfect way to relax, connect with nature, and
-                                enjoy the peaceful charm of Kalametiya.
-
-
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
-
-                <Grid item xs={12} sm={4}>
-                    <Card>
-                        <Typography variant="h6">Rooms</Typography>
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image="/images/lagoon-tour.jpg" // replace with your image path or URL
-
-                        />
-                        <CardContent>
-
-                            <Typography variant="body2">
-                                Relax in our cozy, well-furnished rooms designed for comfort and calm.
-                                Our comfortable rooms are designed for a relaxing stay, featuring a king-size bed,
-                                air conditioning, and hot water for your convenience. Whether you're here for adventure
-                                or rest, you’ll enjoy a clean, peaceful environment surrounded by nature. We also
-                                provide separate accommodation for guides and drivers, ensuring a hassle-free and
-                                welcoming experience for all our guests.
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
-
-                <Grid item xs={12} sm={4}>
-                    <Card>
-                        <Typography variant="h6">Restaurant</Typography>
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image="/images/lagoon-tour.jpg" // replace with your image path or URL
-
-                        />
-                        <CardContent>
-
-                            <Typography variant="body2">
-                                Dine Where Nature Meets Flavor
-                                At Nature Lover's Inn, we invite you to enjoy a dining experience that blends
-                                the authentic taste of Sri Lankan cuisine with select international favorites,
-                                all in the heart of Kalametiya’s breathtaking natural beauty.
-                                Whether you're seated in our cozy indoor space or relaxing on the open-air patio,
-                                you’ll be surrounded by the peaceful sights and sounds of nature. Just moments away
-                                from the Kalametiya Bird Sanctuary and fishing beach, our restaurant is the perfect
-                                stop for both food lovers and nature explorers.
-                                Come discover warm hospitality, fresh local ingredients, and a serene environment—only at Nature Lover's Inn.
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
+            {/* Cards Section */}
+            <Grid container spacing={4} sx={{
+                maxWidth: '1200px',
+                mx: 'auto',
+                justifyContent: 'center'
+            }}>
+                {tourData.map((tour) => (
+                    <Grid item key={tour.id} xs={12} sm={6} lg={4}>
+                        <Card sx={{
+                            height: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            transition: 'transform 0.3s',
+                            '&:hover': {
+                                transform: 'scale(1.05)'
+                            }
+                        }}>
+                            {/* Card Media (Image) */}
+                            <CardMedia
+                                component="img"
+                                height="200"
+                                image={tour.image}
+                                alt={tour.title}
+                                sx={{
+                                    objectFit: 'cover',
+                                    borderTopLeftRadius: '12px',
+                                    borderTopRightRadius: '12px'
+                                }}
+                                onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.src = 'https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';
+                                }}
+                            />
+                            {/* Card Content */}
+                            <CardContent sx={{
+                                textAlign: 'center',
+                                flexGrow: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center'
+                            }}>
+                                <Typography variant="h5" component="h3" sx={{
+                                    fontWeight: 'semibold',
+                                    mb: 1
+                                }}>
+                                    {tour.title}
+                                </Typography>
+                                <Typography variant="body1" color="text.secondary">
+                                    {tour.description}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                ))}
             </Grid>
         </Box>
     );
-}
+};
+
+export default App;
