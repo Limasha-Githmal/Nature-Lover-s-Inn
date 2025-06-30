@@ -7,6 +7,7 @@ import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx";
 import AboutUs from "./service/home/AboutUs.jsx";
 import Offers from "./service/home/Offers.jsx";
 import Gallery from "./service/home/Gallery.jsx";
+import Services from "./service/home/Services.jsx";
 
 function Dashboard() {
     return (
@@ -25,6 +26,7 @@ function Dashboard() {
             <AboutUs/>
             <Offers/>
             <Gallery/>
+            <Services/>
 
 
             <Box
