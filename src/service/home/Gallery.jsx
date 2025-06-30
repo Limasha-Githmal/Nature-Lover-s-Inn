@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Box,
     Grid,
@@ -13,11 +13,13 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 
 const images = [
     { id: 1, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 2, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 3, src: 'src/assets/gallery/1.jpg.jpg' },
+    { id: 2, src: 'src/assets/gallery/2.jpg' },
+    { id: 3, src: 'src/assets/gallery/3.jpg' },
     { id: 4, src: 'src/assets/gallery/1.jpg.jpg' },
     { id: 5, src: 'src/assets/gallery/1.jpg.jpg' },
     { id: 6, src: 'src/assets/gallery/1.jpg.jpg' },
@@ -32,21 +34,54 @@ const images = [
 export default function Gallery() {
     const [open, setOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [zoom, setZoom] = useState(1);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const handleOpen = (index) => {
         setCurrentIndex(index);
         setOpen(true);
+        setZoom(1); // Reset zoom when opening new image
+        setPosition({ x: 0, y: 0 }); // Reset position
     };
 
     const handleClose = () => setOpen(false);
 
     const handlePrev = () => {
         setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+        setZoom(1); // Reset zoom when changing images
+        setPosition({ x: 0, y: 0 }); // Reset position
     };
 
     const handleNext = () => {
         setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+        setZoom(1); // Reset zoom when changing images
+        setPosition({ x: 0, y: 0 }); // Reset position
     };
+
+    const handleZoomIn = () => setZoom((prev) => Math.min(prev + 0.25, 3));
+    const handleZoomOut = () => setZoom((prev) => Math.max(prev - 0.25, 1));
+
+    const handleMouseMove = (e) => {
+        if (zoom > 1) {
+            const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+            const x = (e.clientX - left) / width;
+            const y = (e.clientY - top) / height;
+            setPosition({ x: x * 100, y: y * 100 });
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (open) {
+            if (e.key === 'ArrowLeft') handlePrev();
+            if (e.key === 'ArrowRight') handleNext();
+            if (e.key === 'Escape') handleClose();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [open, currentIndex]);
 
     return (
         <Box sx={{ backgroundColor: '#f9f9f9', py: 6 }}>
@@ -77,7 +112,14 @@ export default function Gallery() {
                                     component="img"
                                     image={image.src}
                                     alt={`Gallery ${image.id}`}
-                                    sx={{ height: 200, objectFit: 'cover' }}
+                                    sx={{
+                                        height: 200,
+                                        objectFit: 'cover',
+                                        transition: 'transform 0.3s ease',
+                                        '&:hover': {
+                                            transform: 'scale(1.05)',
+                                        }
+                                    }}
                                 />
                             </Card>
                         </Grid>
@@ -95,9 +137,22 @@ export default function Gallery() {
                     open={open}
                     onClose={handleClose}
                     fullScreen
-                    sx={{ backgroundColor: 'rgba(0,0,0,0.9)' }}
+                    sx={{
+                        backgroundColor: 'rgba(0,0,0,0.9)',
+                        '& .MuiDialog-container': {
+                            overflow: 'hidden',
+                        }
+                    }}
                 >
-                    <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Box sx={{
+                        position: 'relative',
+                        width: '100%',
+                        height: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        {/* Close Button */}
                         <IconButton
                             onClick={handleClose}
                             sx={{
@@ -106,19 +161,28 @@ export default function Gallery() {
                                 right: 20,
                                 color: 'white',
                                 zIndex: 10,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(0,0,0,0.7)',
+                                }
                             }}
                         >
                             <CloseIcon fontSize="large" />
                         </IconButton>
 
+                        {/* Navigation Arrows */}
                         <IconButton
                             onClick={handlePrev}
                             sx={{
                                 position: 'absolute',
                                 top: '50%',
-                                left: 10,
+                                left: 20,
                                 color: 'white',
                                 zIndex: 10,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(0,0,0,0.7)',
+                                }
                             }}
                         >
                             <ArrowBackIosNewIcon fontSize="large" />
@@ -129,30 +193,77 @@ export default function Gallery() {
                             sx={{
                                 position: 'absolute',
                                 top: '50%',
-                                right: 10,
+                                right: 20,
                                 color: 'white',
                                 zIndex: 10,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(0,0,0,0.7)',
+                                }
                             }}
                         >
                             <ArrowForwardIosIcon fontSize="large" />
                         </IconButton>
 
+                        {/* Zoom Controls */}
+                        <Box sx={{
+                            position: 'absolute',
+                            bottom: 20,
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            display: 'flex',
+                            gap: 1,
+                            zIndex: 10,
+                        }}>
+                            <IconButton
+                                onClick={handleZoomIn}
+                                sx={{
+                                    color: 'white',
+                                    backgroundColor: 'rgba(0,0,0,0.5)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(0,0,0,0.7)',
+                                    }
+                                }}
+                            >
+                                <ZoomInIcon />
+                            </IconButton>
+                            <IconButton
+                                onClick={handleZoomOut}
+                                sx={{
+                                    color: 'white',
+                                    backgroundColor: 'rgba(0,0,0,0.5)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(0,0,0,0.7)',
+                                    }
+                                }}
+                            >
+                                <ZoomOutIcon />
+                            </IconButton>
+                        </Box>
+
+                        {/* Image with Zoom */}
                         <Box
+                            onMouseMove={handleMouseMove}
                             sx={{
+                                width: '100%',
+                                height: '100%',
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                height: '100%',
+                                overflow: 'hidden',
+                                cursor: zoom > 1 ? 'move' : 'default',
                             }}
                         >
                             <img
                                 src={images[currentIndex].src}
                                 alt={`Gallery Fullscreen ${images[currentIndex].id}`}
                                 style={{
+                                    transform: `scale(${zoom})`,
+                                    transformOrigin: `${position.x}% ${position.y}%`,
                                     maxWidth: '90%',
                                     maxHeight: '90%',
                                     objectFit: 'contain',
-                                    borderRadius: '12px',
+                                    transition: 'transform 0.2s ease-out',
                                 }}
                             />
                         </Box>

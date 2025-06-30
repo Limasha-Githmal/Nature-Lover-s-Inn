@@ -7,19 +7,25 @@ const App = () => {
             id: 1,
             image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80',
             title: 'Lagoon Tour',
-            description: 'One of the best lagoon tours for bird watching in Sri Lanka',
+            description: 'Bird watching in Sri Lanka',
         },
         {
             id: 2,
             image: 'https://cdn.prod.website-files.com/661d42779f9c94a059f533cf/6717b0e0300215278d929e60_the-home-hotel-zurich-rooms-overview-hero-p-1600.jpg',
             title: 'Rooms',
-            description: 'Peaceful, and incredibly comfortable rooms with nature views',
+            description: 'Comfortable nature views',
         },
         {
             id: 3,
             image: 'https://www.omnihotels.com/-/media/images/hotels/daldtn/restaurants/texas-spice/daldtn_texasspice_kathytran_img.jpg?h=660&iar=0&w=1170',
             title: 'Restaurant',
-            description: 'Fresh, flavorful meals prepared with local ingredients daily',
+            description: 'Local ingredients meals',
+        },
+        {
+            id: 4,
+            image: 'https://www.falcortravels.com/wp-content/uploads/2018/11/professional_cooking_courses_for_groups_in_italy-1500x900.jpg',
+            title: 'Cooking Classes',
+            description: 'Learn local recipes',
         },
     ];
 
@@ -31,71 +37,68 @@ const App = () => {
             fontFamily: 'Inter, sans-serif',
             color: 'text.primary'
         }}>
-            {/* Header Section */}
-            <Box sx={{ textAlign: 'center', mb: 6 }}>
-
-                <Typography variant="h3" sx={{
-                    fontWeight: 'semibold',
-                    lineHeight: 'tight'
+            <Box sx={{ textAlign: 'center', mb: 4 }}>
+                <Typography variant="h4" sx={{
+                    fontWeight: '600',
+                    mb: 3
                 }}>
-                   About
+                    About
                 </Typography>
             </Box>
 
-            {/* Centered Single Row Grid */}
-            <Box sx={{
-                display: 'flex',
+            <Grid container spacing={3} sx={{
                 justifyContent: 'center',
-                gap: 4,
-                flexWrap: 'wrap',
-                maxWidth: '1200px',
-                mx: 'auto'
+                flexWrap: { xs: 'wrap', md: 'nowrap' }
             }}>
                 {tourData.map((tour) => (
-                    <Card key={tour.id} sx={{
-                        width: { xs: '100%', sm: '320px' },
-                        flexShrink: 0,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        transition: 'transform 0.3s',
-                        '&:hover': {
-                            transform: 'scale(1.03)',
-                            boxShadow: 6
-                        }
-                    }}>
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image={tour.image}
-                            alt={tour.title}
-                            sx={{
-                                objectFit: 'cover',
-                                width: '100%',
-                                aspectRatio: '4/3'
-                            }}
-                        />
-                        <CardContent sx={{
-                            flexGrow: 1,
+                    <Grid item key={tour.id} xs={12} sm={6} md={3}>
+                        <Card sx={{
+                            height: '100%',
                             display: 'flex',
                             flexDirection: 'column',
-                            p: 3
+                            transition: 'transform 0.3s',
+                            '&:hover': {
+                                transform: 'scale(1.03)',
+                                boxShadow: 4
+                            }
                         }}>
-                            <Typography variant="h5" component="h3" sx={{
-                                fontWeight: 'semibold',
-                                mb: 2,
-                                textAlign: 'center'
+                            <CardMedia
+                                component="img"
+                                height="180"
+                                image={tour.image}
+                                alt={tour.title}
+                                sx={{
+                                    objectFit: 'cover',
+                                    width: '100%',
+                                    aspectRatio: '4/3'
+                                }}
+                            />
+                            <CardContent sx={{
+                                p: 2,
+                                flexGrow: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center'
                             }}>
-                                {tour.title}
-                            </Typography>
-                            <Typography variant="body1" color="text.secondary" sx={{
-                                textAlign: 'center'
-                            }}>
-                                {tour.description}
-                            </Typography>
-                        </CardContent>
-                    </Card>
+                                <Typography variant="h6" component="h3" sx={{
+                                    fontWeight: '600',
+                                    mb: 1,
+                                    textAlign: 'center',
+                                    fontSize: '1.1rem'
+                                }}>
+                                    {tour.title}
+                                </Typography>
+                                <Typography variant="body1" color="text.secondary" sx={{
+                                    textAlign: 'center',
+                                    fontSize: '0.9rem'
+                                }}>
+                                    {tour.description}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
                 ))}
-            </Box>
+            </Grid>
         </Box>
     );
 };

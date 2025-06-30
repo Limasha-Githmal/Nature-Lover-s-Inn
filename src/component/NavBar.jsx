@@ -11,7 +11,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { keyframes, styled } from '@mui/system';
 
-const pages = ['Home', 'Lagoon Tour', 'Rooms', 'Offers', 'Gallery', 'Contact Us'];
+const pages = ['Home', 'Lagoon Tour', 'Rooms','Restaurant','Cooking Class', 'Offers', 'Gallery' ,'Contact Us'];
 
 const bubble = keyframes`
     0%, 100% { transform: translateY(0); }

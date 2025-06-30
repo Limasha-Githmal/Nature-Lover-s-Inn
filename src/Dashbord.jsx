@@ -8,6 +8,7 @@ import AboutUs from "./service/home/AboutUs.jsx";
 import Offers from "./service/home/Offers.jsx";
 import Gallery from "./service/home/Gallery.jsx";
 import Services from "./service/home/Services.jsx";
+import ContactForm from "./service/home/FormEmail.jsx";
 
 function Dashboard() {
     return (
@@ -27,6 +28,7 @@ function Dashboard() {
             <Offers/>
             <Gallery/>
             <Services/>
+            <ContactForm/>
 
 
             <Box

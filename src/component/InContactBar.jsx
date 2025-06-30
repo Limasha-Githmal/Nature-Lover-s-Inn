@@ -13,6 +13,9 @@ import {
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Facebook from "@mui/icons-material/Facebook";
 import Email from "@mui/icons-material/Email";
+import Instagram from "@mui/icons-material/Instagram";
+import { SiTripadvisor } from "react-icons/si";
+import { FaAirbnb } from "react-icons/fa"; // Alternative for Booking.com since there's no direct Booking icon
 
 // Pure jumping animation (no shadows/ripples)
 const jump = keyframes`
@@ -26,8 +29,7 @@ const jump = keyframes`
 
 // Styled button with jumping animation
 const JumpingButton = styled(Button)({
-    animation: `${jump} 1.5s infinite cubic-bezier(0.25, 0.12, 0.25, 1)
- `,
+    animation: `${jump} 1.5s infinite cubic-bezier(0.25, 0.12, 0.25, 1)`,
 });
 
 const ContactBar = () => {
@@ -84,15 +86,30 @@ const ContactBar = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: 2,
-                        ml: isSmallScreen ? 2 : 64,
+                        ml: isSmallScreen ? 0 : "auto",
+                        flexWrap: "wrap",
                     }}
                 >
-                    <IconButton>
-                        <Facebook sx={{ color: "#0b233b" }} />
-                    </IconButton>
-                    <IconButton>
-                        <Email sx={{ color: "#0b233b" }} />
-                    </IconButton>
+                    {/* Social Media Icons */}
+                    <Box sx={{ display: "flex", gap: 0.5 }}>
+                        <IconButton aria-label="Facebook" size="small">
+                            <Facebook sx={{ color: "#1877F2" }} />
+                        </IconButton>
+                        <IconButton aria-label="Instagram" size="small">
+                            <Instagram sx={{ color: "#E1306C" }} />
+                        </IconButton>
+                        <IconButton aria-label="TripAdvisor" size="small">
+                            <SiTripadvisor style={{ color: "#34E0A1", fontSize: "1.25rem" }} />
+                        </IconButton>
+                        <IconButton aria-label="Airbnb" size="small">
+                            <FaAirbnb style={{ color: "#FF5A5F", fontSize: "1.25rem" }} />
+                        </IconButton>
+                        <IconButton aria-label="Email" size="small">
+                            <Email sx={{ color: "#EA4335" }} />
+                        </IconButton>
+                    </Box>
+
+                    {/* Book Now Button */}
                     <JumpingButton
                         variant="contained"
                         color="success"
@@ -100,7 +117,8 @@ const ContactBar = () => {
                             fontWeight: 'bold',
                             textTransform: 'uppercase',
                             letterSpacing: '1px',
-                            padding: '8px 20px'
+                            padding: '8px 20px',
+                            ml: isSmallScreen ? 0 : 1
                         }}
                     >
                         Book Now
