@@ -14,9 +14,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const pages = [
     { name: 'Home', path: '/' },
-    { name: 'Lagoon Tour', path: '/#lagoon-tour' },
-    { name: 'Rooms', path: '/#rooms' },
-    { name: 'Restaurant', path: '/#restaurant' },
+    { name: 'Lagoon Tour', path: '/lagoon-tour' },
+    { name: 'Rooms', path: '/rooms' },
+    { name: 'Restaurant', path: '/restaurant' },
     { name: 'Cooking Class', path: '/#cooking-class' },
     { name: 'Offers', path: '/offers' },
     { name: 'Gallery', path: '/gallery' },

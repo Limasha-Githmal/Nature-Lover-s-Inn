@@ -1,83 +1,449 @@
 import React from 'react';
-import { Container, Grid, Typography, Card, CardMedia, CardContent, CardActions, Button, Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
-
-const StyledCard = styled(Card)(({ theme }) => ({
-    borderRadius: '20px',
-    boxShadow: theme.shadows[4],
-    overflow: 'hidden',
-    transition: 'transform 0.3s ease',
-    '&:hover': {
-        transform: 'scale(1.02)',
-    },
-}));
-
-// Your images array
-const images = [
-    { id: 1, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 2, src: 'src/assets/gallery/2.jpg' },
-    { id: 3, src: 'src/assets/gallery/3.jpg' },
-    { id: 4, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 5, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 6, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 7, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 8, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 9, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 10, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 11, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 12, src: 'src/assets/gallery/1.jpg.jpg' },
-];
+import {
+    Container,
+    Typography,
+    Grid,
+    Card,
+    CardMedia,
+    CardContent,
+    CardActions,
+    Button,
+    Box,
+    Divider,
+    Paper,
+    useTheme
+} from '@mui/material';
+import {
+    KingBed,
+    AcUnit,
+    LocalBar,
+    Restaurant,
+    Water,
+    NaturePeople,
+    Class,
+    Star,
+    BeachAccess,
+    Wifi,
+    LocalDining,
+    Bathtub,
+    Tv,
+    CoffeeMaker
+} from '@mui/icons-material';
 
 const Rooms = () => {
+    const theme = useTheme();
+
+    const rooms = [
+        {
+            title: "Deluxe Room",
+            description: "Enjoy premium comfort in our spacious Deluxe Room featuring modern amenities and stunning views of Kalametiya Bird Lagoon. Perfect for travelers seeking both relaxation and convenience.",
+            price: "$35 per night",
+            features: [
+                "Air Conditioning",
+                "24/7 Hot Water",
+                "King Size Bed (6'6″ x 6'3″)",
+                "Premium Tea/Coffee Facilities",
+                "Free High-Speed WiFi",
+                "Private Balcony with Lagoon View",
+                "Flat Screen TV",
+                "Daily Housekeeping"
+            ],
+            image: "https://images.unsplash.com/photo-1566669437685-bc1c4cdf83b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            highlight: true
+        },
+        {
+            title: "Standard Room",
+            description: "Our cozy Standard Room offers all the essential comforts at an affordable price. Experience authentic Sri Lankan hospitality in a clean, comfortable space.",
+            price: "$25 per night",
+            features: [
+                "Ceiling Fan Cooling",
+                "King Size Bed (6'6″ x 6'3″)",
+                "Shared Bathroom (Hot Water Available)",
+                "Garden View Window",
+                "Basic Tea/Coffee Facilities",
+                "Free WiFi in Common Areas",
+                "Weekly Housekeeping"
+            ],
+            image: "https://images.unsplash.com/photo-1591088398332-8a7791972803?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            highlight: false
+        }
+    ];
+
+    const amenities = [
+        { icon: <AcUnit fontSize="large" />, text: "A/C Rooms Available" },
+        { icon: <Bathtub fontSize="large" />, text: "Hot Water Showers" },
+        { icon: <KingBed fontSize="large" />, text: "King Size Beds" },
+        { icon: <CoffeeMaker fontSize="large" />, text: "Tea/Coffee Facilities" },
+        { icon: <Wifi fontSize="large" />, text: "Free WiFi" },
+        { icon: <Restaurant fontSize="large" />, text: "On-Site Restaurant" },
+        { icon: <NaturePeople fontSize="large" />, text: "Bird Watching Tours" },
+        { icon: <LocalDining fontSize="large" />, text: "Cooking Classes" },
+        { icon: <Tv fontSize="large" />, text: "Entertainment" },
+        { icon: <LocalBar fontSize="large" />, text: "Refreshments" }
+    ];
+
     return (
-        <Container maxWidth="lg" sx={{ py: 5 }}>
-            <Typography variant="h4" align="center" gutterBottom fontWeight={600}>
-                Comfortable Rooms by Kalametiya Lagoon
-            </Typography>
-            <Typography variant="body1" align="center" color="text.secondary" sx={{ mb: 4 }}>
-                Experience serenity near Kalametiya Bird Sanctuary and Beach. Enjoy bird watching tours, cooking classes,
-                and traditional Sri Lankan cuisine.
+        <Container maxWidth="lg" sx={{
+            py: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+        }}>
+            {/* Header Section */}
+            <Typography variant="h3" component="h1" gutterBottom align="center" sx={{
+                fontWeight: 'bold',
+                color: 'primary.main',
+                mb: 2,
+                [theme.breakpoints.down('sm')]: {
+                    fontSize: '2rem'
+                }
+            }}>
+                Our Accommodations
             </Typography>
 
-            <Grid container spacing={4}>
-                {images.map(({ id, src }) => (
-                    <Grid item key={id} xs={12} sm={6} md={4}>
-                        <StyledCard>
+            <Typography variant="subtitle1" component="h2" gutterBottom align="center" sx={{
+                mb: 6,
+                maxWidth: '700px',
+                color: 'text.secondary',
+                [theme.breakpoints.down('sm')]: {
+                    fontSize: '1rem'
+                }
+            }}>
+                Experience authentic Sri Lankan hospitality in our comfortable rooms, just minutes from Kalametiya Bird Lagoon and pristine beaches
+            </Typography>
+
+            {/* Room Cards Section */}
+            <Grid container spacing={4} justifyContent="center" sx={{ mb: 8 }}>
+                {rooms.map((room, index) => (
+                    <Grid item xs={12} md={5} key={index}>
+                        <Paper elevation={room.highlight ? 8 : 4} sx={{
+                            height: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            border: room.highlight ? `2px solid ${theme.palette.primary.main}` : 'none',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            borderRadius: '16px',
+                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            '&:hover': {
+                                transform: 'translateY(-8px)',
+                                boxShadow: theme.shadows[room.highlight ? 12 : 8]
+                            }
+                        }}>
+                            {room.highlight && (
+                                <Box sx={{
+                                    position: 'absolute',
+                                    top: 16,
+                                    right: 16,
+                                    bgcolor: 'primary.main',
+                                    color: 'white',
+                                    px: 2,
+                                    py: 1,
+                                    borderRadius: '8px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    zIndex: 1,
+                                    boxShadow: theme.shadows[2]
+                                }}>
+                                    <Star sx={{ mr: 1 }} />
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '0.8rem' }}>
+                                        MOST POPULAR
+                                    </Typography>
+                                </Box>
+                            )}
+
                             <CardMedia
                                 component="img"
-                                height="200"
-                                image={src}
-                                alt={`Room Image ${id}`}
+                                height="300"
+                                image={room.image}
+                                alt={room.title}
+                                sx={{
+                                    objectFit: 'cover',
+                                    borderTopLeftRadius: '16px',
+                                    borderTopRightRadius: '16px'
+                                }}
                             />
-                            <CardContent>
-                                <Typography variant="h6" gutterBottom>
-                                    Kingfisher Nest – A/C & Hot Water
+
+                            <CardContent sx={{
+                                flexGrow: 1,
+                                px: 4,
+                                pt: 4,
+                                pb: 2
+                            }}>
+                                <Box sx={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    mb: 2
+                                }}>
+                                    <Typography variant="h5" component="h3" sx={{
+                                        fontWeight: 'bold',
+                                        color: room.highlight ? 'primary.main' : 'text.primary',
+                                        fontSize: '1.5rem'
+                                    }}>
+                                        {room.title}
+                                    </Typography>
+
+                                    <Typography variant="h6" component="div" sx={{
+                                        fontWeight: 'bold',
+                                        color: 'primary.main',
+                                        fontSize: '1.3rem'
+                                    }}>
+                                        {room.price}
+                                    </Typography>
+                                </Box>
+
+                                <Typography variant="body1" color="text.secondary" sx={{
+                                    mb: 3,
+                                    lineHeight: 1.6,
+                                    fontSize: '1rem'
+                                }}>
+                                    {room.description}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Welcome to Kingfisher Nest. Enjoy a king-size bed, air conditioning, hot water, and a kettle with tea and sugar. We also offer complimentary breakfast for all our guests.
-                                    Relax in comfort after a day of exploring Kalametiya Lagoon.
-                                </Typography>
-                                <Typography variant="h6" color="primary" sx={{ mt: 2 }}>
-                                    $35 / Night (with Breakfast)
-                                </Typography>
+
+                                <Divider sx={{ my: 3, borderColor: theme.palette.divider }} />
+
+                                <Box sx={{ mb: 2 }}>
+                                    <Typography variant="subtitle2" component="h4" sx={{
+                                        fontWeight: 'bold',
+                                        mb: 2,
+                                        color: 'text.secondary',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '1px',
+                                        fontSize: '0.8rem'
+                                    }}>
+                                        Room Features
+                                    </Typography>
+
+                                    <Grid container spacing={2}>
+                                        {room.features.map((feature, i) => (
+                                            <Grid item xs={12} sm={6} key={i}>
+                                                <Box sx={{
+                                                    display: 'flex',
+                                                    alignItems: 'flex-start'
+                                                }}>
+                                                    <Box sx={{
+                                                        minWidth: '24px',
+                                                        color: 'primary.main',
+                                                        mt: '2px',
+                                                        mr: 1.5
+                                                    }}>
+                                                        <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="3" cy="3" r="3" fill="currentColor"/>
+                                                        </svg>
+                                                    </Box>
+                                                    <Typography variant="body2" sx={{ lineHeight: 1.5 }}>
+                                                        {feature}
+                                                    </Typography>
+                                                </Box>
+                                            </Grid>
+                                        ))}
+                                    </Grid>
+                                </Box>
                             </CardContent>
-                            <CardActions>
-                                <Button variant="contained" color="primary" fullWidth>
+
+                            <CardActions sx={{
+                                justifyContent: 'center',
+                                pb: 4,
+                                px: 4
+                            }}>
+                                <Button
+                                    variant={room.highlight ? 'contained' : 'outlined'}
+                                    size="large"
+                                    color="primary"
+                                    fullWidth
+                                    sx={{
+                                        py: 1.5,
+                                        borderRadius: '8px',
+                                        fontWeight: 'bold',
+                                        fontSize: '1rem',
+                                        letterSpacing: '0.5px'
+                                    }}
+                                >
                                     Book Now
                                 </Button>
                             </CardActions>
-                        </StyledCard>
+                        </Paper>
                     </Grid>
                 ))}
             </Grid>
 
-            <Box sx={{ mt: 6, textAlign: 'center' }}>
-                <Typography variant="h5" gutterBottom>
-                    Other Experiences
+            {/* Amenities Section */}
+            <Box sx={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                mb: 8
+            }}>
+                <Typography variant="h4" component="h2" gutterBottom sx={{
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    mb: 6,
+                    color: 'text.primary',
+                    [theme.breakpoints.down('sm')]: {
+                        fontSize: '1.8rem'
+                    }
+                }}>
+                    Hotel Amenities & Services
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Join our lagoon bird watching tours and Sri Lankan cooking classes to make your stay unforgettable.
+
+                <Grid container spacing={3} justifyContent="center" sx={{ maxWidth: '1000px' }}>
+                    {amenities.map((amenity, index) => (
+                        <Grid item xs={6} sm={4} md={3} key={index}>
+                            <Box sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                p: 2,
+                                textAlign: 'center',
+                                transition: 'transform 0.3s ease',
+                                '&:hover': {
+                                    transform: 'scale(1.05)'
+                                }
+                            }}>
+                                <Box sx={{
+                                    color: 'primary.main',
+                                    mb: 2,
+                                    fontSize: '2.8rem',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    width: '80px',
+                                    height: '80px',
+                                    borderRadius: '50%',
+                                    bgcolor: theme.palette.mode === 'light' ? '#f5f5f5' : '#1e1e1e'
+                                }}>
+                                    {amenity.icon}
+                                </Box>
+                                <Typography variant="body1" sx={{ fontWeight: 500, fontSize: '1rem' }}>
+                                    {amenity.text}
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+
+            {/* Experience Kalametiya Section */}
+            <Box sx={{
+                backgroundColor: theme.palette.mode === 'light' ? '#f9f9f9' : '#1a1a1a',
+                p: { xs: 3, md: 6 },
+                borderRadius: '16px',
+                width: '100%',
+                maxWidth: '1000px',
+                mb: 8,
+                border: `1px solid ${theme.palette.divider}`,
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: theme.shadows[2],
+                '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '6px',
+                    height: '100%',
+                    bgcolor: 'primary.main'
+                }
+            }}>
+                <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    mb: 4
+                }}>
+                    <BeachAccess sx={{
+                        fontSize: '3rem',
+                        color: 'primary.main',
+                        mr: 3,
+                        [theme.breakpoints.down('sm')]: {
+                            fontSize: '2rem',
+                            mr: 2
+                        }
+                    }} />
+                    <Typography variant="h4" component="h3" sx={{
+                        fontWeight: 'bold',
+                        color: 'primary.main',
+                        [theme.breakpoints.down('sm')]: {
+                            fontSize: '1.5rem'
+                        }
+                    }}>
+                        Experience Kalametiya
+                    </Typography>
+                </Box>
+
+                <Typography variant="body1" paragraph sx={{
+                    fontSize: '1.1rem',
+                    lineHeight: 1.7,
+                    mb: 3,
+                    [theme.breakpoints.down('sm')]: {
+                        fontSize: '1rem'
+                    }
+                }}>
+                    Nestled just 200 meters from the breathtaking Kalametiya Bird Lagoon, our hotel offers unparalleled access to one of Sri Lanka's most important wetland ecosystems. Join our expert-guided tours to observe over 150 bird species, including migratory flocks that visit seasonally. The nearby pristine beach is perfect for sunrise walks and peaceful moments by the Indian Ocean.
                 </Typography>
+
+                <Typography variant="body1" paragraph sx={{
+                    fontSize: '1.1rem',
+                    lineHeight: 1.7,
+                    mb: 3,
+                    [theme.breakpoints.down('sm')]: {
+                        fontSize: '1rem'
+                    }
+                }}>
+                    Immerse yourself in authentic Sri Lankan culture with our hands-on cooking classes, specially designed for international visitors. Learn to prepare traditional dishes like hoppers, kottu roti, and coconut sambol using fresh local ingredients. Our chef will guide you through the flavors and techniques that make Sri Lankan cuisine unique.
+                </Typography>
+
+                <Typography variant="body1" sx={{
+                    fontSize: '1.1rem',
+                    lineHeight: 1.7,
+                    mb: 4,
+                    [theme.breakpoints.down('sm')]: {
+                        fontSize: '1rem'
+                    }
+                }}>
+                    After your adventures, return to our tranquil property featuring a Sri Lankan-style restaurant serving both traditional and contemporary dishes. Enjoy your meals in our open-air dining area surrounded by tropical greenery, or relax in our comfortable rooms designed with your comfort in mind.
+                </Typography>
+
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    justifyContent: 'center',
+                    gap: 2
+                }}>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        endIcon={<NaturePeople />}
+                        sx={{
+                            px: 4,
+                            py: 1.5,
+                            borderRadius: '8px',
+                            fontWeight: 'bold',
+                            fontSize: '1rem',
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
+                        Bird Watching Tours
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        size="large"
+                        color="primary"
+                        endIcon={<LocalDining />}
+                        sx={{
+                            px: 4,
+                            py: 1.5,
+                            borderRadius: '8px',
+                            fontWeight: 'bold',
+                            fontSize: '1rem',
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
+                        Cooking Classes
+                    </Button>
+                </Box>
             </Box>
         </Container>
     );

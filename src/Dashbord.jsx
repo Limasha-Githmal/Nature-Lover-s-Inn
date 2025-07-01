@@ -9,6 +9,10 @@ import Offers from "./service/home/Offers.jsx"
 import Gallery from "./service/home/Gallery.jsx"
 import Services from "./service/home/Services.jsx"
 import ContactForm from "./service/home/FormEmail.jsx"
+import Lagoon from "./service/lagoon_Tour/Lagoon.jsx";
+import Rooms from "./service/rooms/Rooms.jsx";
+import Resturant from "./service/resturant/Resturant.jsx";
+// import Resturant from "./service/resturant/Resturant.jsx";
 
 function Dashboard() {
     return (
@@ -24,6 +28,15 @@ function Dashboard() {
 
             <Box id="home">
                 <SanctuaryDashboard/>
+            </Box>
+            <Box id="lagoon-tour">
+                <Lagoon/>
+            </Box>
+            <Box id="rooms">
+                <Rooms/>
+            </Box>
+            <Box id="restaurant">
+                <Resturants/>
             </Box>
 
             <Box id="about">
