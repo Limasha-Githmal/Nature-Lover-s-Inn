@@ -10,8 +10,18 @@ import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { keyframes, styled } from '@mui/system';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'Lagoon Tour', 'Rooms','Restaurant','Cooking Class', 'Offers', 'Gallery' ,'Contact Us'];
+const pages = [
+    { name: 'Home', path: '/' },
+    { name: 'Lagoon Tour', path: '/#lagoon-tour' },
+    { name: 'Rooms', path: '/#rooms' },
+    { name: 'Restaurant', path: '/#restaurant' },
+    { name: 'Cooking Class', path: '/#cooking-class' },
+    { name: 'Offers', path: '/offers' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Contact Us', path: '/contact' }
+];
 
 const bubble = keyframes`
     0%, 100% { transform: translateY(0); }
@@ -45,17 +55,37 @@ const LogoImage = styled('img')(({ theme }) => ({
 
 export default function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [activePage, setActivePage] = React.useState('Home');
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
 
-    const handleCloseNavMenu = (page) => {
+    const handleCloseNavMenu = (path) => {
         setAnchorElNav(null);
-        setActivePage(page);
+        if (path.startsWith('/#')) {
+            if (location.pathname === '/') {
+                const element = document.getElementById(path.substring(2));
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                navigate('/');
+                setTimeout(() => {
+                    const element = document.getElementById(path.substring(2));
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        } else {
+            navigate(path);
+        }
+    };
+
+    const isActive = (path) => {
+        return location.pathname === path ||
+            (path === '/' && location.pathname === '/') ||
+            (path !== '/' && location.pathname.startsWith(path));
     };
 
     return (
@@ -66,7 +96,7 @@ export default function ResponsiveAppBar() {
                 backgroundColor: 'white',
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                 transition: 'all 0.3s ease',
-                top: { xs: '97px', md: '57px' }, // Height of ContactBar
+                top: { xs: '97px', md: '57px' },
                 zIndex: 1100,
             }}
         >
@@ -86,11 +116,12 @@ export default function ResponsiveAppBar() {
                         }
                     }
                 }}>
-                    <LogoImage
-                        src="/src/assets/image/logo.png"
-                        alt="Nature Lover's Inn Logo"
-                        onClick={() => setActivePage('Home')}
-                    />
+                    <Link to="/">
+                        <LogoImage
+                            src="/src/assets/image/logo.png"
+                            alt="Nature Lover's Inn Logo"
+                        />
+                    </Link>
                 </Box>
 
                 {isMobile ? (
@@ -103,8 +134,8 @@ export default function ResponsiveAppBar() {
                                 '&:hover': {
                                     backgroundColor: 'rgba(16, 55, 133, 0.1)'
                                 },
-                                marginLeft: '4px', // Add this line to move it left
-                                padding: '14px', // Optional: adjust padding if needed
+                                marginLeft: '4px',
+                                padding: '14px',
                             }}
                         >
                             <MenuIcon fontSize="large" />
@@ -112,7 +143,7 @@ export default function ResponsiveAppBar() {
                         <Menu
                             anchorEl={anchorElNav}
                             open={Boolean(anchorElNav)}
-                            onClose={() => handleCloseNavMenu(activePage)}
+                            onClose={() => handleCloseNavMenu()}
                             sx={{
                                 '& .MuiPaper-root': {
                                     borderRadius: '12px',
@@ -123,14 +154,14 @@ export default function ResponsiveAppBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem
-                                    key={page}
-                                    onClick={() => handleCloseNavMenu(page)}
+                                    key={page.path}
+                                    onClick={() => handleCloseNavMenu(page.path)}
                                     sx={{
                                         color: '#103785',
                                         fontWeight: 'bold',
                                         fontSize: '1rem',
                                         py: 1.5,
-                                        backgroundColor: activePage === page ? '#f0f4ff' : 'transparent',
+                                        backgroundColor: isActive(page.path) ? '#f0f4ff' : 'transparent',
                                         '&:hover': {
                                             backgroundColor: 'rgba(16, 55, 133, 0.05)',
                                             animation: `${bubble} 0.5s ease`
@@ -138,7 +169,7 @@ export default function ResponsiveAppBar() {
                                         transition: 'all 0.2s ease'
                                     }}
                                 >
-                                    {page}
+                                    {page.name}
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -151,16 +182,17 @@ export default function ResponsiveAppBar() {
                     }}>
                         {pages.map((page) => (
                             <Button
-                                key={page}
-                                onClick={() => setActivePage(page)}
+                                key={page.path}
+                                component={Link}
+                                to={page.path}
                                 sx={{
                                     color: '#103785',
                                     fontWeight: 'bold',
                                     fontSize: '1rem',
                                     textTransform: 'none',
                                     letterSpacing: '0.5px',
-                                    position: 'relative', // Required for `&::after`
-                                    overflow: 'visible', // Ensures hover effects are visible
+                                    position: 'relative',
+                                    overflow: 'visible',
                                     '&:hover': {
                                         animation: `${bubble} 0.5s ease`,
                                         backgroundColor: 'transparent',
@@ -171,16 +203,16 @@ export default function ResponsiveAppBar() {
                                     '&::after': {
                                         content: '""',
                                         position: 'absolute',
-                                        width: activePage === page ? '100%' : '0',
+                                        width: isActive(page.path) ? '100%' : '0',
                                         height: '3px',
-                                        bottom: '-4px', // Adjust to make it visible below text
+                                        bottom: '-4px',
                                         left: 0,
                                         backgroundColor: '#11c24c',
                                         transition: 'width 0.3s ease',
                                     },
                                 }}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))}
                     </Box>

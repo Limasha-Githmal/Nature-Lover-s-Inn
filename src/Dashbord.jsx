@@ -1,14 +1,14 @@
-import { Box } from "@mui/material";
-import ResponsiveAppBar from "./component/NavBar.jsx";
-import Footer from "./component/Footer.jsx";
-import FooterBottom from "./component/FooterBottom.jsx";
-import ContactBar from "./component/InContactBar.jsx";
-import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx";
-import AboutUs from "./service/home/AboutUs.jsx";
-import Offers from "./service/home/Offers.jsx";
-import Gallery from "./service/home/Gallery.jsx";
-import Services from "./service/home/Services.jsx";
-import ContactForm from "./service/home/FormEmail.jsx";
+import { Box } from "@mui/material"
+import ResponsiveAppBar from "./component/NavBar.jsx"
+import Footer from "./component/Footer.jsx"
+import FooterBottom from "./component/FooterBottom.jsx"
+import ContactBar from "./component/InContactBar.jsx"
+import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx"
+import AboutUs from "./service/home/AboutUs.jsx"
+import Offers from "./service/home/Offers.jsx"
+import Gallery from "./service/home/Gallery.jsx"
+import Services from "./service/home/Services.jsx"
+import ContactForm from "./service/home/FormEmail.jsx"
 
 function Dashboard() {
     return (
@@ -21,33 +21,35 @@ function Dashboard() {
                 overflowX: 'hidden'
             }}
         >
-            <ContactBar />
-            <ResponsiveAppBar />
-            <SanctuaryDashboard/>
-            <AboutUs/>
-            <Offers/>
-            <Gallery/>
-            <Services/>
-            <ContactForm/>
 
+            <Box id="home">
+                <SanctuaryDashboard/>
+            </Box>
 
-            <Box
-                component="main"
-                sx={{
-                    flexGrow: 1,
-                    width: '100%',
-                    overflowX: 'hidden',
-                    px: { xs: 1, sm: 2 },
-                    boxSizing: 'border-box'
-                }}
-            >
-                {/* Your main content goes here */}
+            <Box id="about">
+                <AboutUs/>
+            </Box>
+
+            <Box id="offers">
+                <Offers/>
+            </Box>
+
+            <Box id="gallery">
+                <Gallery/>
+            </Box>
+
+            <Box id="services">
+                <Services/>
+            </Box>
+
+            <Box id="contact">
+                <ContactForm/>
             </Box>
 
             <Footer />
             <FooterBottom />
         </Box>
-    );
+    )
 }
 
-export default Dashboard;
+export default Dashboard

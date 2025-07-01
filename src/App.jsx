@@ -1,6 +1,13 @@
-import { Box } from "@mui/material";
-import Dashbord from "./Dashbord.jsx";
-
+import { Box } from "@mui/material"
+import { Routes, Route } from 'react-router-dom'
+import Dashboard from "./Dashbord.jsx"
+import ContactForm from "./service/home/FormEmail.jsx"
+import Gallery from "./service/home/Gallery.jsx"
+import AboutUs from "./service/home/AboutUs.jsx"
+import Offers from "./service/home/Offers.jsx"
+import Services from "./service/home/Services.jsx"
+import ContactBar from "./component/InContactBar.jsx";
+import ResponsiveAppBar from "./component/NavBar.jsx";
 
 function App() {
     return (
@@ -12,10 +19,21 @@ function App() {
                 display: 'flex',
                 flexDirection: 'column'
             }}
+
         >
-     <Dashbord/>
+            <ContactBar />
+            <ResponsiveAppBar />
+
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/offers" element={<Offers />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/contact" element={<ContactForm />} />
+            </Routes>
         </Box>
-    );
+    )
 }
 
-export default App;
+export default App
