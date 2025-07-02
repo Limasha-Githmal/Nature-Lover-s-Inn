@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-    Container,
     Typography,
     Grid,
-    Card,
     CardMedia,
     CardContent,
     CardActions,
@@ -11,16 +9,15 @@ import {
     Box,
     Divider,
     Paper,
-    useTheme
+    useTheme,
+    Container
 } from '@mui/material';
 import {
     KingBed,
     AcUnit,
     LocalBar,
     Restaurant,
-    Water,
     NaturePeople,
-    Class,
     Star,
     BeachAccess,
     Wifi,
@@ -87,65 +84,63 @@ const Rooms = () => {
 
     return (
         <Container maxWidth="lg" sx={{
-            py: 8,
+            py: 6,
+            minHeight: 'calc(100vh - 200px)', // Adjust based on your header/footer heights
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
+            flexDirection: 'column'
         }}>
-            {/* Header Section */}
-            <Typography
-                variant="h3"
-                component="h1"
-                gutterBottom
-                align="center"
-                sx={{
-                    fontWeight: 'bold',
-                    color: 'primary.main',
-                    mb: 5,
-                    mt: {
-                        xs: 6,  // mobile
-                        sm: 8,  // tablets
-                        md: 10, // desktop
-                    },
-                    fontSize: {
-                        xs: '2rem',
-                        sm: '2.5rem',
-                        md: '3rem',
-                    },
-                }}
-            >
-                Our Accommodations
-            </Typography>
-
-
-
-            <Typography variant="subtitle1" component="h2" gutterBottom align="center" sx={{
+            {/* Header Section with proper spacing */}
+            <Box sx={{
                 mb: 6,
-                maxWidth: '700px',
-                color: 'text.secondary',
-                [theme.breakpoints.down('sm')]: {
-                    fontSize: '1rem'
-                }
+                textAlign: 'center',
+                px: { xs: 2, sm: 0 }
             }}>
-                Experience authentic Sri Lankan hospitality in our comfortable rooms, just minutes from Kalametiya Bird Lagoon and peaceful beaches.
-            </Typography>
+                <Typography
+                    variant="h2"
+                    component="h1"
+                    gutterBottom
+                    sx={{
+                        fontWeight: 'bold',
+                        color: 'primary.main',
+                        fontSize: {
+                            xs: '2rem',
+                            sm: '2.5rem',
+                            md: '3rem',
+                        },
+                        lineHeight: 1.2
+                    }}
+                >
+                    Our Accommodations
+                </Typography>
+
+                <Typography variant="h6" component="h2" sx={{
+                    color: 'text.secondary',
+                    maxWidth: '700px',
+                    mx: 'auto',
+                    fontSize: {
+                        xs: '1rem',
+                        sm: '1.1rem'
+                    }
+                }}>
+                    Experience authentic Sri Lankan hospitality in our comfortable rooms, just minutes from Kalametiya Bird Lagoon and peaceful beaches.
+                </Typography>
+            </Box>
 
             {/* Room Cards Section */}
             <Grid container spacing={4} justifyContent="center" sx={{ mb: 8 }}>
                 {rooms.map((room, index) => (
-                    <Grid item xs={12} md={5} key={index}>
+                    <Grid item xs={12} md={6} key={index}>
                         <Paper elevation={room.highlight ? 8 : 4} sx={{
                             height: '100%',
                             display: 'flex',
                             flexDirection: 'column',
                             border: `2px solid ${theme.palette.primary.main}`,
-                            position: 'relative',
+                            borderRadius: '12px',
                             overflow: 'hidden',
-                            borderRadius: '16px',
-                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            transition: 'transform 0.3s ease',
                             '&:hover': {
-                                transform: 'translateY(-8px)',
-                                boxShadow: theme.shadows[room.highlight ? 12 : 8]
+                                transform: 'translateY(-5px)',
+                                boxShadow: theme.shadows[8]
                             }
                         }}>
                             {room.highlight && (
@@ -157,37 +152,30 @@ const Rooms = () => {
                                     color: 'white',
                                     px: 2,
                                     py: 1,
-                                    borderRadius: '8px',
+                                    borderRadius: '6px',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    zIndex: 1,
-                                    boxShadow: theme.shadows[2]
+                                    zIndex: 1
                                 }}>
                                     <Star sx={{ mr: 1 }} />
-                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '0.8rem' }}>
-                                        MOST POPULAR
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                                        POPULAR
                                     </Typography>
                                 </Box>
                             )}
 
                             <CardMedia
                                 component="img"
-                                height="300"
+                                height="280"
                                 image={room.image}
                                 alt={room.title}
                                 sx={{
                                     objectFit: 'cover',
-                                    borderTopLeftRadius: '16px',
-                                    borderTopRightRadius: '16px'
+                                    borderBottom: `1px solid ${theme.palette.divider}`
                                 }}
                             />
 
-                            <CardContent sx={{
-                                flexGrow: 1,
-                                px: 4,
-                                pt: 4,
-                                pb: 2
-                            }}>
+                            <CardContent sx={{ px: 3, pt: 3, pb: 2 }}>
                                 <Box sx={{
                                     display: 'flex',
                                     justifyContent: 'space-between',
@@ -196,16 +184,13 @@ const Rooms = () => {
                                 }}>
                                     <Typography variant="h5" component="h3" sx={{
                                         fontWeight: 'bold',
-                                        color: 'primary.main' ,
-                                        fontSize: '1.5rem'
+                                        color: 'primary.main'
                                     }}>
                                         {room.title}
                                     </Typography>
-
                                     <Typography variant="h6" component="div" sx={{
                                         fontWeight: 'bold',
-                                        color: 'primary.main',
-                                        fontSize: '1.3rem'
+                                        color: 'primary.main'
                                     }}>
                                         {room.price}
                                     </Typography>
@@ -213,40 +198,33 @@ const Rooms = () => {
 
                                 <Typography variant="body1" color="text.secondary" sx={{
                                     mb: 3,
-                                    lineHeight: 1.6,
-                                    fontSize: '1rem'
+                                    lineHeight: 1.6
                                 }}>
                                     {room.description}
                                 </Typography>
 
-                                <Divider sx={{ my: 3, borderColor: theme.palette.divider }} />
+                                <Divider sx={{ my: 3 }} />
 
                                 <Box sx={{ mb: 2 }}>
-                                    <Typography variant="subtitle2" component="h4" sx={{
+                                    <Typography variant="subtitle1" component="h4" sx={{
                                         fontWeight: 'bold',
                                         mb: 2,
-                                        color: 'text.secondary',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '1px',
-                                        fontSize: '0.8rem'
+                                        color: 'text.secondary'
                                     }}>
-                                        Room Features
+                                        ROOM FEATURES
                                     </Typography>
 
                                     <Grid container spacing={2}>
                                         {room.features.map((feature, i) => (
                                             <Grid item xs={12} sm={6} key={i}>
-                                                <Box sx={{
-                                                    display: 'flex',
-                                                    alignItems: 'flex-start'
-                                                }}>
+                                                <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                                                     <Box sx={{
                                                         minWidth: '24px',
                                                         color: 'primary.main',
                                                         mt: '2px',
                                                         mr: 1.5
                                                     }}>
-                                                        <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg width="6" height="6" viewBox="0 0 6 6" fill="none">
                                                             <circle cx="3" cy="3" r="3" fill="currentColor"/>
                                                         </svg>
                                                     </Box>
@@ -260,11 +238,7 @@ const Rooms = () => {
                                 </Box>
                             </CardContent>
 
-                            <CardActions sx={{
-                                justifyContent: 'center',
-                                pb: 4,
-                                px: 4
-                            }}>
+                            <CardActions sx={{ px: 3, pb: 3 }}>
                                 <Button
                                     variant="contained"
                                     size="large"
@@ -273,9 +247,7 @@ const Rooms = () => {
                                     sx={{
                                         py: 1.5,
                                         borderRadius: '8px',
-                                        fontWeight: 'bold',
-                                        fontSize: '1rem',
-                                        letterSpacing: '0.5px'
+                                        fontWeight: 'bold'
                                     }}
                                 >
                                     Book Now
@@ -287,26 +259,15 @@ const Rooms = () => {
             </Grid>
 
             {/* Amenities Section */}
-            <Box sx={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                mb: 8
-            }}>
-                <Typography variant="h4" component="h2" gutterBottom sx={{
+            <Box sx={{ width: '100%', mb: 8 }}>
+                <Typography variant="h3" component="h2" gutterBottom align="center" sx={{
                     fontWeight: 'bold',
-                    textAlign: 'center',
-                    mb: 6,
-                    color: 'text.primary',
-                    [theme.breakpoints.down('sm')]: {
-                        fontSize: '1.8rem'
-                    }
+                    mb: 6
                 }}>
                     Hotel Amenities & Services
                 </Typography>
 
-                <Grid container spacing={3} justifyContent="center" sx={{ maxWidth: '1000px' }}>
+                <Grid container spacing={3} justifyContent="center" sx={{ maxWidth: '1000px', mx: 'auto' }}>
                     {amenities.map((amenity, index) => (
                         <Grid item xs={6} sm={4} md={3} key={index}>
                             <Box sx={{
@@ -314,27 +275,21 @@ const Rooms = () => {
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 p: 2,
-                                textAlign: 'center',
-                                transition: 'transform 0.3s ease',
-                                '&:hover': {
-                                    transform: 'scale(1.05)'
-                                }
+                                textAlign: 'center'
                             }}>
                                 <Box sx={{
                                     color: 'primary.main',
                                     mb: 2,
-                                    fontSize: '2.8rem',
+                                    fontSize: '2.5rem',
+                                    width: '70px',
+                                    height: '70px',
                                     display: 'flex',
                                     justifyContent: 'center',
-                                    alignItems: 'center',
-                                    width: '80px',
-                                    height: '80px',
-                                    borderRadius: '50%',
-                                    bgcolor: theme.palette.mode === 'light' ? '#f5f5f5' : '#1e1e1e'
+                                    alignItems: 'center'
                                 }}>
                                     {amenity.icon}
                                 </Box>
-                                <Typography variant="body1" sx={{ fontWeight: 500, fontSize: '1rem' }}>
+                                <Typography variant="body1" sx={{ fontWeight: 500 }}>
                                     {amenity.text}
                                 </Typography>
                             </Box>
@@ -343,48 +298,27 @@ const Rooms = () => {
                 </Grid>
             </Box>
 
-            {/* Experience Kalametiya Section */}
+            {/* Experience Section */}
             <Box sx={{
-                backgroundColor: theme.palette.mode === 'light' ? '#f9f9f9' : '#1a1a1a',
-                p: { xs: 3, md: 6 },
-                borderRadius: '16px',
                 width: '100%',
                 maxWidth: '1000px',
-                mb: 8,
+                mx: 'auto',
+                backgroundColor: theme.palette.background.paper,
+                p: { xs: 3, md: 4 },
+                borderRadius: '12px',
+                mb: 6,
                 border: `1px solid ${theme.palette.divider}`,
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: theme.shadows[2],
-                '&:before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '6px',
-                    height: '100%',
-                    bgcolor: 'primary.main'
-                }
+                boxShadow: theme.shadows[2]
             }}>
-                <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    mb: 4
-                }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                     <BeachAccess sx={{
-                        fontSize: '3rem',
+                        fontSize: '2.5rem',
                         color: 'primary.main',
-                        mr: 3,
-                        [theme.breakpoints.down('sm')]: {
-                            fontSize: '2rem',
-                            mr: 2
-                        }
+                        mr: 3
                     }} />
-                    <Typography variant="h4" component="h3" sx={{
+                    <Typography variant="h3" component="h3" sx={{
                         fontWeight: 'bold',
-                        color: 'primary.main',
-                        [theme.breakpoints.down('sm')]: {
-                            fontSize: '1.5rem'
-                        }
+                        color: 'primary.main'
                     }}>
                         Experience Kalametiya
                     </Typography>
@@ -393,41 +327,24 @@ const Rooms = () => {
                 <Typography variant="body1" paragraph sx={{
                     fontSize: '1.1rem',
                     lineHeight: 1.7,
-                    mb: 3,
-                    [theme.breakpoints.down('sm')]: {
-                        fontSize: '1rem'
-                    }
+                    mb: 3
                 }}>
-                    Nestled just 200 meters from the breathtaking Kalametiya Bird Lagoon, our hotel offers unparalleled access to one of Sri Lanka's most important wetland ecosystems. Join our expert-guided tours to observe over 150 bird species, including migratory flocks that visit seasonally. The nearby pristine beach is perfect for sunrise walks and peaceful moments by the Indian Ocean.
+                    Nestled just 200 meters from the breathtaking Kalametiya Bird Lagoon, our hotel offers unparalleled access to one of Sri Lanka's most important wetland ecosystems. Join our expert-guided tours to observe over 150 bird species, including migratory flocks that visit seasonally.
                 </Typography>
 
                 <Typography variant="body1" paragraph sx={{
                     fontSize: '1.1rem',
                     lineHeight: 1.7,
-                    mb: 3,
-                    [theme.breakpoints.down('sm')]: {
-                        fontSize: '1rem'
-                    }
+                    mb: 4
                 }}>
-                    Immerse yourself in authentic Sri Lankan culture with our hands-on cooking classes, specially designed for international visitors. Learn to prepare traditional dishes like hoppers, kottu roti, and coconut sambol using fresh local ingredients. Our chef will guide you through the flavors and techniques that make Sri Lankan cuisine unique.
-                </Typography>
-
-                <Typography variant="body1" sx={{
-                    fontSize: '1.1rem',
-                    lineHeight: 1.7,
-                    mb: 4,
-                    [theme.breakpoints.down('sm')]: {
-                        fontSize: '1rem'
-                    }
-                }}>
-                    After your adventures, return to our tranquil property featuring a Sri Lankan-style restaurant serving both traditional and contemporary dishes. Enjoy your meals in our open-air dining area surrounded by tropical greenery, or relax in our comfortable rooms designed with your comfort in mind.
+                    Immerse yourself in authentic Sri Lankan culture with our hands-on cooking classes, specially designed for international visitors. Learn to prepare traditional dishes using fresh local ingredients.
                 </Typography>
 
                 <Box sx={{
                     display: 'flex',
                     flexDirection: { xs: 'column', sm: 'row' },
                     justifyContent: 'center',
-                    gap: 2
+                    gap: 3
                 }}>
                     <Button
                         variant="contained"
@@ -438,9 +355,7 @@ const Rooms = () => {
                             px: 4,
                             py: 1.5,
                             borderRadius: '8px',
-                            fontWeight: 'bold',
-                            fontSize: '1rem',
-                            whiteSpace: 'nowrap'
+                            fontWeight: 'bold'
                         }}
                     >
                         Bird Watching Tours
@@ -454,9 +369,7 @@ const Rooms = () => {
                             px: 4,
                             py: 1.5,
                             borderRadius: '8px',
-                            fontWeight: 'bold',
-                            fontSize: '1rem',
-                            whiteSpace: 'nowrap'
+                            fontWeight: 'bold'
                         }}
                     >
                         Cooking Classes

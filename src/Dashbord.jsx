@@ -30,15 +30,6 @@ function Dashboard() {
             <Box id="home">
                 <SanctuaryDashboard/>
             </Box>
-            <Box id="lagoon-tour">
-                <Lagoon/>
-            </Box>
-            <Box id="rooms">
-                <Rooms/>
-            </Box>
-            <Box id="restaurant">
-                <Restaurants/>
-            </Box>
 
             <Box id="about">
                 <AboutUs/>
