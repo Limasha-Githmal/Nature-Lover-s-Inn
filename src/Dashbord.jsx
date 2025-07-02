@@ -11,8 +11,9 @@ import Services from "./service/home/Services.jsx"
 import ContactForm from "./service/home/FormEmail.jsx"
 import Lagoon from "./service/lagoon_Tour/Lagoon.jsx";
 import Rooms from "./service/rooms/Rooms.jsx";
-import Resturant from "./service/resturant/Resturant.jsx";
-// import Resturant from "./service/resturant/Resturant.jsx";
+import Restaurants from "./service/resturant/Resturant.jsx";
+
+
 
 function Dashboard() {
     return (
@@ -36,7 +37,7 @@ function Dashboard() {
                 <Rooms/>
             </Box>
             <Box id="restaurant">
-                <Resturants/>
+                <Restaurants/>
             </Box>
 
             <Box id="about">
