@@ -35,36 +35,39 @@ const Rooms = () => {
 
     const rooms = [
         {
-            title: "Deluxe Room",
-            description: "Enjoy premium comfort in our spacious Deluxe Room featuring modern amenities and stunning views of Kalametiya Bird Lagoon. Perfect for travelers seeking both relaxation and convenience.",
+            title: "Kingfisher Deluxe Room",
+            description: "Experience relaxing comfort in our Deluxe Room, equipped with a king-size bed, air conditioning, hot water, and a hot kettle with tea and sugar bags. Ideal for guests who value both convenience and a cozy stay near the serene Kalametiya Bird Lagoon.",
             price: "$35 per night",
             features: [
                 "Air Conditioning",
                 "24/7 Hot Water",
                 "King Size Bed (6'6″ x 6'3″)",
-                "Premium Tea/Coffee Facilities",
-                "Free High-Speed WiFi",
-                "Private Balcony with Lagoon View",
-                "Flat Screen TV",
-                "Daily Housekeeping"
+                "Basic Tea/Coffee Facilities",
+                "Free WiFi",
+                "Spacious Clothes Rack",
+                "Housekeeping",
+                "Friendly On-Site Assistance",
+                "Flexible Check-in/Check-out Times (on request)"
             ],
-            image: "https://images.unsplash.com/photo-1566669437685-bc1c4cdf83b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            image: "https://cdn.prod.website-files.com/661d42779f9c94a059f533cf/6717b0e0300215278d929e60_the-home-hotel-zurich-rooms-overview-hero-p-1600.jpg",
             highlight: true
         },
         {
             title: "Standard Room",
-            description: "Our cozy Standard Room offers all the essential comforts at an affordable price. Experience authentic Sri Lankan hospitality in a clean, comfortable space.",
+            description: "Our comfortable Standard Room provides all the basic amenities you need for a relaxing stay. Enjoy a clean and peaceful space with warm Sri Lankan hospitality at an affordable rate.",
             price: "$25 per night",
             features: [
                 "Ceiling Fan Cooling",
                 "King Size Bed (6'6″ x 6'3″)",
-                "Shared Bathroom (Hot Water Available)",
-                "Garden View Window",
+                "Private Attached Bathroom",
+                "Spacious Clothes Rack",
                 "Basic Tea/Coffee Facilities",
-                "Free WiFi in Common Areas",
-                "Weekly Housekeeping"
+                "Free WiFi",
+                "Housekeeping",
+                "Friendly On-Site Assistance",
+                "Flexible Check-in/Check-out Times (on request)"
             ],
-            image: "https://images.unsplash.com/photo-1591088398332-8a7791972803?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            image: "https://cdn.prod.website-files.com/661d42779f9c94a059f533cf/6717b0e0300215278d929e60_the-home-hotel-zurich-rooms-overview-hero-p-1600.jpg",
             highlight: false
         }
     ];
@@ -90,16 +93,31 @@ const Rooms = () => {
             alignItems: 'center'
         }}>
             {/* Header Section */}
-            <Typography variant="h3" component="h1" gutterBottom align="center" sx={{
-                fontWeight: 'bold',
-                color: 'primary.main',
-                mb: 2,
-                [theme.breakpoints.down('sm')]: {
-                    fontSize: '2rem'
-                }
-            }}>
+            <Typography
+                variant="h3"
+                component="h1"
+                gutterBottom
+                align="center"
+                sx={{
+                    fontWeight: 'bold',
+                    color: 'primary.main',
+                    mb: 5,
+                    mt: {
+                        xs: 6,  // mobile
+                        sm: 8,  // tablets
+                        md: 10, // desktop
+                    },
+                    fontSize: {
+                        xs: '2rem',
+                        sm: '2.5rem',
+                        md: '3rem',
+                    },
+                }}
+            >
                 Our Accommodations
             </Typography>
+
+
 
             <Typography variant="subtitle1" component="h2" gutterBottom align="center" sx={{
                 mb: 6,
@@ -109,7 +127,7 @@ const Rooms = () => {
                     fontSize: '1rem'
                 }
             }}>
-                Experience authentic Sri Lankan hospitality in our comfortable rooms, just minutes from Kalametiya Bird Lagoon and pristine beaches
+                Experience authentic Sri Lankan hospitality in our comfortable rooms, just minutes from Kalametiya Bird Lagoon and peaceful beaches.
             </Typography>
 
             {/* Room Cards Section */}
@@ -120,7 +138,7 @@ const Rooms = () => {
                             height: '100%',
                             display: 'flex',
                             flexDirection: 'column',
-                            border: room.highlight ? `2px solid ${theme.palette.primary.main}` : 'none',
+                            border: `2px solid ${theme.palette.primary.main}`,
                             position: 'relative',
                             overflow: 'hidden',
                             borderRadius: '16px',
@@ -178,7 +196,7 @@ const Rooms = () => {
                                 }}>
                                     <Typography variant="h5" component="h3" sx={{
                                         fontWeight: 'bold',
-                                        color: room.highlight ? 'primary.main' : 'text.primary',
+                                        color: 'primary.main' ,
                                         fontSize: '1.5rem'
                                     }}>
                                         {room.title}
@@ -248,9 +266,9 @@ const Rooms = () => {
                                 px: 4
                             }}>
                                 <Button
-                                    variant={room.highlight ? 'contained' : 'outlined'}
+                                    variant="contained"
                                     size="large"
-                                    color="primary"
+                                    color="success"
                                     fullWidth
                                     sx={{
                                         py: 1.5,
