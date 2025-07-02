@@ -95,7 +95,7 @@ const Restaurants = () => {
         }}>
             <Paper elevation={5} sx={{
                 p: { xs: 2, sm: 4, md: 6 },
-                background: 'url("https://www.transparenttextures.com/patterns/light-paper-fibers.png") #fffaf0',
+                background: '#F0F8FF',
                 border: '2px solid #000080',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                 position: 'relative'
@@ -105,7 +105,7 @@ const Restaurants = () => {
                     <MenuBookIcon sx={{ fontSize: '3rem', color: '#000080', mb: 1 }} />
                     <Typography variant="h3" component="h1" sx={{
                         fontWeight: 700,
-                        color: '#000080',
+                        color: 'black',
                         fontFamily: '"Cinzel", serif',
                         textTransform: 'uppercase',
                         letterSpacing: '3px'
@@ -127,7 +127,7 @@ const Restaurants = () => {
                     <Typography variant="h4" component="h2" sx={{
                         fontFamily: '"Cinzel", serif',
                         textAlign: 'center',
-                        color: '#000080',
+                        color: 'black',
                         mb: 3,
                         display: 'flex',
                         alignItems: 'center',
@@ -141,13 +141,13 @@ const Restaurants = () => {
                         background: 'linear-gradient(135deg, rgba(240, 248, 255, 0.7), rgba(232, 245, 233, 0.7))',
                         border: '1px dashed #000080'
                     }}>
-                        <Typography variant="h5" component="h3" sx={{ fontWeight: 700, fontFamily: '"Lora", serif', color: '#000080' }}>
+                        <Typography variant="h5" component="h3" sx={{ fontWeight: 700, fontFamily: '"Lora", serif', color: 'black' }}>
                             {menuData.featuredItem.name}
                         </Typography>
                         <Typography variant="body1" sx={{ my: 1, fontFamily: '"Lora", serif', fontStyle: 'italic', color: '#2E8B57' }}>
                             {menuData.featuredItem.description}
                         </Typography>
-                        <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: '"Cinzel", serif', color: '#000080', textAlign: 'right' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: '"Cinzel", serif', color: 'black', textAlign: 'right' }}>
                             LKR {menuData.featuredItem.price}
                         </Typography>
                     </Paper>
@@ -166,7 +166,7 @@ const Restaurants = () => {
                                         ml: 1.5,
                                         fontWeight: 700,
                                         fontFamily: '"Cinzel", serif',
-                                        color: '#000080'
+                                        color: 'black'
                                     }}>
                                         {category.name}
                                     </Typography>
@@ -186,7 +186,7 @@ const Restaurants = () => {
                                             <ListItem sx={{ p: 0 }}>
                                                 <ListItemText
                                                     primary={
-                                                        <Typography variant="h6" sx={{ fontFamily: '"Lora", serif', fontWeight: 600, color: '#000080' }}>
+                                                        <Typography variant="h6" sx={{ fontFamily: '"Lora", serif', fontWeight: 600, color: 'black' }}>
                                                             {item.name}
                                                         </Typography>
                                                     }
@@ -195,7 +195,7 @@ const Restaurants = () => {
                                                             <Typography component="span" variant="body2" sx={{ display: 'block', my: 0.5, fontStyle: 'italic', color: '#2E8B57' }}>
                                                                 {item.description}
                                                             </Typography>
-                                                            <Typography component="span" variant="h6" sx={{ fontFamily: '"Cinzel", serif', fontWeight: 600, color: '#000080' }}>
+                                                            <Typography component="span" variant="h6" sx={{ fontFamily: '"Cinzel", serif', fontWeight: 600, color: 'black' }}>
                                                                 LKR {item.price}
                                                             </Typography>
                                                         </>
@@ -216,14 +216,14 @@ const Restaurants = () => {
                     <Paper elevation={3} sx={{
                         p: 4,
                         textAlign: 'center',
-                        background: 'linear-gradient(135deg, #000080, #00005a)', // Navy gradient
-                        color: '#fffaf0',
+                        background: '#ffffff', // Navy gradient
+                        color: 'black',
                         borderRadius: '8px'
                     }}>
-                        <Typography variant="h4" component="h3" sx={{
+                        <Typography variant="h3" component="h3" sx={{
                             fontWeight: 'bold',
                             mb: 2,
-                            color: '#fffaf0',
+                            color: '#1E90FF',
                             fontFamily: '"Cinzel", serif'
                         }}>
                             Traditional Cooking Classes
@@ -233,7 +233,7 @@ const Restaurants = () => {
                             fontSize: '1.1rem',
                             lineHeight: 1.7,
                             mb: 3,
-                            color: '#e0e0e0',
+                            color: 'black',
                             fontFamily: '"Lora", serif'
                         }}>
                             Learn to prepare authentic Sri Lankan dishes with our expert chefs! Our cooking classes include market visits to select fresh ingredients and hands-on preparation of 5 traditional dishes.
@@ -242,19 +242,15 @@ const Restaurants = () => {
                         <Button
                             variant="contained"
                             size="large"
+                            color= "success"
                             endIcon={<LocalDiningIcon />}
                             sx={{
-                                px: 4,
-                                py: 1.5,
+
                                 borderRadius: '8px',
                                 fontWeight: 'bold',
-                                fontSize: '1rem',
-                                fontFamily: '"Cinzel", serif',
-                                backgroundColor: '#fffaf0',
-                                color: '#000080',
-                                '&:hover': {
-                                    backgroundColor: '#e8e8e8'
-                                },
+                                fontSize: '1rem'
+
+
                             }}
                         >
                             Book a Cooking Class

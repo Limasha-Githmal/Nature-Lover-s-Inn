@@ -50,7 +50,7 @@ const Rooms = () => {
             highlight: true
         },
         {
-            title: "Standard Room",
+            title: "Painted Stork Standard Room",
             description: "Our comfortable Standard Room provides all the basic amenities you need for a relaxing stay. Enjoy a clean and peaceful space with warm Sri Lankan hospitality at an affordable rate.",
             price: "$25 per night",
             features: [
@@ -349,7 +349,7 @@ const Rooms = () => {
                     <Button
                         variant="contained"
                         size="large"
-                        color="primary"
+                        color="success"
                         endIcon={<NaturePeople />}
                         sx={{
                             px: 4,
@@ -361,9 +361,9 @@ const Rooms = () => {
                         Bird Watching Tours
                     </Button>
                     <Button
-                        variant="outlined"
+                        variant="contained"
                         size="large"
-                        color="primary"
+                        color="success"
                         endIcon={<LocalDining />}
                         sx={{
                             px: 4,
