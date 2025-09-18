@@ -17,8 +17,8 @@ const pages = [
     { name: 'Lagoon Tour', path: '/lagoon-tour' },
     { name: 'Rooms', path: '/rooms' },
     { name: 'Restaurant', path: '/restaurant' },
-    { name: 'Cooking Class', path: '/#cooking-class' },
-    { name: 'Offers', path: '/offers' },
+    { name: 'Cooking Class', path: '/cooking' },
+    { name: 'JungleTour', path: '/jungle' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' }
 ];

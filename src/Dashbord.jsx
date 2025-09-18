@@ -51,8 +51,7 @@ function Dashboard() {
                 <ContactForm/>
             </Box>
 
-            <Footer />
-            <FooterBottom />
+
         </Box>
     )
 }

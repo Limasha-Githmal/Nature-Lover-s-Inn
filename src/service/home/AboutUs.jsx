@@ -27,6 +27,12 @@ const App = () => {
             title: 'Cooking Classes',
             description: 'Learn local recipes',
         },
+        {
+            id: 5,
+            image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+            title: 'Jungle Walking Tour',
+            description: 'Explore Kalametiya’s wild beauty',
+        },
     ];
 
     return (

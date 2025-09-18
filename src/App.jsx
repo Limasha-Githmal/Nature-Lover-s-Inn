@@ -5,13 +5,14 @@ import ContactForm from "./service/home/FormEmail.jsx"
 import Gallery from "./service/home/Gallery.jsx"
 import AboutUs from "./service/home/AboutUs.jsx"
 import Offers from "./service/home/Offers.jsx"
-import Services from "./service/home/Services.jsx"
+import CookingClass from "./service/cooking_class/CookingClass.jsx"
 import ContactBar from "./component/InContactBar.jsx";
 import ResponsiveAppBar from "./component/NavBar.jsx";
 import Footer from "./component/Footer.jsx";
 import FooterBottom from "./component/FooterBottom.jsx";
 import Lagoon from "./service/lagoon_Tour/Lagoon.jsx";
 import Rooms from "./service/rooms/Rooms.jsx";
+import JungleTour from "./service/jungle_tour/JungleTour.jsx"
 import Restaurants from "./service/resturant/Resturant.jsx";
 
 function App() {
@@ -52,7 +53,8 @@ function App() {
                     <Route path="/restaurant" element={<Restaurants />} />
                     <Route path="/offers" element={<Offers />} />
                     <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/services" element={<Services />} />
+                    <Route path="/cooking" element={<CookingClass />} />
+                    <Route path="/jungle" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
                 </Routes>
             </Box>

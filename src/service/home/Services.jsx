@@ -35,6 +35,12 @@ const services = [
         description:
             'Stay in clean, air-conditioned rooms with modern bathrooms and hot water – ideal for relaxing after a day of adventure.',
     },
+    {
+        icon: '🌿',
+        title: 'Jungle Walking Tour',
+        description:
+            'Explore the wild beauty of Kalametiya on a guided jungle walk. Visit the Nine Stupas Temple, hike to Kema Rock viewpoint, see buffalo fields, and spot monkeys, peafowls, and 120+ bird species. Includes local snacks, herbal drinks, and water bottles.',
+    },
 ];
 
 export default function Services() {

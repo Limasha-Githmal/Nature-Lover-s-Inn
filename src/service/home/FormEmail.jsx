@@ -21,6 +21,7 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import KingBedIcon from '@mui/icons-material/KingBed';
 import SailingIcon from '@mui/icons-material/Sailing';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
+import HikingIcon from '@mui/icons-material/Hiking'; // ✅ New icon for jungle walking
 import { keyframes } from '@mui/system';
 
 const floatAnimation = keyframes`
@@ -135,7 +136,6 @@ const ContactForm = () => {
                                 background: `linear-gradient(45deg, #103785 30%, ${theme.palette.secondary.main} 90%)`,
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
-
                             }}
                         >
                             Get In Touch
@@ -201,6 +201,10 @@ const ContactForm = () => {
                                         <ToggleButton value="cooking-class">
                                             <RestaurantIcon sx={{ mr: 1 }} />
                                             Cooking Class
+                                        </ToggleButton>
+                                        <ToggleButton value="jungle-walk">
+                                            <HikingIcon sx={{ mr: 1 }} />
+                                            Jungle Walking Tour
                                         </ToggleButton>
                                     </ToggleButtonGroup>
                                 </Grid>

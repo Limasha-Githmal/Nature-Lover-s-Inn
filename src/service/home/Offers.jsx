@@ -1,88 +1,125 @@
-import React from 'react';
+import React from "react";
 import {
     Box,
-    Grid,
+    Container,
     Typography,
-    Button,
+    Grid,
     Card,
-    CardMedia,
     CardContent,
-} from '@mui/material';
+    CardMedia,
+    Button,
+    Stack,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import KingBedIcon from "@mui/icons-material/KingBed";
 
-export default function Offers() {
+const offers = [
+    {
+        id: 1,
+        title: "Day Experience Package",
+        description:
+            "Enjoy a full day in Kalametiya with 3 activities:\n\n✔️ Bird Watching Tour\n✔️ Cooking Class\n✔️ Jungle Walking Tour\n\nAll in one day for an unforgettable eco-tourism adventure.",
+        image:
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", // replace with your image
+        buttonText: "Book Now",
+    },
+    {
+        id: 2,
+        title: "Day + Night Deluxe Package",
+        description:
+            "Make it a memorable getaway with our complete package:\n\n✔️ Bird Watching Tour\n✔️ Cooking Class\n✔️ Jungle Walking Tour\n✔️ Deluxe Double Room (1 Night)\n✔️ Breakfast for Next Morning",
+        image:
+            "https://images.unsplash.com/photo-1560448075-bb4b2a6f87d0?auto=format&fit=crop&w=800&q=80", // replace with your image
+        buttonText: "Book Deluxe Package",
+    },
+];
+
+const StyledButton = styled(Button)(({ theme }) => ({
+    borderRadius: "25px",
+    padding: "10px 22px",
+    fontWeight: 600,
+    textTransform: "none",
+    transition: "all 0.3s ease",
+    boxShadow: theme.shadows[2],
+    "&:hover": {
+        transform: "translateY(-2px)",
+        boxShadow: theme.shadows[6],
+    },
+}));
+
+const Offers = () => {
     return (
-        <Box
-            sx={{
-                minHeight: '100%',
-                backgroundColor: '#f5f5f5',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 2,
-            }}
-        >
-            <Card
-                sx={{
-                    maxWidth: 1000,
-                    width: '100%',
-                    borderRadius: 4,
-                    boxShadow: 6,
-                    overflow: 'hidden',
-                    transition: 'transform 0.3s ease',
-                    '&:hover': {
-                        transform: 'scale(1.02)',
-                    },
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' }, // Responsive direction
-                }}
-            >
-                {/* Image Section */}
-                <CardMedia
-                    component="img"
-                    image='https://www.omnihotels.com/-/media/images/hotels/daldtn/restaurants/texas-spice/daldtn_texasspice_kathytran_img.jpg?h=660&iar=0&w=1170'
-                    alt="Offer"
+        <Box sx={{ py: 6, backgroundColor: "#f9f9f9" }}>
+            <Container maxWidth="lg">
+                <Typography
+                    variant="h4"
+                    align="center"
+                    gutterBottom
                     sx={{
-                        width: { xs: '100%', md: '45%' },
-                        height: { xs: 200, md: '100%' },
-                        objectFit: 'cover',
+                        fontWeight: "bold",
+                        mb: 5,
+                        fontSize: { xs: "28px", sm: "32px", md: "36px" },
+                        color: "#2e2e2e",
                     }}
-                />
+                >
+                    Special Offers 🌟
+                </Typography>
 
-                {/* Description Section */}
-                <CardContent sx={{ padding: { xs: 3, md: 4 }, flex: 1 }}>
-                    <Typography
-                        variant="h4"
-                        sx={{ fontWeight: 'bold', mb: 2, color: '#333' }}
-                    >
-                        Offers
-                    </Typography>
-
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
-                        Lagoon Tour Package – $50
-                    </Typography>
-
-                    <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: '#555' }}>
-                        In this offer, there are:
-                        {'\n'}• King-size bedroom
-                        {'\n'}• Air conditioning (A/C)
-                        {'\n'}• Hot water with breakfast (1 night)
-                        {'\n'}• Guided lagoon tour
-                    </Typography>
-
-                    <Button
-                        variant="contained"
-                        color="success"
-                        sx={{
-                            fontWeight: 'bold',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            padding: '8px 20px',
-                        }}
-                    >
-                        More Offers
-                    </Button>
-                </CardContent>
-            </Card>
+                <Grid container spacing={4} justifyContent="center">
+                    {offers.map((offer) => (
+                        <Grid item xs={12} md={6} key={offer.id}>
+                            <Card
+                                sx={{
+                                    borderRadius: 4,
+                                    overflow: "hidden",
+                                    boxShadow: 4,
+                                    height: "100%",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                }}
+                            >
+                                <CardMedia
+                                    component="img"
+                                    height="220"
+                                    image={offer.image}
+                                    alt={offer.title}
+                                    sx={{ objectFit: "cover" }}
+                                />
+                                <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                                    <Typography
+                                        variant="h5"
+                                        fontWeight={700}
+                                        gutterBottom
+                                        sx={{ display: "flex", alignItems: "center" }}
+                                    >
+                                        {offer.id === 1 ? (
+                                            <LocalOfferIcon color="success" sx={{ mr: 1 }} />
+                                        ) : (
+                                            <KingBedIcon color="primary" sx={{ mr: 1 }} />
+                                        )}
+                                        {offer.title}
+                                    </Typography>
+                                    <Typography
+                                        variant="body1"
+                                        color="text.secondary"
+                                        sx={{ whiteSpace: "pre-line", lineHeight: 1.8 }}
+                                    >
+                                        {offer.description}
+                                    </Typography>
+                                </CardContent>
+                                <Stack sx={{ p: 3 }} alignItems="center">
+                                    <StyledButton variant="contained" color="primary">
+                                        {offer.buttonText}
+                                    </StyledButton>
+                                </Stack>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Container>
         </Box>
     );
-}
+};
+
+export default Offers;

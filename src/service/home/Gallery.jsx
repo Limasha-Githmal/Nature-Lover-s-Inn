@@ -23,12 +23,7 @@ const images = [
     { id: 4, src: 'src/assets/gallery/1.jpg.jpg' },
     { id: 5, src: 'src/assets/gallery/1.jpg.jpg' },
     { id: 6, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 7, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 8, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 9, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 10, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 11, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 12, src: 'src/assets/gallery/1.jpg.jpg' },
+
 ];
 
 export default function Gallery() {

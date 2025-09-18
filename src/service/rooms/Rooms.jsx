@@ -374,6 +374,20 @@ const Rooms = () => {
                     >
                         Cooking Classes
                     </Button>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        color="success"
+                        endIcon={<LocalDining />}
+                        sx={{
+                            px: 4,
+                            py: 1.5,
+                            borderRadius: '8px',
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        Jungle Walking
+                    </Button>
                 </Box>
             </Box>
         </Container>
