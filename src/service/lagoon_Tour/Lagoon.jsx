@@ -274,41 +274,43 @@ const Lagoon = () => {
 
         {/* Contact Buttons */}
         <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={3}
-          justifyContent="center"
-          alignItems="center"
-          sx={{ mb: 6 }}
+            direction={{ xs: "column", sm: "row" }}
+            spacing={3}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ mb: 6 }}
         >
+          {/* WhatsApp Button */}
           <StyledButton
-            variant="contained"
-            color="success"
-            startIcon={<WhatsAppIcon />}
-            component={Link}
-            href="https://wa.me/yourWhatsAppNumber"
-            target="_blank"
-            rel="noopener"
+              variant="contained"
+              color="success"
+              startIcon={<WhatsAppIcon />}
+              component={Link}
+              href="https://wa.me/94760169518"
+              target="_blank"
+              rel="noopener"
           >
             WhatsApp
           </StyledButton>
 
+          {/* Email Button */}
           <StyledButton
-            variant="outlined"
-            color="primary"
-            startIcon={<EmailIcon />}
-            component={Link}
-            href="mailto:youremail@example.com"
-            target="_blank"
-            rel="noopener"
+              variant="outlined"
+              color="primary"
+              startIcon={<EmailIcon />}
+              component={Link}
+              href="mailto:natureloversinn10@gmail.com?subject=Booking%20Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20tours."
           >
             Gmail
           </StyledButton>
 
+          {/* Book Tour Button */}
           <StyledButton
-            variant="contained"
-            color="primary"
-            startIcon={<DirectionsBoatIcon />}
-            onClick={() => alert("Booking functionality coming soon!")}
+              variant="contained"
+              color="primary"
+              startIcon={<DirectionsBoatIcon />}
+              component={Link}
+              href="/contact"
           >
             Book Tour
           </StyledButton>

@@ -7,6 +7,7 @@ import {
     createTheme
 } from '@mui/material';
 import { styled } from '@mui/system';
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -123,6 +124,8 @@ const SanctuaryDashboard = () => {
                     </Typography>
 
                     <Button
+                        component={Link}
+                        to="/contact"
                         variant="contained"
                         size="large"
                         sx={{

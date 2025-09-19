@@ -25,6 +25,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PlaceIcon from "@mui/icons-material/Place";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
+import { useNavigate } from "react-router-dom"; // ✅ React Router navigation
 
 const featureImages = [
     { id: 1, src: "src/assets/image/jungel_11.jpeg", alt: "Nine Stupas Temple" },
@@ -64,6 +65,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const JungleTour = () => {
     const theme = useTheme();
     const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+    const navigate = useNavigate(); // ✅ hook for navigation
 
     return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
@@ -103,7 +105,7 @@ const JungleTour = () => {
                                     overflow: "hidden",
                                     transition: "0.3s",
                                     "&:hover": { transform: "scale(1.03)", boxShadow: 10 },
-                                    height: '100%' // Ensure card fills the grid space
+                                    height: "100%",
                                 }}
                             >
                                 <CardMedia
@@ -112,7 +114,7 @@ const JungleTour = () => {
                                     alt={alt}
                                     sx={{
                                         width: "100%",
-                                        height: 300, // Increased height for more width/presence
+                                        height: 300,
                                         objectFit: "cover",
                                     }}
                                 />
@@ -126,6 +128,7 @@ const JungleTour = () => {
                     ))}
                 </Grid>
 
+                {/* What's Included */}
                 <Card
                     sx={{
                         borderRadius: 4,
@@ -237,6 +240,7 @@ const JungleTour = () => {
                     alignItems="center"
                     sx={{ mb: 6 }}
                 >
+                    {/* WhatsApp */}
                     <StyledButton
                         variant="contained"
                         color="success"
@@ -249,23 +253,23 @@ const JungleTour = () => {
                         WhatsApp
                     </StyledButton>
 
+                    {/* Email */}
                     <StyledButton
                         variant="outlined"
                         color="primary"
                         startIcon={<EmailIcon />}
                         component={Link}
-                        href="mailto:natureloversinn10@gmail.com"
-                        target="_blank"
-                        rel="noopener"
+                        href="mailto:natureloversinn10@gmail.com?subject=Booking Inquiry&body=Hello, I would like to know more about your tours."
                     >
                         Email
                     </StyledButton>
 
+                    {/* Book Tour – React Router Navigation */}
                     <StyledButton
                         variant="contained"
                         color="primary"
                         startIcon={<HikingIcon />}
-                        onClick={() => alert("Booking functionality coming soon!")}
+                        onClick={() => navigate("/contact")}
                     >
                         Book Tour
                     </StyledButton>
@@ -290,7 +294,7 @@ const JungleTour = () => {
                                     boxShadow: 3,
                                     "&:hover": { transform: "scale(1.02)", boxShadow: 6 },
                                     transition: "0.3s",
-                                    height: '250px' // Set a fixed height for all gallery cards
+                                    height: "250px",
                                 }}
                             >
                                 <CardMedia
@@ -300,7 +304,7 @@ const JungleTour = () => {
                                     sx={{
                                         width: "100%",
                                         height: "100%",
-                                        objectFit: "cover"
+                                        objectFit: "cover",
                                     }}
                                 />
                             </Card>

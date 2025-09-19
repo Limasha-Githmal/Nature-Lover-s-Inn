@@ -7,12 +7,13 @@ import {
     Card,
     CardContent,
     CardMedia,
-    Button,
     Stack,
+    Button,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import KingBedIcon from "@mui/icons-material/KingBed";
+import { Link } from "react-router-dom"; // 👈 import Link
 
 const offers = [
     {
@@ -21,7 +22,7 @@ const offers = [
         description:
             "Enjoy a full day in Kalametiya with 3 activities:\n\n✔️ Bird Watching Tour\n✔️ Cooking Class\n✔️ Jungle Walking Tour\n\nAll in one day for an unforgettable eco-tourism adventure.",
         image:
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", // replace with your image
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
         buttonText: "Book Now",
     },
     {
@@ -30,7 +31,7 @@ const offers = [
         description:
             "Make it a memorable getaway with our complete package:\n\n✔️ Bird Watching Tour\n✔️ Cooking Class\n✔️ Jungle Walking Tour\n✔️ Deluxe Double Room (1 Night)\n✔️ Breakfast for Next Morning",
         image:
-            "https://images.unsplash.com/photo-1560448075-bb4b2a6f87d0?auto=format&fit=crop&w=800&q=80", // replace with your image
+            "https://images.unsplash.com/photo-1560448075-bb4b2a6f87d0?auto=format&fit=crop&w=800&q=80",
         buttonText: "Book Deluxe Package",
     },
 ];
@@ -109,7 +110,13 @@ const Offers = () => {
                                     </Typography>
                                 </CardContent>
                                 <Stack sx={{ p: 3 }} alignItems="center">
-                                    <StyledButton variant="contained" color="primary">
+                                    {/* 👇 Contact page link */}
+                                    <StyledButton
+                                        component={Link}
+                                        to="/contact"
+                                        variant="contained"
+                                        color="primary"
+                                    >
                                         {offer.buttonText}
                                     </StyledButton>
                                 </Stack>

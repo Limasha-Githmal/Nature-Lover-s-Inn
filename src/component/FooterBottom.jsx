@@ -2,6 +2,13 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 
 const FooterBottom = () => {
+    const links = [
+        { label: 'Contact Us', path: '/contact' },
+        { label: 'Terms of Use', path: '/terms' },
+        { label: 'Privacy Policy', path: '/privacy' },
+        { label: 'About Us', path: '/about' },
+    ];
+
     return (
         <Box
             sx={{
@@ -27,23 +34,24 @@ const FooterBottom = () => {
                         flexWrap: 'wrap',
                         justifyContent: 'center'
                     }}>
-                        {['Contact Us', 'Terms of Use', 'Privacy Policy', 'About Us'].map((item) => (
+                        {links.map(({ label, path }) => (
                             <Typography
-                                key={item}
+                                key={label}
                                 component="a"
-                                href="#"
+                                href={path}
                                 sx={{
                                     color: 'white',
                                     textDecoration: 'none',
-                                    '&:hover': { textDecoration: 'underline' }
+                                    '&:hover': { textDecoration: 'underline' },
+                                    cursor: 'pointer'
                                 }}
                             >
-                                {item}
+                                {label}
                             </Typography>
                         ))}
                     </Box>
                     <Typography variant="body2">
-                        Copyright © {new Date().getFullYear()} {' '}
+                        Copyright © {new Date().getFullYear()}{' '}
                         <Box
                             component="span"
                             sx={{

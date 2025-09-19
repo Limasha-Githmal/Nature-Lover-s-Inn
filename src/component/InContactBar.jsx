@@ -10,12 +10,14 @@ import {
     keyframes,
     styled
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Facebook from "@mui/icons-material/Facebook";
 import Email from "@mui/icons-material/Email";
 import Instagram from "@mui/icons-material/Instagram";
 import { SiTripadvisor } from "react-icons/si";
-import { FaAirbnb } from "react-icons/fa"; // Alternative for Booking.com since there's no direct Booking icon
+import { FaAirbnb } from "react-icons/fa";
+import bookingLogo from "../assets/image/bookingLogo.png"; // ✅ Your Booking.com logo
 
 // Pure jumping animation (no shadows/ripples)
 const jump = keyframes`
@@ -72,11 +74,13 @@ const ContactBar = () => {
                 >
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                         <WhatsAppIcon color="success" />
-                        <Typography variant="body2">+94 77 706 0920</Typography>
+                        <Typography variant="body2">+94 76 016 9518</Typography>
                     </Box>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.1 }}>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                         <Email color="primary" />
-                        <Typography variant="body2">kalametiyasafari@gmail.com</Typography>
+                        <Typography variant="body2">
+                            natureloversinn10@gmail.com
+                        </Typography>
                     </Box>
                 </Box>
 
@@ -92,33 +96,95 @@ const ContactBar = () => {
                 >
                     {/* Social Media Icons */}
                     <Box sx={{ display: "flex", gap: 0.5 }}>
-                        <IconButton aria-label="Facebook" size="small">
+                        <IconButton
+                            aria-label="Facebook"
+                            size="small"
+                            onClick={() =>
+                                window.open(
+                                    "https://www.facebook.com/share/1ECGXbyT7n/?mibextid=wwXIfr",
+                                    "_blank"
+                                )
+                            }
+                        >
                             <Facebook sx={{ color: "#1877F2" }} />
                         </IconButton>
-                        <IconButton aria-label="Instagram" size="small">
+                        <IconButton
+                            aria-label="Instagram"
+                            size="small"
+                            onClick={() =>
+                                window.open(
+                                    "https://www.instagram.com/nature_lovers_inn?igsh=a2pmYnl3ejZieDdi&utm_source=qr",
+                                    "_blank"
+                                )
+                            }
+                        >
                             <Instagram sx={{ color: "#E1306C" }} />
                         </IconButton>
-                        <IconButton aria-label="TripAdvisor" size="small">
-                            <SiTripadvisor style={{ color: "#34E0A1", fontSize: "1.25rem" }} />
+                        <IconButton
+                            aria-label="TripAdvisor"
+                            size="small"
+                            onClick={() =>
+                                window.open("https://www.tripadvisor.com/YourListingLink", "_blank")
+                            }
+                        >
+                            <SiTripadvisor
+                                style={{ color: "#34E0A1", fontSize: "1.25rem" }}
+                            />
                         </IconButton>
-                        <IconButton aria-label="Airbnb" size="small">
-                            <FaAirbnb style={{ color: "#FF5A5F", fontSize: "1.25rem" }} />
+                        <IconButton
+                            aria-label="Airbnb"
+                            size="small"
+                            onClick={() =>
+                                window.open("https://www.airbnb.com/rooms/YourAirbnbID", "_blank")
+                            }
+                        >
+                            <FaAirbnb
+                                style={{ color: "#FF5A5F", fontSize: "1.25rem" }}
+                            />
                         </IconButton>
-                        <IconButton aria-label="Email" size="small">
+
+                        {/* ✅ Booking.com Logo */}
+                        <IconButton
+                            aria-label="Booking.com"
+                            size="small"
+                            onClick={() =>
+                                window.open(
+                                    "https://www.booking.com/Pulse-I4U8ps",
+                                    "_blank"
+                                )
+                            }
+                        >
+                            <img
+                                src={bookingLogo}
+                                alt="Booking.com"
+                                style={{ width: 24, height: 24 }}
+                            />
+                        </IconButton>
+
+                        <IconButton
+                            aria-label="Email"
+                            size="small"
+                            onClick={() =>
+                                (window.location.href =
+                                    "mailto:natureloversinn10@gmail.com")
+                            }
+                        >
                             <Email sx={{ color: "#EA4335" }} />
                         </IconButton>
                     </Box>
 
                     {/* Book Now Button */}
                     <JumpingButton
+                        component={Link}
+                        to="/contact"
                         variant="contained"
                         color="success"
                         sx={{
-                            fontWeight: 'bold',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            padding: '8px 20px',
-                            ml: isSmallScreen ? 0 : 1
+                            fontWeight: "bold",
+                            textTransform: "uppercase",
+                            letterSpacing: "1px",
+                            padding: "8px 20px",
+                            ml: isSmallScreen ? 0 : 1,
                         }}
                     >
                         Book Now

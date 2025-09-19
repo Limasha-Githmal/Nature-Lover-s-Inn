@@ -93,16 +93,16 @@ const Footer = () => {
                             Contact Us
                         </Typography>
                         <Typography variant="body1" sx={{ mb: 1.5 }}>
-                            <b>Kalametiya Bird Watching & Ecotourism</b>
+                            <b>Nature Lover's Inn - Kalametiya</b>
                         </Typography>
                         <Typography variant="body2" sx={{ mb: 1.5 }}>
-                            No: 95/1, Bata Atha South<br />
+                            Nature Lover's Inn, Bata Atha South<br />
                             Hungama, Sri Lanka<br />
                             82120
                         </Typography>
                         <Typography variant="body2">
-                            Phone / WhatsApp: +94 77 706 0920<br />
-                            Email: kalametiyasafari@gmail.com
+                            Phone / WhatsApp: +94 76 016 9518<br />
+                            Email: natureloversinn10@gmail.com
                         </Typography>
                     </Grid>
 
@@ -136,6 +136,7 @@ const Footer = () => {
                                 mb: 3
                             }}
                         >
+                            {/* Facebook Button */}
                             <IconButton
                                 aria-label="Facebook"
                                 sx={{
@@ -144,9 +145,12 @@ const Footer = () => {
                                     borderRadius: '50%',
                                     '&:hover': { backgroundColor: 'white' },
                                 }}
+                                onClick={() => window.open('https://www.facebook.com/share/1ECGXbyT7n/?mibextid=wwXIfr', '_blank')}
                             >
                                 <Facebook sx={{ color: '#0b233b', fontSize: '28px' }} />
                             </IconButton>
+
+                            {/* Email Button */}
                             <IconButton
                                 aria-label="Email"
                                 sx={{
@@ -155,10 +159,12 @@ const Footer = () => {
                                     borderRadius: '50%',
                                     '&:hover': { backgroundColor: 'white' },
                                 }}
+                                onClick={() => window.location.href = 'mailto:natureloversinn10@email.com'}
                             >
                                 <Email sx={{ color: '#0b233b', fontSize: '28px' }} />
                             </IconButton>
                         </Box>
+
 
                         <Box
                             sx={{
@@ -178,7 +184,7 @@ const Footer = () => {
                             />
                         </Box>
                         <Typography variant="body2">
-                            Kalametiya Bird Watching & RoomService
+                            Nature Lover's Inn - Kalametiya
                         </Typography>
                     </Grid>
                 </Grid>

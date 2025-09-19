@@ -21,7 +21,8 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import KingBedIcon from '@mui/icons-material/KingBed';
 import SailingIcon from '@mui/icons-material/Sailing';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import HikingIcon from '@mui/icons-material/Hiking'; // ✅ New icon for jungle walking
+import HikingIcon from '@mui/icons-material/Hiking';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { keyframes } from '@mui/system';
 
 const floatAnimation = keyframes`
@@ -35,7 +36,7 @@ const ContactForm = () => {
         name: '',
         email: '',
         message: '',
-        serviceType: 'room' // Default service type
+        serviceType: 'room'
     });
     const [loading, setLoading] = useState(false);
     const [snackbar, setSnackbar] = useState({
@@ -70,9 +71,7 @@ const ContactForm = () => {
         try {
             const response = await fetch('https://formspree.io/f/xeoknzvk', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...formData,
                     subject: `Inquiry about ${formData.serviceType}`
@@ -85,12 +84,7 @@ const ContactForm = () => {
                     message: 'Message sent successfully! We will contact you soon.',
                     severity: 'success'
                 });
-                setFormData({
-                    name: '',
-                    email: '',
-                    message: '',
-                    serviceType: 'room'
-                });
+                setFormData({ name: '', email: '', message: '', serviceType: 'room' });
             } else {
                 throw new Error('Failed to send message');
             }
@@ -110,13 +104,7 @@ const ContactForm = () => {
     };
 
     return (
-        <Box sx={{
-            py: 8,
-            background: 'linear-gradient(135deg, #f9f9f9 0%, #e3f2fd 100%)',
-            minHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center'
-        }}>
+        <Box sx={{ py: 8, background: 'linear-gradient(135deg, #f9f9f9 0%, #e3f2fd 100%)', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
             <Container maxWidth="md">
                 <Fade in timeout={800}>
                     <Box sx={{ textAlign: 'center', mb: 6 }}>
@@ -140,11 +128,7 @@ const ContactForm = () => {
                         >
                             Get In Touch
                         </Typography>
-                        <Typography
-                            variant="subtitle1"
-                            color="text.secondary"
-                            sx={{ maxWidth: 600, mx: 'auto' }}
-                        >
+                        <Typography variant="subtitle1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
                             Have questions or want to book a service? Fill out the form below.
                         </Typography>
                     </Box>
@@ -167,11 +151,7 @@ const ContactForm = () => {
                             }
                         }}
                     >
-                        <Box
-                            component="form"
-                            onSubmit={handleSubmit}
-                            sx={{ mt: 2 }}
-                        >
+                        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
                             <Grid container spacing={4}>
                                 <Grid item xs={12}>
                                     <ToggleButtonGroup
@@ -218,9 +198,7 @@ const ContactForm = () => {
                                         onChange={handleChange}
                                         required
                                         variant="outlined"
-                                        InputProps={{
-                                            sx: { borderRadius: 2 }
-                                        }}
+                                        InputProps={{ sx: { borderRadius: 2 } }}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -233,9 +211,7 @@ const ContactForm = () => {
                                         onChange={handleChange}
                                         required
                                         variant="outlined"
-                                        InputProps={{
-                                            sx: { borderRadius: 2 }
-                                        }}
+                                        InputProps={{ sx: { borderRadius: 2 } }}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -249,11 +225,11 @@ const ContactForm = () => {
                                         multiline
                                         rows={6}
                                         variant="outlined"
-                                        InputProps={{
-                                            sx: { borderRadius: 2 }
-                                        }}
+                                        InputProps={{ sx: { borderRadius: 2 } }}
                                     />
                                 </Grid>
+
+                                {/* Submit button */}
                                 <Grid item xs={12} sx={{ textAlign: 'center' }}>
                                     <Button
                                         type="submit"
@@ -270,10 +246,7 @@ const ContactForm = () => {
                                             fontWeight: 'bold',
                                             borderRadius: 2,
                                             boxShadow: '0 4px 14px rgba(0,0,0,0.1)',
-                                            '&:hover': {
-                                                boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-                                                transform: 'translateY(-2px)'
-                                            },
+                                            '&:hover': { boxShadow: '0 6px 20px rgba(0,0,0,0.15)', transform: 'translateY(-2px)' },
                                             transition: 'all 0.3s ease'
                                         }}
                                     >
@@ -281,6 +254,30 @@ const ContactForm = () => {
                                     </Button>
                                 </Grid>
                             </Grid>
+                        </Box>
+
+                        {/* WhatsApp button after form */}
+                        <Box sx={{ mt: 4, textAlign: 'center' }}>
+                            <Button
+                                variant="contained"
+                                color="success"
+                                size="large"
+                                startIcon={<WhatsAppIcon />}
+                                href="https://wa.me/94760169518"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    px: 5,
+                                    py: 1.5,
+                                    fontSize: '1rem',
+                                    fontWeight: 'bold',
+                                    borderRadius: 2,
+                                    backgroundColor: "#25D366",
+                                    '&:hover': { backgroundColor: "#1DA851", transform: 'translateY(-2px)' }
+                                }}
+                            >
+                                Chat on WhatsApp
+                            </Button>
                         </Box>
                     </Paper>
                 </Fade>
@@ -296,11 +293,7 @@ const ContactForm = () => {
                 <Alert
                     onClose={handleCloseSnackbar}
                     severity={snackbar.severity}
-                    sx={{
-                        width: '100%',
-                        boxShadow: theme.shadows[6],
-                        alignItems: 'center'
-                    }}
+                    sx={{ width: '100%', boxShadow: theme.shadows[6], alignItems: 'center' }}
                     variant="filled"
                 >
                     {snackbar.message}

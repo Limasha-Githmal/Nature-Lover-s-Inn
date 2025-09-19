@@ -9,7 +9,6 @@ import {
     Button,
     Stack,
     useMediaQuery,
-    Link,
     Box,
     List,
     ListItem,
@@ -17,16 +16,15 @@ import {
     ListItemText,
     Divider,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import DirectionsBoatIcon from "@mui/icons-material/DirectionsBoat"; // ✅ added
 
-
-// Using the same image paths as JungleTour.jsx
+// Images
 const featureImages = [
     { id: 1, src: "src/assets/image/jungel_11.jpeg", alt: "Fresh Ingredients" },
     { id: 2, src: "src/assets/image/jungel_12.jpeg", alt: "Hands-On Cooking" },
@@ -49,6 +47,7 @@ const galleryImages = [
     { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Cooking Class Experience 13" },
 ];
 
+// Styled Button
 const StyledButton = styled(Button)(({ theme }) => ({
     borderRadius: "25px",
     padding: "12px 26px",
@@ -104,7 +103,7 @@ const CookingClass = () => {
                                     overflow: "hidden",
                                     transition: "0.3s",
                                     "&:hover": { transform: "scale(1.03)", boxShadow: 10 },
-                                    height: '100%'
+                                    height: "100%",
                                 }}
                             >
                                 <CardMedia
@@ -113,7 +112,7 @@ const CookingClass = () => {
                                     alt={alt}
                                     sx={{
                                         width: "100%",
-                                        height: 300, // Matching the JungleTour featured image height
+                                        height: 300,
                                         objectFit: "cover",
                                     }}
                                 />
@@ -127,6 +126,7 @@ const CookingClass = () => {
                     ))}
                 </Grid>
 
+                {/* Details Card */}
                 <Card
                     sx={{
                         borderRadius: 4,
@@ -161,19 +161,18 @@ const CookingClass = () => {
                     <Divider sx={{ my: 3 }} />
 
                     <Grid container spacing={2}>
-                        {[
-                            { icon: <AccessTimeIcon color="primary" />, label: "Duration", value: "3–4 hours" },
-
-                        ].map((detail, i) => (
-                            <Grid item xs={12} sm={6} key={i}>
-                                <Box display="flex" alignItems="center">
-                                    {detail.icon}
-                                    <Typography variant="body1" sx={{ ml: 1.5 }}>
-                                        <b>{detail.label}:</b> {detail.value}
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        ))}
+                        {[{ icon: <AccessTimeIcon color="primary" />, label: "Duration", value: "3–4 hours" }].map(
+                            (detail, i) => (
+                                <Grid item xs={12} sm={6} key={i}>
+                                    <Box display="flex" alignItems="center">
+                                        {detail.icon}
+                                        <Typography variant="body1" sx={{ ml: 1.5 }}>
+                                            <b>{detail.label}:</b> {detail.value}
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                            )
+                        )}
                     </Grid>
 
                     <Divider sx={{ my: 3 }} />
@@ -189,14 +188,7 @@ const CookingClass = () => {
                             { persons: "4 Persons", price: "120$" },
                         ].map((pkg, i) => (
                             <Grid item xs={12} sm={6} md={3} key={i}>
-                                <Card
-                                    sx={{
-                                        borderRadius: 3,
-                                        boxShadow: 3,
-                                        p: 2,
-                                        textAlign: "center",
-                                    }}
-                                >
+                                <Card sx={{ borderRadius: 3, boxShadow: 3, p: 2, textAlign: "center" }}>
                                     <Typography variant="body1" fontWeight={600}>
                                         {pkg.persons}
                                     </Typography>
@@ -209,7 +201,6 @@ const CookingClass = () => {
                     </Grid>
                 </Card>
 
-
                 {/* Contact Buttons */}
                 <Stack
                     direction={{ xs: "column", sm: "row" }}
@@ -218,41 +209,41 @@ const CookingClass = () => {
                     alignItems="center"
                     sx={{ mb: 6 }}
                 >
+                    {/* WhatsApp */}
                     <StyledButton
                         variant="contained"
                         color="success"
                         startIcon={<WhatsAppIcon />}
-                        component={Link}
-                        href="https://wa.me/94760169518"
+                        href="https://wa.me/94760169518?text=Hello%20I%20want%20to%20book%20a%20class"
                         target="_blank"
                         rel="noopener"
                     >
                         WhatsApp
                     </StyledButton>
 
+                    {/* Email */}
                     <StyledButton
                         variant="outlined"
                         color="primary"
                         startIcon={<EmailIcon />}
-                        component={Link}
-                        href="mailto:natureloversinn10@gmail.com"
-                        target="_blank"
-                        rel="noopener"
+                        href="mailto:natureloversinn10@gmail.com?subject=Booking%20Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20cooking%20class."
                     >
-                        Email
+                        Gmail
                     </StyledButton>
 
+                    {/* Book class (internal route) */}
                     <StyledButton
                         variant="contained"
                         color="primary"
-                        startIcon={<RestaurantIcon />}
-                        onClick={() => alert("Booking functionality coming soon!")}
+                        startIcon={<DirectionsBoatIcon />}
+                        component={RouterLink}
+                        to="/contact"
                     >
                         Book Class
                     </StyledButton>
                 </Stack>
 
-                {/* Photo Gallery */}
+                {/* Gallery */}
                 <Typography
                     variant="h5"
                     fontWeight={700}
@@ -271,7 +262,7 @@ const CookingClass = () => {
                                     boxShadow: 3,
                                     "&:hover": { transform: "scale(1.02)", boxShadow: 6 },
                                     transition: "0.3s",
-                                    height: '250px' // Matching the JungleTour gallery image height
+                                    height: "250px",
                                 }}
                             >
                                 <CardMedia
@@ -281,7 +272,7 @@ const CookingClass = () => {
                                     sx={{
                                         width: "100%",
                                         height: "100%",
-                                        objectFit: "cover"
+                                        objectFit: "cover",
                                     }}
                                 />
                             </Card>
