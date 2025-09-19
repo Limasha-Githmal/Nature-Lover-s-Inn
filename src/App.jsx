@@ -49,11 +49,11 @@ function App() {
                     <Route path="/rooms" element={<Rooms />} />
                     <Route path="/restaurant" element={<Restaurants />} />
                     <Route path="/offers" element={<Offers />} />
-                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/galaery1" element={<Galaery1 />} />
                     <Route path="/cooking" element={<CookingClass />} />
                     <Route path="/jungle" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
-                    <Route path="/photogallery" element={<Galaery1 />} />
+
                 </Routes>
             </Box>
 

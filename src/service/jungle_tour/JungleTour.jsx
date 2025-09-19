@@ -11,11 +11,20 @@ import {
     useMediaQuery,
     Link,
     Box,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Divider,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import HikingIcon from "@mui/icons-material/Hiking";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import PlaceIcon from "@mui/icons-material/Place";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 
 const featureImages = [
     { id: 1, src: "src/assets/image/jungel_11.jpeg", alt: "Nine Stupas Temple" },
@@ -117,35 +126,108 @@ const JungleTour = () => {
                     ))}
                 </Grid>
 
-                {/* Tour Details */}
-                <Box
+                <Card
                     sx={{
-                        backgroundColor: "#fff",
                         borderRadius: 4,
-                        p: 5,
-                        boxShadow: 4,
+                        p: 4,
+                        boxShadow: 5,
+                        backgroundColor: "background.paper",
                         mb: 8,
                     }}
                 >
                     <Typography variant="h5" fontWeight={700} gutterBottom>
                         What’s Included in Your Tour
                     </Typography>
-                    <Typography variant="body1" sx={{ mt: 3, lineHeight: 1.9, whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html:
-                            `✔️ Guided walk with a local expert
-                        <br/>✔️ Refreshing herbal drink (Belimal tea)
-                        <br/>✔️ Traditional food pack (Coconut roti, sambol, etc.)
-                        <br/>✔️ Fresh water in coconut shells & water bottles
-                        <br/>✔️ First-aid kit for safety
-                        <br/><br/>📍 <b>Starting Point:</b> Nine Stupas Temple, Kalametiya
-                        <br/>⏱ <b>Duration:</b> ~2 hours
-                        <br/>🚶‍♂️ <b>Distance:</b> 6–10 km (flexible)
-                        <br/><br/><b>Highlights:</b>
-                        <br/>- Nine Stupas Temple & Kalametiya Beach
-                        <br/>- Tsunami Remains & Buffalo Fields
-                        <br/>- Kema Rock viewpoint & Bird Lagoon
-                        <br/>- Spot monkeys, peafowls, and wild pigs`
-                    }} />
-                </Box>
+
+                    <List>
+                        {[
+                            "Guided walk with a local expert",
+                            "Refreshing herbal drink (Belimal tea)",
+                            "Traditional food pack (Coconut roti, sambol, etc.)",
+                            "Fresh water in coconut shells & water bottles",
+                            "First-aid kit for safety",
+                        ].map((item, i) => (
+                            <ListItem key={i} disableGutters>
+                                <ListItemIcon>
+                                    <CheckCircleIcon color="success" />
+                                </ListItemIcon>
+                                <ListItemText primary={item} />
+                            </ListItem>
+                        ))}
+                    </List>
+
+                    <Divider sx={{ my: 3 }} />
+
+                    <Grid container spacing={2}>
+                        {[
+                            { icon: <PlaceIcon color="primary" />, label: "Starting Point", value: "Nine Stupas Temple, Kalametiya" },
+                            { icon: <AccessTimeIcon color="primary" />, label: "Duration", value: "~2 hours" },
+                            { icon: <DirectionsWalkIcon color="primary" />, label: "Distance", value: "6–10 km (flexible)" },
+                        ].map((detail, i) => (
+                            <Grid item xs={12} sm={6} key={i}>
+                                <Box display="flex" alignItems="center">
+                                    {detail.icon}
+                                    <Typography variant="body1" sx={{ ml: 1.5 }}>
+                                        <b>{detail.label}:</b> {detail.value}
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                        ))}
+                    </Grid>
+
+                    <Divider sx={{ my: 3 }} />
+
+                    <Typography variant="h6" fontWeight={700} gutterBottom>
+                        Highlights
+                    </Typography>
+                    <List>
+                        {[
+                            "Nine Stupas Temple & Kalametiya Beach",
+                            "Tsunami Remains & Buffalo Fields",
+                            "Kema Rock viewpoint & Bird Lagoon",
+                            "Spot monkeys, peafowls, and wild pigs",
+                        ].map((highlight, i) => (
+                            <ListItem key={i} disableGutters>
+                                <ListItemIcon>
+                                    <CheckCircleIcon color="primary" />
+                                </ListItemIcon>
+                                <ListItemText primary={highlight} />
+                            </ListItem>
+                        ))}
+                    </List>
+
+                    <Divider sx={{ my: 3 }} />
+
+                    <Typography variant="h6" fontWeight={700} gutterBottom>
+                        Packages
+                    </Typography>
+                    <Grid container spacing={2}>
+                        {[
+                            { persons: "1 Person", price: "10$" },
+                            { persons: "2 Persons", price: "15$" },
+                            { persons: "3 Persons", price: "20$" },
+                            { persons: "4 Persons", price: "40$" },
+                        ].map((pkg, i) => (
+                            <Grid item xs={12} sm={6} key={i}>
+                                <Card
+                                    sx={{
+                                        borderRadius: 3,
+                                        boxShadow: 2,
+                                        p: 2,
+                                        textAlign: "center",
+                                    }}
+                                >
+                                    <Typography variant="body1" fontWeight={600}>
+                                        {pkg.persons}
+                                    </Typography>
+                                    <Typography variant="h6" color="primary.main" fontWeight={700}>
+                                        {pkg.price}
+                                    </Typography>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Card>
 
                 {/* Contact Buttons */}
                 <Stack

@@ -11,11 +11,20 @@ import {
     useMediaQuery,
     Link,
     Box,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Divider,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+
 
 // Using the same image paths as JungleTour.jsx
 const featureImages = [
@@ -118,30 +127,88 @@ const CookingClass = () => {
                     ))}
                 </Grid>
 
-                {/* Tour Details */}
-                <Box
+                <Card
                     sx={{
-                        backgroundColor: "#fff",
                         borderRadius: 4,
-                        p: 5,
-                        boxShadow: 4,
+                        p: 4,
+                        boxShadow: 5,
+                        backgroundColor: "background.paper",
                         mb: 8,
                     }}
                 >
                     <Typography variant="h5" fontWeight={700} gutterBottom>
                         What’s Included in Your Class
                     </Typography>
-                    <Typography variant="body1" sx={{ mt: 3, lineHeight: 1.9, whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html:
-                            `✔️ Hands-on cooking of 1 main dish & 5 vegetable curries
-                           <br/>✔️ Learn to make traditional Sri Lankan sweets
-                           <br/>✔️ Guidance from experienced local chefs
-                           <br/>✔️ All ingredients and spices provided
-                           <br/>✔️ Enjoy the delicious meal you prepared
-                           <br/>✔️ Recipe booklet to take home
-                           <br/><br/>⏱ <b>Duration:</b> 3–4 hours
-                           <br/>💰 <b>Price:</b> 40$ per person`
-                    }} />
-                </Box>
+
+                    <List>
+                        {[
+                            "Hands-on cooking of 1 main dish & 5 vegetable curries",
+                            "Learn to make traditional Sri Lankan sweets",
+                            "Guidance from experienced local chefs",
+                            "All ingredients and spices provided",
+                            "Enjoy the delicious meal you prepared",
+                            "Recipe booklet to take home",
+                        ].map((item, i) => (
+                            <ListItem key={i} disableGutters>
+                                <ListItemIcon>
+                                    <CheckCircleIcon color="success" />
+                                </ListItemIcon>
+                                <ListItemText primary={item} />
+                            </ListItem>
+                        ))}
+                    </List>
+
+                    <Divider sx={{ my: 3 }} />
+
+                    <Grid container spacing={2}>
+                        {[
+                            { icon: <AccessTimeIcon color="primary" />, label: "Duration", value: "3–4 hours" },
+
+                        ].map((detail, i) => (
+                            <Grid item xs={12} sm={6} key={i}>
+                                <Box display="flex" alignItems="center">
+                                    {detail.icon}
+                                    <Typography variant="body1" sx={{ ml: 1.5 }}>
+                                        <b>{detail.label}:</b> {detail.value}
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                        ))}
+                    </Grid>
+
+                    <Divider sx={{ my: 3 }} />
+
+                    <Typography variant="h6" fontWeight={700} gutterBottom>
+                        Packages
+                    </Typography>
+                    <Grid container spacing={2}>
+                        {[
+                            { persons: "1 Person", price: "40$" },
+                            { persons: "2 Persons", price: "70$" },
+                            { persons: "3 Persons", price: "100$" },
+                            { persons: "4 Persons", price: "120$" },
+                        ].map((pkg, i) => (
+                            <Grid item xs={12} sm={6} md={3} key={i}>
+                                <Card
+                                    sx={{
+                                        borderRadius: 3,
+                                        boxShadow: 3,
+                                        p: 2,
+                                        textAlign: "center",
+                                    }}
+                                >
+                                    <Typography variant="body1" fontWeight={600}>
+                                        {pkg.persons}
+                                    </Typography>
+                                    <Typography variant="h6" color="primary.main" fontWeight={700}>
+                                        {pkg.price}
+                                    </Typography>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Card>
+
 
                 {/* Contact Buttons */}
                 <Stack

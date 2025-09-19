@@ -47,7 +47,7 @@ const Rooms = () => {
                 "Friendly On-Site Assistance",
                 "Flexible Check-in/Check-out Times (on request)"
             ],
-            image: "src/assets/image/room_1.jpeg",
+            image: image1,
             highlight: true
         },
         {

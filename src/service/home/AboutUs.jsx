@@ -2,22 +2,29 @@ import React from 'react';
 import { Box, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
 
 const App = () => {
+
+    const image1 = "src/assets/image/lagoonC.jpeg"
+    const image2 = "src/assets/image/room_1.jpeg"
+    const image3 = "src/assets/image/gallery_3.jpeg"
+    const image4 = "src/assets/image/room_1.jpeg"
+    const image5 = "src/assets/image/jungel_2.jpeg"
+
     const tourData = [
         {
             id: 1,
-            image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80',
+            image: image1,
             title: 'Lagoon Tour',
             description: 'Bird watching in Sri Lanka',
         },
         {
             id: 2,
-            image: 'https://cdn.prod.website-files.com/661d42779f9c94a059f533cf/6717b0e0300215278d929e60_the-home-hotel-zurich-rooms-overview-hero-p-1600.jpg',
+            image: image2,
             title: 'Rooms',
             description: 'Comfortable nature views',
         },
         {
             id: 3,
-            image: 'https://www.omnihotels.com/-/media/images/hotels/daldtn/restaurants/texas-spice/daldtn_texasspice_kathytran_img.jpg?h=660&iar=0&w=1170',
+            image: image3,
             title: 'Restaurant',
             description: 'Local ingredients meals',
         },
@@ -29,7 +36,7 @@ const App = () => {
         },
         {
             id: 5,
-            image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+            image: image5,
             title: 'Jungle Walking Tour',
             description: 'Explore Kalametiya’s wild beauty',
         },

@@ -19,7 +19,7 @@ const pages = [
     { name: 'Restaurant', path: '/restaurant' },
     { name: 'Cooking Class', path: '/cooking' },
     { name: 'JungleTour', path: '/jungle' },
-    { name: 'Gallery', path: '/gallery' },
+    { name: 'Gallery', path: '/galaery1' },
     { name: 'Contact Us', path: '/contact' }
 ];
 

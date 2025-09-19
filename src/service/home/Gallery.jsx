@@ -18,9 +18,9 @@ import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 
 const images = [
-    { id: 1, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 2, src: 'src/assets/gallery/2.jpg' },
-    { id: 3, src: 'src/assets/gallery/3.jpg' },
+    { id: 1, src: 'src/assets/image/gallery_1.jpeg' },
+    { id: 2, src: 'src/assets/image/gallery_3.jpeg' },
+    { id: 3, src: 'src/assets/image/gallery_18.jpeg' },
 ];
 
 export default function Gallery() {
@@ -123,7 +123,7 @@ export default function Gallery() {
                         variant="contained"
                         color="success"
                         component={Link}
-                        to="/photogallery"
+                        to="/galaery1"
                     >
                         More
                     </Button>

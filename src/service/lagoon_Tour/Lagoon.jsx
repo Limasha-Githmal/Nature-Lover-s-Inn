@@ -11,22 +11,35 @@ import {
   useMediaQuery,
   Link,
   Box,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import DirectionsBoatIcon from "@mui/icons-material/DirectionsBoat";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import PlaceIcon from "@mui/icons-material/Place";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import GroupIcon from "@mui/icons-material/Group";
+import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+
 
 // Top 8 Featured Images
 const featuredImages = [
-  { id: 1, src: "src/assets/image/lagoon_1.jpg", alt: "Gallery Photo 1" },
-  { id: 2, src: "src/assets/image/lagoon_2.jpg", alt: "Gallery Photo 2" },
-  { id: 3, src: "src/assets/image/lagoon_3.jpg", alt: "Gallery Photo 3" },
-  { id: 4, src: "src/assets/image/lagoon_4.jpg", alt: "Gallery Photo 4" },
-  { id: 5, src: "src/assets/image/lagoon_5.jpg", alt: "Gallery Photo 5" },
-  { id: 6, src: "src/assets/image/lagoon_6.jpg", alt: "Gallery Photo 6" },
-  { id: 7, src: "src/assets/image/lagoon_7.jpg", alt: "Gallery Photo 7" },
-  { id: 8, src: "src/assets/image/lagoon_8.jpg", alt: "Gallery Photo 8"},
+  { id: 1, src: "src/assets/image/lagoon_34.jpeg", alt: "Gallery Photo 1" },
+  { id: 2, src: "src/assets/image/lagoon_35.jpeg", alt: "Gallery Photo 2" },
+  { id: 3, src: "src/assets/image/lagoon_36.jpeg", alt: "Gallery Photo 3" },
+  { id: 4, src: "src/assets/image/lagoon_32.jpeg", alt: "Gallery Photo 4" },
+  { id: 5, src: "src/assets/image/lagoon_31.jpeg", alt: "Gallery Photo 5" },
+  { id: 6, src: "src/assets/image/lagoon_33.jpeg", alt: "Gallery Photo 6" },
+  { id: 7, src: "src/assets/image/lagoon_37.jpeg", alt: "Gallery Photo 7" },
+  { id: 8, src: "src/assets/image/lagoon_1.jpg", alt: "Gallery Photo 8"},
+  { id: 9, src: "src/assets/image/lagoon_38.jpeg", alt: "Gallery Photo 9"},
 ];
 
 // Last 20 Gallery Images
@@ -111,7 +124,7 @@ const Lagoon = () => {
       <Container maxWidth="lg">
         {/* Top 8 Featured Images */}
         <Grid container spacing={3} justifyContent="center" sx={{ mb: 8 }}>
-          {featuredImages.map(({ id, src, alt }) => (
+          {featuredImages.map(({ id, src }) => (
             <Grid item xs={12} sm={6} md={3} key={id}>
               <Card
                 sx={{
@@ -125,83 +138,139 @@ const Lagoon = () => {
                 <CardMedia
                   component="img"
                   image={src}
-                  alt={alt}
+
                   sx={{
                     width: "100%",
                     height: 220,
                     objectFit: "cover",
                   }}
                 />
-                <CardContent sx={{ textAlign: "center", py: 2 }}>
-                  <Typography variant="subtitle1" fontWeight={600}>
-                    {alt}
-                  </Typography>
-                </CardContent>
+
               </Card>
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ mb: 6, textAlign: "center" }}>
+          <Typography
+              variant="h4"
+              fontWeight={700}
+              sx={{ color: "primary.main", mb: 1 }}
+          >
+            #1 One Tour In…
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary">
+            Discover unforgettable activities
+          </Typography>
 
-        {/* Tour Activities */}
-        <Box sx={{ mb: 5 }}>
-          <Typography
-            variant="h5"
-            fontWeight={700}
-            gutterBottom
-            align="center"
-            sx={{ color: "#0287a8" }}
-          >
-            #1 ONE TOUR IN..
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            sx={{ lineHeight: 1.8, whiteSpace: "pre-line" }}
-          >
-            1. Bird Watching {"\n"}
-            2. Paddle Boats Safari {"\n"}
-            3. Bird Photography {"\n"}
-            4. Rock Climbing {"\n"}
-            5. Jungle Walk {"\n"}
-            6. Sunset View
-          </Typography>
+          <Grid container spacing={2} sx={{ mt: 3, justifyContent: "center" }}>
+            {[
+              "Bird Watching",
+              "Paddle Boats Safari",
+              "Bird Photography",
+              "Rock Climbing",
+              "Jungle Walk",
+              "Sunset View",
+            ].map((activity, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card sx={{ borderRadius: 3, boxShadow: 2, height: "100%" }}>
+                    <CardContent>
+                      <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          textAlign="center"
+                      >
+                        {activity}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+            ))}
+          </Grid>
         </Box>
 
-        {/* Tour Details */}
-        <Box
-          sx={{
-            backgroundColor: "#fff",
-            borderRadius: 4,
-            p: 5,
-            boxShadow: 4,
-            mb: 8,
-          }}
+        <Card
+            sx={{
+              borderRadius: 4,
+              p: 4,
+              boxShadow: 5,
+              backgroundColor: "background.paper",
+              mb: 8,
+            }}
         >
           <Typography variant="h5" fontWeight={700} gutterBottom>
             What’s Included in Your Tour
           </Typography>
 
-          <Grid container spacing={2} sx={{ mt: 2 }}>
+          <List>
             {[
               "Binoculars for birdwatching",
               "Life Jackets for safety",
               "Umbrellas for comfort",
               "Refreshments (Chips, Fruits, Water Bottles)",
             ].map((item, i) => (
-              <Grid item xs={12} sm={6} key={i}>
-                <Typography variant="body1">✔️ {item}</Typography>
-              </Grid>
+                <ListItem key={i} disableGutters>
+                  <ListItemIcon>
+                    <CheckCircleIcon color="success" />
+                  </ListItemIcon>
+                  <ListItemText primary={item} />
+                </ListItem>
+            ))}
+          </List>
+
+          <Divider sx={{ my: 3 }} />
+
+          <Grid container spacing={2}>
+            {[
+              { icon: <PlaceIcon color="primary" />, label: "Location", value: "Kalametiya Bird Sanctuary" },
+              { icon: <AccessTimeIcon color="primary" />, label: "Duration", value: "2-3 hours" },
+              { icon: <GroupIcon color="primary" />, label: "Max Guests", value: "4 foreign guests per paddle boat" },
+              { icon: <EmojiNatureIcon color="primary" />, label: "Birds", value: "120+ local & migratory species" },
+
+            ].map((detail, i) => (
+                <Grid item xs={12} sm={6} key={i}>
+                  <Box display="flex" alignItems="center">
+                    {detail.icon}
+                    <Typography variant="body1" sx={{ ml: 1.5 }}>
+                      <b>{detail.label}:</b> {detail.value}
+                    </Typography>
+                  </Box>
+                </Grid>
             ))}
           </Grid>
 
-          <Typography variant="body1" sx={{ mt: 3, lineHeight: 1.8 }}>
-            📍 <b>Location:</b> Kalametiya Bird Sanctuary <br />
-            ⏱ <b>Duration:</b> 2-3 hours <br />
-            👥 <b>Max Guests:</b> 4 foreign guests per paddle boat <br />
-            🦩 <b>Birds:</b> 120+ local & migratory species <br />
-            💰 <b>Price:</b> 30$ per person per ride
+          <Divider sx={{ my: 3 }} />
+
+          <Typography variant="h6" fontWeight={700} gutterBottom>
+            Packages
           </Typography>
-        </Box>
+          <Grid container spacing={2}>
+            {[
+              { persons: "1 Person", price: "10$" },
+              { persons: "2 Persons", price: "15$" },
+              { persons: "3 Persons", price: "20$" },
+              { persons: "4 Persons", price: "40$" },
+            ].map((pkg, i) => (
+                <Grid item xs={12} sm={6} md={3} key={i}>
+                  <Card
+                      sx={{
+                        borderRadius: 3,
+                        boxShadow: 3,
+                        p: 2,
+                        textAlign: "center",
+                      }}
+                  >
+                    <Typography variant="body1" fontWeight={600}>
+                      {pkg.persons}
+                    </Typography>
+                    <Typography variant="h6" color="primary.main" fontWeight={700}>
+                      {pkg.price}
+                    </Typography>
+                  </Card>
+                </Grid>
+            ))}
+          </Grid>
+        </Card>
+
 
         {/* Contact Buttons */}
         <Stack
