@@ -96,7 +96,7 @@ export default function ResponsiveAppBar() {
                 backgroundColor: 'white',
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                 transition: 'all 0.3s ease',
-                top: { xs: '97px', md: '57px' },
+                top: { xs: '57px', md: '57px' },
                 zIndex: 1100,
             }}
         >

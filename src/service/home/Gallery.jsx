@@ -10,6 +10,7 @@ import {
     Dialog,
     IconButton,
 } from '@mui/material';
+import { Link } from 'react-router-dom'; // Import Link
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -20,10 +21,6 @@ const images = [
     { id: 1, src: 'src/assets/gallery/1.jpg.jpg' },
     { id: 2, src: 'src/assets/gallery/2.jpg' },
     { id: 3, src: 'src/assets/gallery/3.jpg' },
-    { id: 4, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 5, src: 'src/assets/gallery/1.jpg.jpg' },
-    { id: 6, src: 'src/assets/gallery/1.jpg.jpg' },
-
 ];
 
 export default function Gallery() {
@@ -35,22 +32,22 @@ export default function Gallery() {
     const handleOpen = (index) => {
         setCurrentIndex(index);
         setOpen(true);
-        setZoom(1); // Reset zoom when opening new image
-        setPosition({ x: 0, y: 0 }); // Reset position
+        setZoom(1);
+        setPosition({ x: 0, y: 0 });
     };
 
     const handleClose = () => setOpen(false);
 
     const handlePrev = () => {
         setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-        setZoom(1); // Reset zoom when changing images
-        setPosition({ x: 0, y: 0 }); // Reset position
+        setZoom(1);
+        setPosition({ x: 0, y: 0 });
     };
 
     const handleNext = () => {
         setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-        setZoom(1); // Reset zoom when changing images
-        setPosition({ x: 0, y: 0 }); // Reset position
+        setZoom(1);
+        setPosition({ x: 0, y: 0 });
     };
 
     const handleZoomIn = () => setZoom((prev) => Math.min(prev + 0.25, 3));
@@ -90,7 +87,7 @@ export default function Gallery() {
 
                 <Grid container spacing={3} justifyContent="center">
                     {images.map((image, index) => (
-                        <Grid item key={image.id} xs={12} sm={6} md={3}>
+                        <Grid item key={image.id} xs={12} sm={6} md={4}>
                             <Card
                                 onClick={() => handleOpen(index)}
                                 sx={{
@@ -122,7 +119,12 @@ export default function Gallery() {
                 </Grid>
 
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
-                    <Button variant="contained" color="success">
+                    <Button
+                        variant="contained"
+                        color="success"
+                        component={Link}
+                        to="/photogallery"
+                    >
                         More
                     </Button>
                 </Box>

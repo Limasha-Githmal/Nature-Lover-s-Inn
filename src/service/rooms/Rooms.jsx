@@ -28,6 +28,7 @@ import {
 } from '@mui/icons-material';
 
 const Rooms = () => {
+    const image1 = "src/assets/image/room_1.jpeg"
     const theme = useTheme();
 
     const rooms = [
@@ -46,7 +47,7 @@ const Rooms = () => {
                 "Friendly On-Site Assistance",
                 "Flexible Check-in/Check-out Times (on request)"
             ],
-            image: "https://cdn.prod.website-files.com/661d42779f9c94a059f533cf/6717b0e0300215278d929e60_the-home-hotel-zurich-rooms-overview-hero-p-1600.jpg",
+            image: "src/assets/image/room_1.jpeg",
             highlight: true
         },
         {
@@ -64,7 +65,7 @@ const Rooms = () => {
                 "Friendly On-Site Assistance",
                 "Flexible Check-in/Check-out Times (on request)"
             ],
-            image: "https://cdn.prod.website-files.com/661d42779f9c94a059f533cf/6717b0e0300215278d929e60_the-home-hotel-zurich-rooms-overview-hero-p-1600.jpg",
+            image: image1,
             highlight: false
         }
     ];

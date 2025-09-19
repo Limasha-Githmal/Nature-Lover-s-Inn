@@ -14,6 +14,7 @@ import Lagoon from "./service/lagoon_Tour/Lagoon.jsx";
 import Rooms from "./service/rooms/Rooms.jsx";
 import JungleTour from "./service/jungle_tour/JungleTour.jsx"
 import Restaurants from "./service/resturant/Resturant.jsx";
+import Galaery1 from "./service/gallery/galaery1.jsx";
 
 function App() {
     return (
@@ -36,12 +37,8 @@ function App() {
                 sx={{
                     flex: 1,
                     width: '100%',
-                    maxWidth: 'lg',
-                    mx: 'auto',
-                    px: { xs: 2, sm: 3, md: 4 },
-                    pt: 3, // Reduced top padding
+                    pt: { xs: '154px', md: '114px' }, // Adjust top padding to account for fixed headers
                     pb: 4, // Bottom padding
-                    mt: { xs: '97px', md: '57px' }, // Matches combined height of ContactBar and NavBar
                     mb: 2 // Space before footer
                 }}
             >
@@ -56,6 +53,7 @@ function App() {
                     <Route path="/cooking" element={<CookingClass />} />
                     <Route path="/jungle" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
+                    <Route path="/photogallery" element={<Galaery1 />} />
                 </Routes>
             </Box>
 

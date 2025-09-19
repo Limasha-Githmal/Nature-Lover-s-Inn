@@ -59,7 +59,7 @@ const Footer = () => {
                             }}
                         >
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3296.1705870874653!2d79.93307297403024!3d6.819048919660284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae247bbdb73d83f%3A0xa9760ac35f65e17c!2sArtistic%20Insights%20Studios!5e1!3m2!1sen!2slk!4v1749889033459!5m2!1sen!2slk"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.502313625129!2d80.9320688147683!3d6.06640599561685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae6c7a7b4b3b2d1%3A0x1b2c2b4b4b3b2d1!2sNature%20Lover&#39;s%20Inn!5e0!3m2!1sen!2slk!4v1634564883584!5m2!1sen!2slk"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
@@ -168,7 +168,7 @@ const Footer = () => {
                             }}
                         >
                             <img
-                                src="https://media-cdn.tripadvisor.com/media/photo-s/0c/49/2c/2b/the-commercial-hotel.jpg"
+                                src="src/assets/image/tripadvisorlogo.png"
                                 alt="TripAdvisor"
                                 style={{
                                     height: 'auto',

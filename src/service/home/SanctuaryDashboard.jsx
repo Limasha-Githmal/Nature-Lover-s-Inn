@@ -38,6 +38,8 @@ const FullScreenContainer = styled(Box)({
     color: '#ffffff',
     padding: '2rem',
     position: 'relative',
+    left: '50%',
+    transform: 'translateX(-50%)',
     overflow: 'hidden',
     boxSizing: 'border-box',
 });
