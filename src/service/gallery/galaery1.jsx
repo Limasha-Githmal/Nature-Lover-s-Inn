@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,
     Container,
@@ -6,11 +6,15 @@ import {
     Grid,
     Card,
     CardMedia,
+    IconButton,
     useMediaQuery,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import CloseIcon from '@mui/icons-material/Close';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-// Array of 20 photos for the gallery
+// Array of gallery images
 const galleryImages = [
     { id: 1, src: "src/assets/image/gallery_1.jpeg", alt: "Jungle Scenery" },
     { id: 2, src: "src/assets/image/gallery_7.jpeg", alt: "Trail Path" },
@@ -47,37 +51,50 @@ const galleryImages = [
 const PhotoGallery = () => {
     const theme = useTheme();
     const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+    const isMd = useMediaQuery(theme.breakpoints.down("md"));
+
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const openLightbox = (index) => {
+        setCurrentIndex(index);
+        setLightboxOpen(true);
+    };
+
+    const closeLightbox = () => setLightboxOpen(false);
+    const prevImage = () => setCurrentIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    const nextImage = () => setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
 
     return (
-        <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
+        <Box sx={{ bgcolor: "#f8fbfc", pb: { xs: 6, sm: 8, md: 10 } }}>
             {/* Hero Section */}
             <Box
                 sx={{
                     textAlign: "center",
-                    py: 8,
-                    px: 2,
+                    py: { xs: 6, sm: 8, md: 10 },
+                    px: { xs: 2, sm: 3 },
                     background: "linear-gradient(135deg, #6a11cb, #2575fc)",
                     color: "#fff",
-                    borderBottomLeftRadius: 40,
-                    borderBottomRightRadius: 40,
-                    mb: 6,
+                    borderBottomLeftRadius: { xs: 30, sm: 40 },
+                    borderBottomRightRadius: { xs: 30, sm: 40 },
+                    mb: { xs: 4, sm: 6, md: 8 },
                 }}
             >
                 <Typography variant={isSm ? "h4" : "h3"} fontWeight={800} gutterBottom>
                     Our Photo Gallery 📸
                 </Typography>
                 <Typography
-                    variant="h6"
-                    sx={{ maxWidth: 700, mx: "auto", fontWeight: 400, opacity: 0.95 }}
+                    variant={isSm ? "body1" : "h6"}
+                    sx={{ maxWidth: { xs: "95%", sm: 700 }, mx: "auto", fontWeight: 400, opacity: 0.95 }}
                 >
                     Explore moments captured at Nature Lover's Inn and our beautiful surroundings in Kalametiya.
                 </Typography>
             </Box>
 
+            {/* Photo Grid */}
             <Container maxWidth="lg">
-                {/* Photo Grid */}
-                <Grid container spacing={2}>
-                    {galleryImages.map(({ id, src, alt }) => (
+                <Grid container spacing={2} justifyContent="center">
+                    {galleryImages.map(({ id, src, alt }, index) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={id}>
                             <Card
                                 sx={{
@@ -86,24 +103,77 @@ const PhotoGallery = () => {
                                     boxShadow: 3,
                                     "&:hover": { transform: "scale(1.03)", boxShadow: 8 },
                                     transition: "all 0.3s ease-in-out",
-                                    height: '250px'
+                                    height: { xs: 200, sm: 220, md: 250 },
+                                    cursor: "pointer",
                                 }}
+                                onClick={() => openLightbox(index)}
                             >
                                 <CardMedia
                                     component="img"
                                     image={src}
                                     alt={alt}
                                     sx={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                    }}
+                                        width: {xs:300, sm: 330, md: 350 },
+                                        height: "auto", // ✅ auto height to remove white gaps
+                                        maxHeight: {xs:200, sm: 230, md: 250 },
+                                        objectFit: "cover", }}
                                 />
                             </Card>
                         </Grid>
                     ))}
                 </Grid>
             </Container>
+
+            {/* Lightbox */}
+            {lightboxOpen && (
+                <Box
+                    sx={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        width: "100vw",
+                        height: "100vh",
+                        bgcolor: "rgba(0,0,0,0.85)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: 9999,
+                        px: { xs: 1, sm: 3 },
+                    }}
+                >
+                    <IconButton
+                        sx={{ position: "absolute", top: 20, right: 20, color: "#fff", zIndex: 10000 }}
+                        onClick={closeLightbox}
+                    >
+                        <CloseIcon fontSize={isSm ? "medium" : "large"} />
+                    </IconButton>
+
+                    <IconButton
+                        sx={{ position: "absolute", left: isSm ? 10 : 40, color: "#fff" }}
+                        onClick={prevImage}
+                    >
+                        <ArrowBackIosNewIcon fontSize={isSm ? "medium" : "large"} />
+                    </IconButton>
+
+                    <Box
+                        component="img"
+                        src={galleryImages[currentIndex].src}
+                        alt={galleryImages[currentIndex].alt}
+                        sx={{
+                            maxHeight: isSm ? "70%" : isMd ? "75%" : "80%",
+                            maxWidth: isSm ? "90%" : isMd ? "85%" : "80%",
+                            borderRadius: 2,
+                        }}
+                    />
+
+                    <IconButton
+                        sx={{ position: "absolute", right: isSm ? 10 : 40, color: "#fff" }}
+                        onClick={nextImage}
+                    >
+                        <ArrowForwardIosIcon fontSize={isSm ? "medium" : "large"} />
+                    </IconButton>
+                </Box>
+            )}
         </Box>
     );
 };

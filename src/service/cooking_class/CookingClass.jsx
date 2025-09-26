@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Container,
     Grid,
@@ -15,6 +15,7 @@ import {
     ListItemIcon,
     ListItemText,
     Divider,
+    IconButton
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
@@ -22,7 +23,11 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import DirectionsBoatIcon from "@mui/icons-material/DirectionsBoat"; // ✅ added
+import DirectionsBoatIcon from "@mui/icons-material/DirectionsBoat";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CloseIcon from "@mui/icons-material/Close";
+import { Helmet } from "react-helmet";
 
 // Images
 const featureImages = [
@@ -65,13 +70,89 @@ const CookingClass = () => {
     const theme = useTheme();
     const isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
+    // Lightbox state
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [allImages, setAllImages] = useState([]);
+
+    const openLightbox = (images, index) => {
+        setAllImages(images);
+        setCurrentIndex(index);
+        setLightboxOpen(true);
+    };
+    const closeLightbox = () => setLightboxOpen(false);
+    const prevImage = () =>
+        setCurrentIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
+    const nextImage = () =>
+        setCurrentIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+
     return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
+
+
+
+            <Helmet>
+                    <title>Sri Lankan Cooking Class in Kalametiya | Nature Lover’s Inn</title>
+                    <meta
+                        name="description"
+                        content="Join our hands-on Sri Lankan cooking class in Kalametiya. Learn to cook local curries, sweets, and enjoy authentic flavors with expert chefs."
+                    />
+                    <meta
+                        name="keywords"
+                        content="Sri Lanka cooking class, Kalametiya activities, cooking for foreigners Sri Lanka, Sri Lankan food experience, Kalametiya"
+                    />
+                    <meta name="author" content="Nature Lover’s Inn" />
+
+                    {/* Open Graph for Facebook/WhatsApp/LinkedIn */}
+                    <meta property="og:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
+                    <meta
+                        property="og:description"
+                        content="Hands-on cooking class in Kalametiya, Sri Lanka. Learn local curries, sweets, and dine on your creations."
+                    />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content="http://localhost:3000/cooking" />{/*https://yourwebsite.com/cooking-class*/}
+                    <meta property="og:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
+
+                    {/* Twitter Card */}
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
+                    <meta
+                        name="twitter:description"
+                        content="Join our Sri Lankan cooking experience in Kalametiya. Cook, eat, and enjoy local food culture."
+                    />
+                    <meta name="twitter:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
+
+                    {/* ✅ JSON-LD Schema for Cooking Class */}
+                    <script type="application/ld+json">
+                        {`
+                        {
+                        "@context": "https://schema.org",
+                        "@type": "TouristAttraction",
+                        "name": "Sri Lankan Cooking Class in Kalametiya, Tangalle",
+                        "description": "Hands-on Sri Lankan cooking class in Kalametiya, where guests learn to prepare local curries, sweets, and enjoy authentic flavors.",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Nature Lover’s Inn",
+                            "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Kalametiya, Tangalle",
+                            "addressCountry": "Sri Lanka"
+                            },
+                            "telephone": "+94-760169518",
+                            "url": "http://localhost:3000/cooking"
+                        },
+                        "image": "http://localhost:3000/images/jungel_11.jpeg"
+                        }
+                        `}
+                    </script>
+            </Helmet>
+
+
             {/* Hero Section */}
             <Box
                 sx={{
                     textAlign: "center",
-                    py: 8,
+                    py: { xs: 5, md: 8 },
                     px: 2,
                     background: "linear-gradient(135deg, #ff8c00, #ffc107)",
                     color: "#fff",
@@ -80,21 +161,22 @@ const CookingClass = () => {
                     mb: 6,
                 }}
             >
-                <Typography variant={isSm ? "h4" : "h3"} fontWeight={800} gutterBottom>
+                <Typography variant={isSm ? "h5" : "h3"} fontWeight={800} gutterBottom>
                     Sri Lankan Cooking Experience 🍛
                 </Typography>
                 <Typography
-                    variant="h6"
+                    variant={isSm ? "body1" : "h6"}
                     sx={{ maxWidth: 700, mx: "auto", fontWeight: 400, opacity: 0.95 }}
                 >
                     Learn, cook, and taste authentic Sri Lankan cuisine in a hands-on, fun-filled class.
                 </Typography>
             </Box>
 
+
             <Container maxWidth="lg">
                 {/* Featured Images */}
                 <Grid container spacing={3} justifyContent="center" sx={{ mb: 8 }}>
-                    {featureImages.map(({ id, src, alt }) => (
+                    {featureImages.map(({ id, src, alt }, index) => (
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             <Card
                                 sx={{
@@ -104,15 +186,18 @@ const CookingClass = () => {
                                     transition: "0.3s",
                                     "&:hover": { transform: "scale(1.03)", boxShadow: 10 },
                                     height: "100%",
+                                    cursor: "pointer",
                                 }}
+                                onClick={() => openLightbox(featureImages, index)}
                             >
                                 <CardMedia
                                     component="img"
                                     image={src}
                                     alt={alt}
                                     sx={{
-                                        width: "100%",
-                                        height: 300,
+                                        width: {xs:300, sm: 330, md: 350 },
+                                        height: "auto", // ✅ auto height to remove white gaps
+                                        maxHeight: {xs:200, sm: 260, md: 300 },
                                         objectFit: "cover",
                                     }}
                                 />
@@ -130,7 +215,7 @@ const CookingClass = () => {
                 <Card
                     sx={{
                         borderRadius: 4,
-                        p: 4,
+                        p: { xs: 2, sm: 3, md: 4 },
                         boxShadow: 5,
                         backgroundColor: "background.paper",
                         mb: 8,
@@ -181,14 +266,20 @@ const CookingClass = () => {
                         Packages
                     </Typography>
                     <Grid container spacing={2}>
-                        {[
-                            { persons: "1 Person", price: "40$" },
-                            { persons: "2 Persons", price: "70$" },
-                            { persons: "3 Persons", price: "100$" },
-                            { persons: "4 Persons", price: "120$" },
-                        ].map((pkg, i) => (
+                        {[{ persons: "1 Person", price: "40$" },
+                          { persons: "2 Persons", price: "70$" },
+                          { persons: "3 Persons", price: "100$" },
+                          { persons: "4 Persons", price: "120$" }].map((pkg, i) => (
                             <Grid item xs={12} sm={6} md={3} key={i}>
-                                <Card sx={{ borderRadius: 3, boxShadow: 3, p: 2, textAlign: "center" }}>
+                                <Card
+                                    sx={{
+                                        borderRadius: 3,
+                                        boxShadow: 3,
+                                        p: 2,
+                                        textAlign: "center",
+                                        "&:hover": { backgroundColor: "action.hover" },
+                                    }}
+                                >
                                     <Typography variant="body1" fontWeight={600}>
                                         {pkg.persons}
                                     </Typography>
@@ -207,32 +298,28 @@ const CookingClass = () => {
                     spacing={3}
                     justifyContent="center"
                     alignItems="center"
-                    sx={{ mb: 6 }}
+                    sx={{ mb: 6, width: "100%" }}
                 >
-                    {/* WhatsApp */}
                     <StyledButton
+                        fullWidth
                         variant="contained"
                         color="success"
                         startIcon={<WhatsAppIcon />}
-                        href="https://wa.me/94760169518?text=Hello%20I%20want%20to%20book%20a%20class"
-                        target="_blank"
-                        rel="noopener"
+                        href="https://wa.me/94760169518"
                     >
                         WhatsApp
                     </StyledButton>
-
-                    {/* Email */}
                     <StyledButton
+                        fullWidth
                         variant="outlined"
                         color="primary"
                         startIcon={<EmailIcon />}
-                        href="mailto:natureloversinn10@gmail.com?subject=Booking%20Inquiry&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20cooking%20class."
+                        href="mailto:natureloversinn10@gmail.com"
                     >
                         Gmail
                     </StyledButton>
-
-                    {/* Book class (internal route) */}
                     <StyledButton
+                        fullWidth
                         variant="contained"
                         color="primary"
                         startIcon={<DirectionsBoatIcon />}
@@ -252,8 +339,8 @@ const CookingClass = () => {
                 >
                     📸 Cooking Class Moments
                 </Typography>
-                <Grid container spacing={2}>
-                    {galleryImages.map(({ id, src, alt }) => (
+                <Grid container spacing={2} justifyContent="center">
+                    {galleryImages.map(({ id, src, alt }, index) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={id}>
                             <Card
                                 sx={{
@@ -263,15 +350,18 @@ const CookingClass = () => {
                                     "&:hover": { transform: "scale(1.02)", boxShadow: 6 },
                                     transition: "0.3s",
                                     height: "250px",
+                                    cursor: "pointer",
                                 }}
+                                onClick={() => openLightbox(galleryImages, index)}
                             >
                                 <CardMedia
                                     component="img"
                                     image={src}
                                     alt={alt}
                                     sx={{
-                                        width: "100%",
-                                        height: "100%",
+                                        width: {xs:310, sm: 330, md: 360 },
+                                        height: "auto", // ✅ auto height to remove white gaps
+                                        maxHeight: {xs:300, sm: 280, md: 300 }, // limit too tall images
                                         objectFit: "cover",
                                     }}
                                 />
@@ -279,6 +369,60 @@ const CookingClass = () => {
                         </Grid>
                     ))}
                 </Grid>
+
+                {/* Lightbox Popup */}
+                {lightboxOpen && (
+                    <Box
+                        sx={{
+                            position: "fixed",
+                            top: 0,
+                            left: 0,
+                            width: "100vw",
+                            height: "100vh",
+                            bgcolor: "rgba(0,0,0,0.85)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            zIndex: 9999,
+                        }}
+                    >
+                        {/* Close */}
+                        <IconButton
+                            sx={{ position: "absolute", top: 20, right: 20, color: "#fff", zIndex: 10000 }}
+                            onClick={closeLightbox}
+                        >
+                            <CloseIcon fontSize={isSm ? "medium" : "large"} />
+                        </IconButton>
+
+                        {/* Previous */}
+                        <IconButton
+                            sx={{ position: "absolute", left: isSm ? 10 : 40, color: "#fff" }}
+                            onClick={prevImage}
+                        >
+                            <ArrowBackIosNewIcon fontSize={isSm ? "medium" : "large"} />
+                        </IconButton>
+
+                        {/* Image */}
+                        <Box
+                            component="img"
+                            src={allImages[currentIndex].src}
+                            alt={allImages[currentIndex].alt}
+                            sx={{
+                                maxHeight: "85vh",
+                                maxWidth: "95vw",
+                                borderRadius: 2,
+                            }}
+                        />
+
+                        {/* Next */}
+                        <IconButton
+                            sx={{ position: "absolute", right: isSm ? 10 : 40, color: "#fff" }}
+                            onClick={nextImage}
+                        >
+                            <ArrowForwardIosIcon fontSize={isSm ? "medium" : "large"} />
+                        </IconButton>
+                    </Box>
+                )}
             </Container>
         </Box>
     );

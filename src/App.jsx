@@ -15,6 +15,9 @@ import Rooms from "./service/rooms/Rooms.jsx";
 import JungleTour from "./service/jungle_tour/JungleTour.jsx"
 import Restaurants from "./service/resturant/Resturant.jsx";
 import Galaery1 from "./service/gallery/galaery1.jsx";
+import ScrollToTop from "./component/ScrollToTop.jsx";
+import TermsOfUse from "./service/legal/TermsOfUse.jsx";
+import PrivacyPolicy from "./service/legal/PrivacyPolicy.jsx";
 
 function App() {
     return (
@@ -37,11 +40,13 @@ function App() {
                 sx={{
                     flex: 1,
                     width: '100%',
-                    pt: { xs: '154px', md: '114px' }, // Adjust top padding to account for fixed headers
+                    pt: { xs: '64px', md: '114px' }, // Adjust top padding to account for fixed headers
                     pb: 4, // Bottom padding
                     mb: 2 // Space before footer
                 }}
             >
+                <ScrollToTop />
+
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/about" element={<AboutUs />} />
@@ -49,10 +54,12 @@ function App() {
                     <Route path="/rooms" element={<Rooms />} />
                     <Route path="/restaurant" element={<Restaurants />} />
                     <Route path="/offers" element={<Offers />} />
-                    <Route path="/galaery1" element={<Galaery1 />} />
+                    <Route path="/gallery1" element={<Galaery1 />} />
                     <Route path="/cooking" element={<CookingClass />} />
                     <Route path="/jungle" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
+                    <Route path="/terms" element={<TermsOfUse />} />
+                    <Route path="/privacy" element={<PrivacyPolicy />} />
 
                 </Routes>
             </Box>

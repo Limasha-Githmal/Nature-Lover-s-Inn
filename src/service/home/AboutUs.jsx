@@ -62,6 +62,7 @@ const App = () => {
                 p: { xs: 2, sm: 3, lg: 4 },
                 fontFamily: "Inter, sans-serif",
                 color: "text.primary",
+
             }}
         >
             {/* Section Title */}

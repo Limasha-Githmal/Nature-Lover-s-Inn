@@ -41,6 +41,7 @@ const ContactBar = () => {
     return (
         <Box
             sx={{
+                display: { xs: "none", md: "block" }, // ✅ Hide on mobile + tablet
                 position: "fixed",
                 top: 0,
                 zIndex: 1200,
@@ -185,6 +186,7 @@ const ContactBar = () => {
                             letterSpacing: "1px",
                             padding: "8px 20px",
                             ml: isSmallScreen ? 0 : 1,
+                            display: { xs: "none", md: "inline-flex" } // ✅ Only show on desktop
                         }}
                     >
                         Book Now

@@ -14,7 +14,7 @@ import {
     useTheme,
     useMediaQuery,
     ToggleButtonGroup,
-    ToggleButton
+    ToggleButton,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
@@ -24,6 +24,7 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import HikingIcon from '@mui/icons-material/Hiking';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { keyframes } from '@mui/system';
+import { Helmet } from 'react-helmet';
 
 const floatAnimation = keyframes`
     0% { transform: translateY(0px); }
@@ -36,31 +37,32 @@ const ContactForm = () => {
         name: '',
         email: '',
         message: '',
-        serviceType: 'room'
+        serviceType: 'room',
     });
     const [loading, setLoading] = useState(false);
     const [snackbar, setSnackbar] = useState({
         open: false,
         message: '',
-        severity: 'success'
+        severity: 'success',
     });
+
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const handleServiceChange = (event, newService) => {
         if (newService !== null) {
-            setFormData(prev => ({
+            setFormData((prev) => ({
                 ...prev,
-                serviceType: newService
+                serviceType: newService,
             }));
         }
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
+        setFormData((prev) => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
     };
 
@@ -74,7 +76,7 @@ const ContactForm = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...formData,
-                    subject: `Inquiry about ${formData.serviceType}`
+                    subject: `Inquiry about ${formData.serviceType}`,
                 }),
             });
 
@@ -82,17 +84,18 @@ const ContactForm = () => {
                 setSnackbar({
                     open: true,
                     message: 'Message sent successfully! We will contact you soon.',
-                    severity: 'success'
+                    severity: 'success',
                 });
                 setFormData({ name: '', email: '', message: '', serviceType: 'room' });
             } else {
                 throw new Error('Failed to send message');
             }
         } catch (error) {
+            console.error(error); // 👈 log the actual error
             setSnackbar({
                 open: true,
                 message: 'Failed to send message. Please try again later.',
-                severity: 'error'
+                severity: 'error',
             });
         } finally {
             setLoading(false);
@@ -100,27 +103,57 @@ const ContactForm = () => {
     };
 
     const handleCloseSnackbar = () => {
-        setSnackbar(prev => ({ ...prev, open: false }));
+        setSnackbar((prev) => ({ ...prev, open: false }));
     };
 
     return (
-        <Box sx={{ py: 8, background: 'linear-gradient(135deg, #f9f9f9 0%, #e3f2fd 100%)', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+        <Box
+            sx={{
+                py: { xs: 6, sm: 8, md: 10 },
+                background: 'linear-gradient(135deg, #f9f9f9 0%, #e3f2fd 100%)',
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+            }}
+        >
+            <Helmet>
+                <title>Contact Nature Lover's Inn | Book a Room, Tours & Activities</title>
+                <meta
+                    name="description"
+                    content="Get in touch with Nature Lover's Inn to book rooms, bird watching tours, jungle walks, and cooking classes in Kalametiya, Sri Lanka."
+                />
+                <meta
+                    name="keywords"
+                    content="Contact, Nature Lover's Inn, Book Room, Bird Watching, Jungle Walk, Cooking Class, Kalametiya"
+                />
+                <meta property="og:title" content="Contact Nature Lover's Inn | Book Your Stay or Tour" />
+                <meta
+                    property="og:description"
+                    content="Fill out our contact form to book rooms, lagoon tours, cooking classes, or jungle walking experiences at Nature Lover's Inn."
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="http://localhost:3000/contact" />
+            </Helmet>
+
             <Container maxWidth="md">
+                {/* Header */}
                 <Fade in timeout={800}>
-                    <Box sx={{ textAlign: 'center', mb: 6 }}>
+                    <Box sx={{ textAlign: 'center', mb: { xs: 4, sm: 5, md: 6 }, px: { xs: 2, sm: 3 } }}>
                         <ContactMailIcon
                             sx={{
-                                fontSize: 60,
+                                fontSize: { xs: 50, sm: 55, md: 60 },
                                 color: '#103785',
                                 animation: `${floatAnimation} 3s ease-in-out infinite`,
-                                mb: 2
+                                mb: { xs: 1.5, sm: 2 },
                             }}
                         />
                         <Typography
                             variant="h3"
                             sx={{
                                 fontWeight: 'bold',
-                                mb: 2,
+                                mb: { xs: 1.5, sm: 2 },
+                                fontSize: { xs: '2rem', sm: '2.3rem', md: '2.8rem' },
+                                lineHeight: { xs: 1.2, sm: 1.25 },
                                 background: `linear-gradient(45deg, #103785 30%, ${theme.palette.secondary.main} 90%)`,
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
@@ -128,18 +161,28 @@ const ContactForm = () => {
                         >
                             Get In Touch
                         </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+                        <Typography
+                            variant="subtitle1"
+                            color="text.secondary"
+                            sx={{
+                                maxWidth: { xs: '90%', sm: 600 },
+                                mx: 'auto',
+                                fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+                                mb: { xs: 2, sm: 3 },
+                            }}
+                        >
                             Have questions or want to book a service? Fill out the form below.
                         </Typography>
                     </Box>
                 </Fade>
 
+                {/* Form */}
                 <Fade in timeout={1000}>
                     <Paper
                         elevation={6}
                         sx={{
                             backgroundColor: 'white',
-                            p: isMobile ? 3 : 6,
+                            p: { xs: 3, sm: 4, md: 6 },
                             borderRadius: 4,
                             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                             border: '1px solid rgba(255,255,255,0.3)',
@@ -147,12 +190,13 @@ const ContactForm = () => {
                             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                             '&:hover': {
                                 transform: 'translateY(-5px)',
-                                boxShadow: '0 12px 40px rgba(0,0,0,0.15)'
-                            }
+                                boxShadow: '0 12px 40px rgba(0,0,0,0.15)',
+                            },
                         }}
                     >
                         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
-                            <Grid container spacing={4}>
+                            <Grid container spacing={3}>
+                                {/* Toggle Buttons */}
                                 <Grid item xs={12}>
                                     <ToggleButtonGroup
                                         value={formData.serviceType}
@@ -161,34 +205,33 @@ const ContactForm = () => {
                                         fullWidth
                                         color="primary"
                                         sx={{
+                                            flexWrap: { xs: 'wrap', sm: 'nowrap' },
                                             '& .MuiToggleButtonGroup-grouped': {
                                                 borderRadius: 2,
                                                 border: '1px solid',
                                                 borderColor: theme.palette.divider,
                                                 textTransform: 'capitalize',
-                                                fontWeight: 'medium'
-                                            }
+                                                fontWeight: 'medium',
+                                                fontSize: { xs: '0.8rem', sm: '0.95rem' },
+                                            },
                                         }}
                                     >
                                         <ToggleButton value="room">
-                                            <KingBedIcon sx={{ mr: 1 }} />
-                                            Room Booking
+                                            <KingBedIcon sx={{ mr: 1 }} /> Room Booking
                                         </ToggleButton>
                                         <ToggleButton value="lagoon-tour">
-                                            <SailingIcon sx={{ mr: 1 }} />
-                                            Lagoon Tour
+                                            <SailingIcon sx={{ mr: 1 }} /> Lagoon Tour
                                         </ToggleButton>
                                         <ToggleButton value="cooking-class">
-                                            <RestaurantIcon sx={{ mr: 1 }} />
-                                            Cooking Class
+                                            <RestaurantIcon sx={{ mr: 1 }} /> Cooking Class
                                         </ToggleButton>
                                         <ToggleButton value="jungle-walk">
-                                            <HikingIcon sx={{ mr: 1 }} />
-                                            Jungle Walking Tour
+                                            <HikingIcon sx={{ mr: 1 }} /> Jungle Walking Tour
                                         </ToggleButton>
                                     </ToggleButtonGroup>
                                 </Grid>
 
+                                {/* Name & Email */}
                                 <Grid item xs={12} sm={6}>
                                     <TextField
                                         fullWidth
@@ -214,6 +257,8 @@ const ContactForm = () => {
                                         InputProps={{ sx: { borderRadius: 2 } }}
                                     />
                                 </Grid>
+
+                                {/* Message */}
                                 <Grid item xs={12}>
                                     <TextField
                                         fullWidth
@@ -223,13 +268,13 @@ const ContactForm = () => {
                                         onChange={handleChange}
                                         required
                                         multiline
-                                        rows={6}
+                                        rows={isMobile ? 4 : 6}
                                         variant="outlined"
                                         InputProps={{ sx: { borderRadius: 2 } }}
                                     />
                                 </Grid>
 
-                                {/* Submit button */}
+                                {/* Submit Button */}
                                 <Grid item xs={12} sx={{ textAlign: 'center' }}>
                                     <Button
                                         type="submit"
@@ -239,15 +284,15 @@ const ContactForm = () => {
                                         endIcon={loading ? <CircularProgress size={24} color="inherit" /> : <SendIcon />}
                                         disabled={loading}
                                         sx={{
-                                            px: 6,
+                                            px: { xs: 4, sm: 6 },
                                             py: 1.5,
-                                            fontSize: '1rem',
+                                            fontSize: { xs: '0.9rem', sm: '1rem' },
                                             textTransform: 'none',
                                             fontWeight: 'bold',
                                             borderRadius: 2,
                                             boxShadow: '0 4px 14px rgba(0,0,0,0.1)',
                                             '&:hover': { boxShadow: '0 6px 20px rgba(0,0,0,0.15)', transform: 'translateY(-2px)' },
-                                            transition: 'all 0.3s ease'
+                                            transition: 'all 0.3s ease',
                                         }}
                                     >
                                         {loading ? 'Sending...' : 'Send Inquiry'}
@@ -256,7 +301,7 @@ const ContactForm = () => {
                             </Grid>
                         </Box>
 
-                        {/* WhatsApp button after form */}
+                        {/* WhatsApp Button */}
                         <Box sx={{ mt: 4, textAlign: 'center' }}>
                             <Button
                                 variant="contained"
@@ -267,13 +312,13 @@ const ContactForm = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 sx={{
-                                    px: 5,
+                                    px: { xs: 3, sm: 5 },
                                     py: 1.5,
-                                    fontSize: '1rem',
+                                    fontSize: { xs: '0.9rem', sm: '1rem' },
                                     fontWeight: 'bold',
                                     borderRadius: 2,
-                                    backgroundColor: "#25D366",
-                                    '&:hover': { backgroundColor: "#1DA851", transform: 'translateY(-2px)' }
+                                    backgroundColor: '#25D366',
+                                    '&:hover': { backgroundColor: '#1DA851', transform: 'translateY(-2px)' },
                                 }}
                             >
                                 Chat on WhatsApp
@@ -283,6 +328,7 @@ const ContactForm = () => {
                 </Fade>
             </Container>
 
+            {/* Snackbar */}
             <Snackbar
                 open={snackbar.open}
                 autoHideDuration={6000}

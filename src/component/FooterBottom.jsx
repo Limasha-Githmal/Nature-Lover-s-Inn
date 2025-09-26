@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const FooterBottom = () => {
     const links = [
@@ -56,8 +57,11 @@ const FooterBottom = () => {
                             component="span"
                             sx={{
                                 color: '#00bfff',
-                                fontWeight: 'bold'
+                                fontWeight: 'bold',
+                                cursor: 'pointer',
+                                '&:hover': { textDecoration: 'underline' }
                             }}
+                            onClick={() => window.open("https://www.facebook.com/YourPageHere", "_blank")}
                         >
                             Kozaa
                         </Box>. All rights reserved.

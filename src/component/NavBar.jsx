@@ -7,10 +7,11 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { keyframes, styled } from '@mui/system';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Divider from '@mui/material/Divider';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import CallIcon from '@mui/icons-material/Call';
+import { styled } from '@mui/system';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const pages = [
     { name: 'Home', path: '/' },
@@ -18,45 +19,21 @@ const pages = [
     { name: 'Rooms', path: '/rooms' },
     { name: 'Restaurant', path: '/restaurant' },
     { name: 'Cooking Class', path: '/cooking' },
-    { name: 'JungleTour', path: '/jungle' },
-    { name: 'Gallery', path: '/galaery1' },
+    { name: 'Jungle Tour', path: '/jungle' },
+    { name: 'Gallery', path: '/gallery1' },
     { name: 'Contact Us', path: '/contact' }
 ];
 
-const bubble = keyframes`
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-`;
-
-const flyIn = keyframes`
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-`;
-
 const LogoImage = styled('img')(({ theme }) => ({
-    height: '80px',
+    height: '50px',
     cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    animation: `${flyIn} 0.8s ease-out forwards`,
-    '&:hover': {
-        transform: 'scale(1.05)',
-        filter: 'drop-shadow(0 0 8px rgba(16, 55, 133, 0.3))'
-    },
-    [theme.breakpoints.down('sm')]: {
-        height: '60px'
+    [theme.breakpoints.up('md')]: {
+        height: '70px'
     }
 }));
 
 export default function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -66,157 +43,118 @@ export default function ResponsiveAppBar() {
 
     const handleCloseNavMenu = (path) => {
         setAnchorElNav(null);
-        if (path.startsWith('/#')) {
-            if (location.pathname === '/') {
-                const element = document.getElementById(path.substring(2));
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                navigate('/');
-                setTimeout(() => {
-                    const element = document.getElementById(path.substring(2));
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            }
-        } else {
-            navigate(path);
-        }
+        if (path) navigate(path);
     };
 
     const isActive = (path) => {
-        return location.pathname === path ||
-            (path === '/' && location.pathname === '/') ||
-            (path !== '/' && location.pathname.startsWith(path));
+        if (path === '/') return location.pathname === '/';
+        return location.pathname.startsWith(path);
     };
 
     return (
         <AppBar
             position="fixed"
-            elevation={0}
             sx={{
-                backgroundColor: 'white',
-                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-                transition: 'all 0.3s ease',
-                top: { xs: '57px', md: '57px' },
-                zIndex: 1100,
+                backgroundColor: '#fff',
+                top: { xs: 0, md: 57 },
+                boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+                zIndex: 1100
             }}
         >
-            <Toolbar sx={{
-                justifyContent: 'space-between',
-                maxWidth: 'lg',
-                mx: 'auto',
-                width: '100%',
-                px: { xs: 2, sm: 4 }
-            }}>
-                <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    '&:hover': {
-                        '& img': {
-                            transform: 'scale(1.02)'
-                        }
-                    }
-                }}>
+            <Toolbar sx={{ justifyContent: 'space-between', px: 2 }}>
+                {/* Logo */}
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Link to="/">
-                        <LogoImage
-                            src="/src/assets/image/logo.png"
-                            alt="Nature Lover's Inn Logo"
-                        />
+                        <LogoImage src="/src/assets/image/logo.png" alt="Logo" />
                     </Link>
                 </Box>
 
-                {isMobile ? (
-                    <>
-                        <IconButton
-                            size="large"
-                            onClick={handleOpenNavMenu}
+                {/* Desktop Menu */}
+                <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+                    {pages.map((page) => (
+                        <Button
+                            key={page.path}
+                            component={Link}
+                            to={page.path}
                             sx={{
-                                color: '#103785',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(16, 55, 133, 0.1)'
-                                },
-                                marginLeft: '4px',
-                                padding: '14px',
+                                color: isActive(page.path) ? '#103785' : '#444',
+                                fontWeight: isActive(page.path) ? 'bold' : 'normal',
+                                textTransform: 'none',
+                                borderBottom: isActive(page.path)
+                                    ? '3px solid green'
+                                    : '3px solid transparent',
+                                borderRadius: 0
                             }}
                         >
-                            <MenuIcon fontSize="large" />
-                        </IconButton>
-                        <Menu
-                            anchorEl={anchorElNav}
-                            open={Boolean(anchorElNav)}
-                            onClose={() => handleCloseNavMenu()}
+                            {page.name}
+                        </Button>
+                    ))}
+                    {/* ❌ Removed Book Now here, only in ContactBar */}
+                </Box>
+
+                {/* Mobile Menu Button */}
+                <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    <IconButton
+                        size="large"
+                        edge="end"
+                        onClick={handleOpenNavMenu}
+                        sx={{ color: '#103785' }}
+                    >
+                        <MenuIcon fontSize="large" />
+                    </IconButton>
+                </Box>
+
+                {/* Mobile Dropdown Menu */}
+                <Menu
+                    anchorEl={anchorElNav}
+                    open={Boolean(anchorElNav)}
+                    onClose={() => handleCloseNavMenu()}
+                    sx={{
+                        '& .MuiPaper-root': {
+                            width: 240,
+                            borderRadius: 2,
+                            boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
+                        }
+                    }}
+                >
+                    {pages.map((page) => (
+                        <MenuItem
+                            key={page.path}
+                            component={Link}
+                            to={page.path}
                             sx={{
-                                '& .MuiPaper-root': {
-                                    borderRadius: '12px',
-                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-                                    minWidth: '200px'
-                                }
+                                color: isActive(page.path) ? '#103785' : '#444',
+                                fontWeight: isActive(page.path) ? 'bold' : 'normal',
+                                textTransform: 'none',
+                                borderBottom: isActive(page.path)
+                                    ? '3px solid green'
+                                    : '3px solid transparent',
+                                borderRadius: 0
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem
-                                    key={page.path}
-                                    onClick={() => handleCloseNavMenu(page.path)}
-                                    sx={{
-                                        color: '#103785',
-                                        fontWeight: 'bold',
-                                        fontSize: '1rem',
-                                        py: 1.5,
-                                        backgroundColor: isActive(page.path) ? '#f0f4ff' : 'transparent',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(16, 55, 133, 0.05)',
-                                            animation: `${bubble} 0.5s ease`
-                                        },
-                                        transition: 'all 0.2s ease'
-                                    }}
-                                >
-                                    {page.name}
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </>
-                ) : (
-                    <Box sx={{
-                        display: 'flex',
-                        gap: { sm: 1, md: 2 },
-                        alignItems: 'center'
-                    }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page.path}
-                                component={Link}
-                                to={page.path}
-                                sx={{
-                                    color: '#103785',
-                                    fontWeight: 'bold',
-                                    fontSize: '1rem',
-                                    textTransform: 'none',
-                                    letterSpacing: '0.5px',
-                                    position: 'relative',
-                                    overflow: 'visible',
-                                    '&:hover': {
-                                        animation: `${bubble} 0.5s ease`,
-                                        backgroundColor: 'transparent',
-                                        '&::after': {
-                                            width: '100%',
-                                        },
-                                    },
-                                    '&::after': {
-                                        content: '""',
-                                        position: 'absolute',
-                                        width: isActive(page.path) ? '100%' : '0',
-                                        height: '3px',
-                                        bottom: '-4px',
-                                        left: 0,
-                                        backgroundColor: '#11c24c',
-                                        transition: 'width 0.3s ease',
-                                    },
-                                }}
-                            >
-                                {page.name}
-                            </Button>
-                        ))}
-                    </Box>
-                )}
+                            {page.name}
+                        </MenuItem>
+                    ))}
+
+                    {/* ✅ Book Now inside hamburger menu */}
+                    <Divider sx={{ my: 1 }} />
+                    <MenuItem
+                        component={Link}
+                        to="/contact"
+                        onClick={() => handleCloseNavMenu('/contact')}
+                        sx={{ color: 'green', fontWeight: 'bold' }}
+                    >
+                        Book Now
+                    </MenuItem>
+
+                    <Divider sx={{ my: 1 }} />
+                    <MenuItem
+                        onClick={() => window.open('https://wa.me/94760169518', '_blank')}
+                    >
+                        <WhatsAppIcon sx={{ color: 'green', mr: 1 }} /> WhatsApp
+                    </MenuItem>
+
+                </Menu>
             </Toolbar>
         </AppBar>
     );

@@ -7,6 +7,7 @@ import {
   ListItem,
 } from "@mui/material";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import { Helmet } from "react-helmet";
 
 const Restaurants = () => {
   const menuData = {
@@ -114,6 +115,62 @@ const Restaurants = () => {
         background: "#fafafa",
       }}
     >
+
+      <Helmet>
+        <title>Nature Lover's Restaurant | Fresh Sri Lankan Cuisine in Mannar</title>
+        <meta
+          name="description"
+          content="Explore the menu at Nature Lover's Restaurant in Mannar. Enjoy fresh juices, Sri Lankan curries, seafood, and international dishes in a serene environment."
+        />
+        <meta
+          name="keywords"
+          content="Nature Lover's Restaurant, Mannar restaurant, Sri Lankan cuisine, fresh juices, seafood, curries, local food"
+        />
+        <meta name="author" content="Nature Lover’s Inn" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Nature Lover's Restaurant | Mannar" />
+        <meta
+          property="og:description"
+          content="Discover our wide selection of fresh juices, seafood, and Sri Lankan delicacies at Nature Lover's Restaurant in Mannar."
+        />
+        <meta property="og:type" content="restaurant" />
+        <meta property="og:url" content="http://localhost:3000/restaurants" />
+        <meta property="og:image" content="http://localhost:3000/images/restaurant_main.jpeg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Nature Lover's Restaurant | Mannar" />
+        <meta
+          name="twitter:description"
+          content="Fresh juices, local Sri Lankan dishes, and seafood at Nature Lover's Restaurant in Mannar."
+        />
+        <meta name="twitter:image" content="http://localhost:3000/images/restaurant_main.jpeg" />
+
+        {/* JSON-LD Schema */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": "Nature Lover's Restaurant",
+            "image": "http://localhost:3000/images/restaurant_main.jpeg",
+            "description": "Enjoy fresh juices, seafood, Sri Lankan and international dishes in Mannar.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Kalametiya Bird Lagoon",
+              "addressLocality": "Mannar",
+              "addressRegion": "Northern Province",
+              "addressCountry": "Sri Lanka"
+            },
+            "telephone": "+94-760169518",
+            "url": "http://localhost:3000/restaurants",
+            "servesCuisine": ["Sri Lankan", "Seafood", "Asian", "Western"]
+          }
+          `}
+        </script>
+      </Helmet>
+
       {/* Header */}
       <Box sx={{ textAlign: "center", mb: 6 }}>
         <MenuBookIcon sx={{ fontSize: "3rem", color: "#0077b6", mb: 1 }} />
