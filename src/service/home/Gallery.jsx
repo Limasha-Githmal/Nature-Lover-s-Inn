@@ -123,7 +123,7 @@ export default function Gallery() {
                         variant="contained"
                         color="success"
                         component={Link}
-                        to="/galaery1"
+                        to="/gallery1"
                     >
                         More
                     </Button>

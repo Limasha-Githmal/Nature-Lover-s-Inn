@@ -27,6 +27,7 @@ import {
     CoffeeMaker
 } from '@mui/icons-material';
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const Rooms = () => {
     const image1 = "src/assets/image/room_1.jpeg"
@@ -36,7 +37,7 @@ const Rooms = () => {
         {
             title: "Kingfisher Deluxe Room",
             description: "Experience relaxing comfort in our Deluxe Room, equipped with a king-size bed, air conditioning, hot water, and a hot kettle with tea and sugar bags. Ideal for guests who value both convenience and a cozy stay near the serene Kalametiya Bird Lagoon.",
-            price: "$35 per night",
+            price: "$25 per night",
             features: [
                 "Air Conditioning",
                 "24/7 Hot Water",
@@ -54,7 +55,7 @@ const Rooms = () => {
         {
             title: "Painted Stork Standard Room",
             description: "Our comfortable Standard Room provides all the basic amenities you need for a relaxing stay. Enjoy a clean and peaceful space with warm Sri Lankan hospitality at an affordable rate.",
-            price: "$25 per night",
+            price: "$17 per night",
             features: [
                 "Ceiling Fan Cooling",
                 "King Size Bed (6'6″ x 6'3″)",
@@ -306,6 +307,8 @@ const Rooms = () => {
 
                             <CardActions sx={{ px: 3, pb: 3 }}>
                                 <Button
+                                    component={Link}
+                                    to="/contact"
                                     variant="contained"
                                     size="large"
                                     color="success"
@@ -413,6 +416,8 @@ const Rooms = () => {
                     gap: 3
                 }}>
                     <Button
+                        component={Link}
+                        to="/lagoon-tour"
                         variant="contained"
                         size="large"
                         color="success"
@@ -427,6 +432,8 @@ const Rooms = () => {
                         Bird Watching Tours
                     </Button>
                     <Button
+                        component={Link}
+                        to="/cooking"
                         variant="contained"
                         size="large"
                         color="success"
@@ -441,6 +448,8 @@ const Rooms = () => {
                         Cooking Classes
                     </Button>
                     <Button
+                        component={Link}
+                        to="/jungle"
                         variant="contained"
                         size="large"
                         color="success"

@@ -14,6 +14,8 @@ import { styled } from "@mui/material/styles";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import KingBedIcon from "@mui/icons-material/KingBed";
 import { Link } from "react-router-dom"; // 👈 import Link
+import dayPackageImg from "../../assets/image/Daypackage.png";
+import dayNightPackageImg from "../../assets/image/DayNightpackage.png";
 
 const offers = [
     {
@@ -21,8 +23,7 @@ const offers = [
         title: "Day Experience Package",
         description:
             "Enjoy a full day in Kalametiya with 3 activities:\n\n✔️ Bird Watching Tour\n✔️ Cooking Class\n✔️ Jungle Walking Tour\n\nAll in one day for an unforgettable eco-tourism adventure.",
-        image:
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        image: dayPackageImg,
         buttonText: "Book Now",
     },
     {
@@ -30,8 +31,7 @@ const offers = [
         title: "Day + Night Deluxe Package",
         description:
             "Make it a memorable getaway with our complete package:\n\n✔️ Bird Watching Tour\n✔️ Cooking Class\n✔️ Jungle Walking Tour\n✔️ Deluxe Double Room (1 Night)\n✔️ Breakfast for Next Morning",
-        image:
-            "https://images.unsplash.com/photo-1560448075-bb4b2a6f87d0?auto=format&fit=crop&w=800&q=80",
+        image:dayNightPackageImg,
         buttonText: "Book Deluxe Package",
     },
 ];
@@ -82,7 +82,7 @@ const Offers = () => {
                             >
                                 <CardMedia
                                     component="img"
-                                    height="220"
+                                    height="260"
                                     image={offer.image}
                                     alt={offer.title}
                                     sx={{ objectFit: "cover" }}

@@ -39,19 +39,21 @@ const featureImages = [
 ];
 
 const galleryImages = [
-    { id: 1, src: "src/assets/image/jungel_1.jpeg", alt: "Cooking Class Experience 1" },
-    { id: 2, src: "src/assets/image/jungel_2.jpeg", alt: "Cooking Class Experience 2" },
-    { id: 3, src: "src/assets/image/jungel_3.jpeg", alt: "Cooking Class Experience 3" },
-    { id: 4, src: "src/assets/image/jungel_4.jpeg", alt: "Cooking Class Experience 4" },
-    { id: 5, src: "src/assets/image/jungel_5.jpeg", alt: "Cooking Class Experience 5" },
-    { id: 6, src: "src/assets/image/jungel_6.jpeg", alt: "Cooking Class Experience 6" },
-    { id: 7, src: "src/assets/image/jungel_13.jpeg", alt: "Cooking Class Experience 7" },
-    { id: 8, src: "src/assets/image/jungel_8.jpeg", alt: "Cooking Class Experience 8" },
-    { id: 9, src: "src/assets/image/jungel_9.jpeg", alt: "Cooking Class Experience 9" },
-    { id: 10, src: "src/assets/image/jungel_10.jpeg", alt: "Cooking Class Experience 10" },
-    { id: 11, src: "src/assets/image/jungel_14.jpeg", alt: "Cooking Class Experience 11" },
-    { id: 12, src: "src/assets/image/jungel_15.jpeg", alt: "Cooking Class Experience 12" },
-    { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Cooking Class Experience 13" },
+    { id: 1, src: "src/assets/image/jungel_1.jpeg", alt: "Jungle Walking Tour Kalametiya 1" },
+    { id: 2, src: "src/assets/image/jungel_2.jpeg", alt: "Jungle Walking Tour Kalametiya 2" },
+    { id: 3, src: "src/assets/image/jungel_3.jpeg", alt: "Jungle Walking Tour Kalametiya 3" },
+    { id: 4, src: "src/assets/image/jungel_4.jpeg", alt: "Jungle Walking Tour Kalametiya 4" },
+    { id: 5, src: "src/assets/image/jungel_5.jpeg", alt: "Jungle Walking Tour Kalametiya 5" },
+    { id: 6, src: "src/assets/image/jungel_6.jpeg", alt: "Jungle Walking Tour Kalametiya 6" },
+    { id: 7, src: "src/assets/image/jungel_13.jpeg", alt: "Jungle Walking Tour Kalametiya 7" },
+    { id: 8, src: "src/assets/image/jungel_8.jpeg", alt: "Jungle Walking Tour Kalametiya 8" },
+    { id: 9, src: "src/assets/image/jungel_9.jpeg", alt: "Jungle Walking Tour Kalametiya 9" },
+    { id: 10, src: "src/assets/image/jungel_10.jpeg", alt: "Jungle Walking Tour Kalametiya 10" },
+    { id: 11, src: "src/assets/image/jungel_14.jpeg", alt: "Jungle Walking Tour Kalametiya 11" },
+    { id: 12, src: "src/assets/image/jungel_15.jpeg", alt: "Jungle Walking Tour Kalametiya 12" },
+    { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Jungle Walking Tour Kalametiya 13" },
+    { id: 14, src: "src/assets/image/jungel_M.jpg", alt: "Jungle Walking Tour Kalametiya 12" },
+    { id: 15, src: "src/assets/image/lagoon_28.jpg", alt: "Jungle Walking Tour Kalametiya 13" },
 ];
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -288,10 +290,10 @@ const JungleTour = () => {
                     </Typography>
                     <Grid container spacing={2}>
                         {[
-                            { persons: "1 Person", price: "10$" },
-                            { persons: "2 Persons", price: "15$" },
-                            { persons: "3 Persons", price: "20$" },
-                            { persons: "4 Persons", price: "40$" },
+                            { persons: "1 Person", price: "24$" },
+                            { persons: "2 Persons", price: "27$" },
+                            { persons: "3 Persons", price: "30$" },
+                            { persons: "4 Persons", price: "34$" },
                         ].map((pkg, i) => (
                             <Grid item xs={12} sm={6} md={3} key={i}>
                                 <Card

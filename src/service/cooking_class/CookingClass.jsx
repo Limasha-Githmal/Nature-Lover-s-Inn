@@ -15,7 +15,7 @@ import {
     ListItemIcon,
     ListItemText,
     Divider,
-    IconButton
+    IconButton, Link
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
@@ -37,19 +37,21 @@ const featureImages = [
 ];
 
 const galleryImages = [
-    { id: 1, src: "src/assets/image/jungel_1.jpeg", alt: "Cooking Class Experience 1" },
-    { id: 2, src: "src/assets/image/jungel_2.jpeg", alt: "Cooking Class Experience 2" },
-    { id: 3, src: "src/assets/image/jungel_3.jpeg", alt: "Cooking Class Experience 3" },
-    { id: 4, src: "src/assets/image/jungel_4.jpeg", alt: "Cooking Class Experience 4" },
-    { id: 5, src: "src/assets/image/jungel_5.jpeg", alt: "Cooking Class Experience 5" },
-    { id: 6, src: "src/assets/image/jungel_6.jpeg", alt: "Cooking Class Experience 6" },
-    { id: 7, src: "src/assets/image/jungel_13.jpeg", alt: "Cooking Class Experience 7" },
-    { id: 8, src: "src/assets/image/jungel_8.jpeg", alt: "Cooking Class Experience 8" },
-    { id: 9, src: "src/assets/image/jungel_9.jpeg", alt: "Cooking Class Experience 9" },
-    { id: 10, src: "src/assets/image/jungel_10.jpeg", alt: "Cooking Class Experience 10" },
-    { id: 11, src: "src/assets/image/jungel_14.jpeg", alt: "Cooking Class Experience 11" },
-    { id: 12, src: "src/assets/image/jungel_15.jpeg", alt: "Cooking Class Experience 12" },
-    { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Cooking Class Experience 13" },
+    { id: 1, src: "src/assets/image/jungel_1.jpeg", alt: "Cooking Class Kalametiya 1" },
+    { id: 2, src: "src/assets/image/jungel_2.jpeg", alt: "Cooking Class Kalametiya 2" },
+    { id: 3, src: "src/assets/image/jungel_3.jpeg", alt: "Cooking Class Kalametiya 3" },
+    { id: 4, src: "src/assets/image/jungel_4.jpeg", alt: "Cooking Class Kalametiya 4" },
+    { id: 5, src: "src/assets/image/jungel_5.jpeg", alt: "Cooking Class Kalametiya 5" },
+    { id: 6, src: "src/assets/image/jungel_6.jpeg", alt: "Cooking Class Kalametiya 6" },
+    { id: 7, src: "src/assets/image/jungel_13.jpeg", alt: "Cooking Class Kalametiya 7" },
+    { id: 8, src: "src/assets/image/jungel_8.jpeg", alt: "Cooking Class Kalametiya 8" },
+    { id: 9, src: "src/assets/image/jungel_9.jpeg", alt: "Cooking Class Kalametiya 9" },
+    { id: 10, src: "src/assets/image/jungel_10.jpeg", alt: "Cooking Class Kalametiya 10" },
+    { id: 11, src: "src/assets/image/jungel_14.jpeg", alt: "Cooking Class Kalametiya 11" },
+    { id: 12, src: "src/assets/image/jungel_15.jpeg", alt: "Cooking Class Kalametiya 12" },
+    { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Cooking Class Kalametiya 13" },
+    { id: 14, src: "src/assets/image/jungel_M.jpg", alt: "Cooking Class Kalametiya 12" },
+    { id: 15, src: "src/assets/image/lagoon_28.jpg", alt: "Cooking Class Kalametiya 13" },
 ];
 
 // Styled Button
@@ -266,10 +268,10 @@ const CookingClass = () => {
                         Packages
                     </Typography>
                     <Grid container spacing={2}>
-                        {[{ persons: "1 Person", price: "40$" },
-                          { persons: "2 Persons", price: "70$" },
-                          { persons: "3 Persons", price: "100$" },
-                          { persons: "4 Persons", price: "120$" }].map((pkg, i) => (
+                        {[{ persons: "1 Person", price: "6$" },
+                          { persons: "2 Persons", price: "12$" },
+                          { persons: "3 Persons", price: "18$" },
+                          { persons: "4 Persons", price: "24$" }].map((pkg, i) => (
                             <Grid item xs={12} sm={6} md={3} key={i}>
                                 <Card
                                     sx={{
@@ -305,7 +307,10 @@ const CookingClass = () => {
                         variant="contained"
                         color="success"
                         startIcon={<WhatsAppIcon />}
+                        component={Link}
                         href="https://wa.me/94760169518"
+                        target="_blank"
+                        rel="noopener"
                     >
                         WhatsApp
                     </StyledButton>
@@ -314,7 +319,8 @@ const CookingClass = () => {
                         variant="outlined"
                         color="primary"
                         startIcon={<EmailIcon />}
-                        href="mailto:natureloversinn10@gmail.com"
+                        component={Link}
+                        href="mailto:natureloversinn10@gmail.com?subject=Booking Inquiry&body=Hello, I would like to know more about your cooking class."
                     >
                         Gmail
                     </StyledButton>

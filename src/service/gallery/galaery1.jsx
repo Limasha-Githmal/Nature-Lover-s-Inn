@@ -17,7 +17,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // Array of gallery images
 const galleryImages = [
     { id: 1, src: "src/assets/image/gallery_1.jpeg", alt: "Jungle Scenery" },
-    { id: 2, src: "src/assets/image/gallery_7.jpeg", alt: "Trail Path" },
+    { id: 2, src: "src/assets/image/gallery_7 _.jpeg", alt: "Jungle " },
     { id: 3, src: "src/assets/image/gallery_6.jpeg", alt: "Local Wildlife" },
     { id: 4, src: "src/assets/image/gallery_4.jpeg", alt: "Lush Greenery" },
     { id: 5, src: "src/assets/image/gallery_5.jpeg", alt: "Lagoon View" },
@@ -62,8 +62,10 @@ const PhotoGallery = () => {
     };
 
     const closeLightbox = () => setLightboxOpen(false);
-    const prevImage = () => setCurrentIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
-    const nextImage = () => setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    const prevImage = () =>
+        setCurrentIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    const nextImage = () =>
+        setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
 
     return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: { xs: 6, sm: 8, md: 10 } }}>
@@ -85,7 +87,12 @@ const PhotoGallery = () => {
                 </Typography>
                 <Typography
                     variant={isSm ? "body1" : "h6"}
-                    sx={{ maxWidth: { xs: "95%", sm: 700 }, mx: "auto", fontWeight: 400, opacity: 0.95 }}
+                    sx={{
+                        maxWidth: { xs: "95%", sm: 700 },
+                        mx: "auto",
+                        fontWeight: 400,
+                        opacity: 0.95,
+                    }}
                 >
                     Explore moments captured at Nature Lover's Inn and our beautiful surroundings in Kalametiya.
                 </Typography>
@@ -113,10 +120,11 @@ const PhotoGallery = () => {
                                     image={src}
                                     alt={alt}
                                     sx={{
-                                        width: {xs:300, sm: 330, md: 350 },
-                                        height: "auto", // ✅ auto height to remove white gaps
-                                        maxHeight: {xs:200, sm: 230, md: 250 },
-                                        objectFit: "cover", }}
+                                        width: { xs: 300, sm: 330, md: 350 },
+                                        height: "auto",
+                                        maxHeight: { xs: 200, sm: 230, md: 250 },
+                                        objectFit: "cover",
+                                    }}
                                 />
                             </Card>
                         </Grid>
@@ -133,41 +141,68 @@ const PhotoGallery = () => {
                         left: 0,
                         width: "100vw",
                         height: "100vh",
-                        bgcolor: "rgba(0,0,0,0.85)",
+                        bgcolor: "rgba(0,0,0,0.9)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         zIndex: 9999,
-                        px: { xs: 1, sm: 3 },
+                        overflow: "hidden",
                     }}
                 >
+                    {/* Close button */}
                     <IconButton
-                        sx={{ position: "absolute", top: 20, right: 20, color: "#fff", zIndex: 10000 }}
+                        sx={{
+                            position: "absolute",
+                            top: 20,
+                            right: 20,
+                            color: "#fff",
+                            zIndex: 10000,
+                            bgcolor: "rgba(0,0,0,0.5)",
+                            "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
+                        }}
                         onClick={closeLightbox}
                     >
                         <CloseIcon fontSize={isSm ? "medium" : "large"} />
                     </IconButton>
 
+                    {/* Previous button */}
                     <IconButton
-                        sx={{ position: "absolute", left: isSm ? 10 : 40, color: "#fff" }}
+                        sx={{
+                            position: "absolute",
+                            left: 20,
+                            color: "#fff",
+                            zIndex: 10000,
+                            bgcolor: "rgba(0,0,0,0.5)",
+                            "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
+                        }}
                         onClick={prevImage}
                     >
                         <ArrowBackIosNewIcon fontSize={isSm ? "medium" : "large"} />
                     </IconButton>
 
+                    {/* Image */}
                     <Box
                         component="img"
                         src={galleryImages[currentIndex].src}
                         alt={galleryImages[currentIndex].alt}
                         sx={{
-                            maxHeight: isSm ? "70%" : isMd ? "75%" : "80%",
-                            maxWidth: isSm ? "90%" : isMd ? "85%" : "80%",
+                            maxHeight: isSm ? "70%" : isMd ? "80%" : "85%",
+                            maxWidth: "85%",
                             borderRadius: 2,
+                            boxShadow: "0px 4px 20px rgba(0,0,0,0.6)",
                         }}
                     />
 
+                    {/* Next button */}
                     <IconButton
-                        sx={{ position: "absolute", right: isSm ? 10 : 40, color: "#fff" }}
+                        sx={{
+                            position: "absolute",
+                            right: 20,
+                            color: "#fff",
+                            zIndex: 10000,
+                            bgcolor: "rgba(0,0,0,0.5)",
+                            "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
+                        }}
                         onClick={nextImage}
                     >
                         <ArrowForwardIosIcon fontSize={isSm ? "medium" : "large"} />

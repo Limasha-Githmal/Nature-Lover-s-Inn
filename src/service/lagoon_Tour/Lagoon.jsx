@@ -75,6 +75,8 @@ const galleryImages = [
   { id: 28, src: "src/assets/image/lagoon_20.jpg", alt: "Gallery Photo 28" },
   { id: 29, src: "src/assets/image/lagoon_29.jpg", alt: "Gallery Photo 29" },
   { id: 30, src: "src/assets/image/lagoon_30.jpg", alt: "Gallery Photo 30" },
+    { id: 31, src: "src/assets/image/lagoon_50.jpeg", alt: "Gallery Photo 29" },
+    { id: 32, src: "src/assets/image/lagoon_51.jpeg", alt: "Gallery Photo 30" },
 ];
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -351,10 +353,10 @@ const Lagoon = () => {
           </Typography>
           <Grid container spacing={2}>
             {[
-              { persons: "1 Person", price: "10$" },
-              { persons: "2 Persons", price: "15$" },
-              { persons: "3 Persons", price: "20$" },
-              { persons: "4 Persons", price: "40$" },
+              { persons: "1 Person", price: "24$" },
+              { persons: "2 Persons", price: "27$" },
+              { persons: "3 Persons", price: "30$" },
+              { persons: "4 Persons", price: "34$" },
             ].map((pkg, i) => (
               <Grid item xs={12} sm={6} md={3} key={i}>
                 <Card
