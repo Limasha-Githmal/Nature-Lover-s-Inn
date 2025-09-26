@@ -77,8 +77,8 @@ const Restaurants = () => {
           { name: "Traditional Spicy Calamari Curry", description: "Fiery and bold calamari curry.", price: "3200" },
 
           // Lobster
-          { name: "Lobster (100g)", description: "Boiled or pan-fried with butter.", price: "6600" },
-          { name: "Lobster (1Kg)", description: "Full lobster specialty.", price: "4800" },
+          { name: "Lobster (100g)", description: "Boiled or pan-fried with butter.", price: "Day Price" },
+          { name: "Lobster (1Kg)", description: "Boiled or pan-fried with butter.", price: "Day Price" },
 
           // Mullet Fish
           { name: "Mullet Fish Large", description: "Fresh lagoon mullet, large portion.", price: "3600" },
