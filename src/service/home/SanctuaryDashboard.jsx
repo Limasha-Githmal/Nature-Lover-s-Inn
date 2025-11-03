@@ -86,7 +86,7 @@ const SanctuaryDashboard = () => {
         <ThemeProvider theme={theme}>
             <FullScreenContainer>
                 <VideoBackground autoPlay loop muted playsInline>
-                    <source src={'src/assets/image/Kalametiya Bird Sanctuary.mp4'} type="video/mp4" />
+                    <source src={'src/assets/image/kalametiya bird sanctuary.mp4'} type="video/mp4" />
                     Your browser does not support the video tag.
                 </VideoBackground>
 

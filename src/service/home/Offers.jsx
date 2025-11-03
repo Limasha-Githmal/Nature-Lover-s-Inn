@@ -14,8 +14,8 @@ import { styled } from "@mui/material/styles";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import KingBedIcon from "@mui/icons-material/KingBed";
 import { Link } from "react-router-dom"; // 👈 import Link
-import dayPackageImg from "../../assets/image/dayPackage.png";
-import dayNightPackageImg from "../../assets/image/dayNightPackage.png";
+import dayPackageImg from "../../assets/image/daypackage.png";
+import dayNightPackageImg from "../../assets/image/daynightpackage.png";
 
 const offers = [
     {

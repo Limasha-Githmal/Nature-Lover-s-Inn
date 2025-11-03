@@ -17,7 +17,7 @@ import Email from "@mui/icons-material/Email";
 import Instagram from "@mui/icons-material/Instagram";
 import { SiTripadvisor } from "react-icons/si";
 import { FaAirbnb } from "react-icons/fa";
-import bookingLogo from "../assets/image/bookingLogo.png"; // ✅ Your Booking.com logo
+import bookingLogo from "../assets/image/bookinglogo.png"; // ✅ Your Booking.com logo
 
 // Pure jumping animation (no shadows/ripples)
 const jump = keyframes`

@@ -124,7 +124,7 @@ const Footer = () => {
                                 onClick={() => window.open('https://www.booking.com/Pulse-I4U8ps', '_blank')}
                             >
                                 <img
-                                    src="src/assets/image/bookingLogo.png" // <-- put logo in your public/assets/images folder
+                                    src="../assets/image/bookinglogo.png" // <-- put logo in your public/assets/images folder
                                     alt="Booking.com"
                                     style={{ width: 28, height: 28 }}
                                 />
