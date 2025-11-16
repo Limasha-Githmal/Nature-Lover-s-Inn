@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 // Array of gallery images
 const galleryImages = [
-    { id: 1, src: "src/assets/image/gallery_1.png", alt: "Jungle Scenery" },
+    { id: 1, src: "src/assets/image/gallery1.png", alt: "Jungle Scenery" },
     { id: 2, src: "src/assets/image/gallery_7 _.jpeg", alt: "Jungle " },
     { id: 3, src: "src/assets/image/gallery_6.jpeg", alt: "Local Wildlife" },
     { id: 4, src: "src/assets/image/gallery_4.jpeg", alt: "Lush Greenery" },
