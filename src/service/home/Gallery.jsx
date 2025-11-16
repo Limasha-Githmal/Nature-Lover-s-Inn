@@ -18,7 +18,7 @@ import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 
 const images = [
-    { id: 1, src: 'src/assets/image/gallery_1.jpeg' },
+    { id: 1, src: 'src/assets/image/gallery_1.png' },
     { id: 2, src: 'src/assets/image/gallery_3.jpeg' },
     { id: 3, src: 'src/assets/image/gallery_18.jpeg' },
 ];
