@@ -10,17 +10,22 @@ import {
     Dialog,
     IconButton,
 } from '@mui/material';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 
+// Import images properly
+import gallery1 from '../../assets/image/gallery1.png';
+import gallery2 from '../../assets/image/gallery_3.jpeg';
+import gallery3 from '../../assets/image/gallery_18.jpeg';
+
 const images = [
-    { id: 1, src: 'src/assets/image/gallery1.png' },
-    { id: 2, src: 'src/assets/image/gallery_3.jpeg' },
-    { id: 3, src: 'src/assets/image/gallery_18.jpeg' },
+    { id: 1, src: gallery1 },
+    { id: 2, src: gallery2 },
+    { id: 3, src: gallery3 },
 ];
 
 export default function Gallery() {
@@ -28,6 +33,7 @@ export default function Gallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [zoom, setZoom] = useState(1);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [loadedImages, setLoadedImages] = useState({});
 
     const handleOpen = (index) => {
         setCurrentIndex(index);
@@ -52,6 +58,10 @@ export default function Gallery() {
 
     const handleZoomIn = () => setZoom((prev) => Math.min(prev + 0.25, 3));
     const handleZoomOut = () => setZoom((prev) => Math.max(prev - 0.25, 1));
+    const handleZoomReset = () => {
+        setZoom(1);
+        setPosition({ x: 0, y: 0 });
+    };
 
     const handleMouseMove = (e) => {
         if (zoom > 1) {
@@ -62,11 +72,22 @@ export default function Gallery() {
         }
     };
 
+    const handleTouchMove = (e) => {
+        if (zoom > 1 && e.touches.length === 1) {
+            const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+            const x = (e.touches[0].clientX - left) / width;
+            const y = (e.touches[0].clientY - top) / height;
+            setPosition({ x: x * 100, y: y * 100 });
+        }
+    };
+
     const handleKeyDown = (e) => {
         if (open) {
             if (e.key === 'ArrowLeft') handlePrev();
             if (e.key === 'ArrowRight') handleNext();
             if (e.key === 'Escape') handleClose();
+            if (e.key === '+') handleZoomIn();
+            if (e.key === '-') handleZoomOut();
         }
     };
 
@@ -75,13 +96,22 @@ export default function Gallery() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [open, currentIndex]);
 
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [open]);
+
     return (
         <Box sx={{ backgroundColor: '#f9f9f9', py: 6 }}>
             <Container maxWidth="lg">
-                <Typography
-                    variant="h4"
-                    sx={{ fontWeight: 'bold', textAlign: 'center', mb: 4 }}
-                >
+                <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', mb: 4 }}>
                     Gallery
                 </Typography>
 
@@ -104,10 +134,12 @@ export default function Gallery() {
                                     component="img"
                                     image={image.src}
                                     alt={`Gallery ${image.id}`}
+                                    onLoad={() => setLoadedImages(prev => ({ ...prev, [image.id]: true }))}
                                     sx={{
                                         height: 200,
                                         objectFit: 'cover',
                                         transition: 'transform 0.3s ease',
+                                        opacity: loadedImages[image.id] ? 1 : 0.7,
                                         '&:hover': {
                                             transform: 'scale(1.05)',
                                         }
@@ -119,12 +151,7 @@ export default function Gallery() {
                 </Grid>
 
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
-                    <Button
-                        variant="contained"
-                        color="success"
-                        component={Link}
-                        to="/gallery1"
-                    >
+                    <Button variant="contained" color="success" component={Link} to="/gallery1">
                         More
                     </Button>
                 </Box>
@@ -136,9 +163,7 @@ export default function Gallery() {
                     fullScreen
                     sx={{
                         backgroundColor: 'rgba(0,0,0,0.9)',
-                        '& .MuiDialog-container': {
-                            overflow: 'hidden',
-                        }
+                        '& .MuiDialog-container': { overflow: 'hidden' },
                     }}
                 >
                     <Box sx={{
@@ -149,6 +174,23 @@ export default function Gallery() {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
+                        {/* Image Counter */}
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                position: 'absolute',
+                                top: 20,
+                                left: 20,
+                                color: 'white',
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                padding: 1,
+                                borderRadius: 1,
+                                zIndex: 10,
+                            }}
+                        >
+                            {currentIndex + 1} / {images.length}
+                        </Typography>
+
                         {/* Close Button */}
                         <IconButton
                             onClick={handleClose}
@@ -213,18 +255,6 @@ export default function Gallery() {
                             zIndex: 10,
                         }}>
                             <IconButton
-                                onClick={handleZoomIn}
-                                sx={{
-                                    color: 'white',
-                                    backgroundColor: 'rgba(0,0,0,0.5)',
-                                    '&:hover': {
-                                        backgroundColor: 'rgba(0,0,0,0.7)',
-                                    }
-                                }}
-                            >
-                                <ZoomInIcon />
-                            </IconButton>
-                            <IconButton
                                 onClick={handleZoomOut}
                                 sx={{
                                     color: 'white',
@@ -236,11 +266,58 @@ export default function Gallery() {
                             >
                                 <ZoomOutIcon />
                             </IconButton>
+
+                            <IconButton
+                                onClick={handleZoomReset}
+                                sx={{
+                                    color: 'white',
+                                    backgroundColor: 'rgba(0,0,0,0.5)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(0,0,0,0.7)',
+                                    }
+                                }}
+                            >
+                                <Typography variant="body2" sx={{ color: 'white' }}>
+                                    {Math.round(zoom * 100)}%
+                                </Typography>
+                            </IconButton>
+
+                            <IconButton
+                                onClick={handleZoomIn}
+                                sx={{
+                                    color: 'white',
+                                    backgroundColor: 'rgba(0,0,0,0.5)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(0,0,0,0.7)',
+                                    }
+                                }}
+                            >
+                                <ZoomInIcon />
+                            </IconButton>
                         </Box>
 
-                        {/* Image with Zoom */}
+                        {/* Keyboard Shortcuts Help */}
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                position: 'absolute',
+                                bottom: 20,
+                                right: 20,
+                                color: 'white',
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                padding: 1,
+                                borderRadius: 1,
+                                fontSize: '0.75rem',
+                                zIndex: 10,
+                            }}
+                        >
+                            ← → Navigate • ESC Close • +/- Zoom
+                        </Typography>
+
+                        {/* Image with Zoom and Pan */}
                         <Box
                             onMouseMove={handleMouseMove}
+                            onTouchMove={handleTouchMove}
                             sx={{
                                 width: '100%',
                                 height: '100%',

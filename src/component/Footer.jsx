@@ -2,8 +2,12 @@ import React from 'react';
 import { Box, Container, Grid, Typography, IconButton } from '@mui/material';
 import { Facebook, Email, Instagram } from '@mui/icons-material';
 import { FaAirbnb } from 'react-icons/fa';
-import { SiTripadvisor} from 'react-icons/si';
+import { SiTripadvisor } from 'react-icons/si';
 
+/* ---------------------------------------------------------
+   ✅ FIX: Import booking.com logo correctly
+---------------------------------------------------------- */
+import bookingLogo from "../assets/image/bookinglogo.png";
 
 const Footer = () => {
     return (
@@ -38,6 +42,7 @@ const Footer = () => {
                         >
                             Location
                         </Typography>
+
                         <Box
                             sx={{
                                 width: '100%',
@@ -68,14 +73,17 @@ const Footer = () => {
                         >
                             Contact Us
                         </Typography>
+
                         <Typography variant="body1" sx={{ mb: 1.5 }}>
                             <b>Nature Lover's Inn - Kalametiya</b>
                         </Typography>
+
                         <Typography variant="body2" sx={{ mb: 1.5 }}>
                             Nature Lover's Inn, Bata Atha South<br />
                             Hungama, Sri Lanka<br />
                             82120
                         </Typography>
+
                         <Typography variant="body2">
                             Phone / WhatsApp: +94 76 016 9518<br />
                             Email: natureloversinn10@gmail.com
@@ -91,6 +99,7 @@ const Footer = () => {
                         >
                             Follow Us
                         </Typography>
+
                         <Box
                             sx={{
                                 display: 'flex',
@@ -124,7 +133,7 @@ const Footer = () => {
                                 onClick={() => window.open('https://www.booking.com/Pulse-I4U8ps', '_blank')}
                             >
                                 <img
-                                    src="../assets/image/bookinglogo.png" // <-- put logo in your public/assets/images folder
+                                    src={bookingLogo}
                                     alt="Booking.com"
                                     style={{ width: 28, height: 28 }}
                                 />

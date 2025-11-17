@@ -9,9 +9,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import CallIcon from '@mui/icons-material/Call';
 import { styled } from '@mui/system';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+
+// Import logo properly
+import logo from '/public/logo.webp';
 
 const pages = [
     { name: 'Home', path: '/' },
@@ -65,7 +67,7 @@ export default function ResponsiveAppBar() {
                 {/* Logo */}
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Link to="/">
-                        <LogoImage src="public/logo.webp" alt="Logo" />
+                        <LogoImage src={logo} alt="Logo" />
                     </Link>
                 </Box>
 

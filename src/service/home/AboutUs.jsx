@@ -9,12 +9,13 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const App = () => {
-    const image1 = "src/assets/image/lagoonC.jpeg";
-    const image2 = "src/assets/image/room_1.jpeg";
-    const image3 = "src/assets/image/gallery_3.jpeg";
-    const image5 = "src/assets/image/jungel_2.jpeg";
+// Import images properly
+import image1 from "../../assets/image/lagoonC.jpeg";
+import image2 from "../../assets/image/room_1.jpeg";
+import image3 from "../../assets/image/gallery_3.jpeg";
+import image5 from "../../assets/image/jungel_2.jpeg";
 
+const App = () => {
     const tourData = [
         {
             id: 1,
@@ -49,7 +50,7 @@ const App = () => {
             id: 5,
             image: image5,
             title: "Jungle Walking Tour",
-            description: "Explore Kalametiya’s wild beauty",
+            description: "Explore Kalametiya's wild beauty",
             path: "/jungle",
         },
     ];
