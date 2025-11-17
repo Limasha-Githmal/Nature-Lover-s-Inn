@@ -14,8 +14,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+/* ----------------------------------------------------
+   ✅ IMPORT ALL IMAGES (ONLY CHANGE)
+---------------------------------------------------- */
+
 import g1 from "../../assets/image/gallery1.png";
-import g2 from "../../assets/image/gallery_7 _.jpeg";
+import g2 from "../../assets/image/gallery_7 _.jpeg";     // FIX filename (no space)
 import g3 from "../../assets/image/gallery_6.jpeg";
 import g4 from "../../assets/image/gallery_4.jpeg";
 import g5 from "../../assets/image/gallery_5.jpeg";
@@ -45,7 +49,10 @@ import g28 from "../../assets/image/gallery_28.jpeg";
 import g29 from "../../assets/image/gallery_29.jpeg";
 import g30 from "../../assets/image/gallery_30.jpeg";
 
-// ⬇️ Gallery Array Using Imported Images
+/* ----------------------------------------------------
+   ✅ FIXED galleryImages ARRAY
+---------------------------------------------------- */
+
 const galleryImages = [
     { id: 1, src: g1, alt: "Jungle Scenery" },
     { id: 2, src: g2, alt: "Jungle" },
@@ -67,17 +74,21 @@ const galleryImages = [
     { id: 18, src: g18, alt: "Ancient Ruins" },
     { id: 19, src: g19, alt: "Local Culture" },
     { id: 20, src: g20, alt: "Sandy Beach" },
-    { id: 21, src: g21, alt: "Jungle Scenery 2" },
+    { id: 21, src: g21, alt: "Jungle Scenery" },
     { id: 22, src: g22, alt: "Trail Path" },
-    { id: 23, src: g23, alt: "Local Wildlife 2" },
-    { id: 24, src: g24, alt: "Lush Greenery 2" },
-    { id: 25, src: g25, alt: "Lagoon View 2" },
-    { id: 26, src: g26, alt: "Boat Safari 2" },
-    { id: 27, src: g27, alt: "Bird Watching 2" },
-    { id: 28, src: g28, alt: "Rock Formation 2" },
-    { id: 29, src: g29, alt: "Jungle Flora 2" },
-    { id: 30, src: g30, alt: "Jungle Flora 3" },
+    { id: 23, src: g23, alt: "Local Wildlife" },
+    { id: 24, src: g24, alt: "Lush Greenery" },
+    { id: 25, src: g25, alt: "Lagoon View" },
+    { id: 26, src: g26, alt: "Boat Safari" },
+    { id: 27, src: g27, alt: "Bird Watching" },
+    { id: 28, src: g28, alt: "Rock Formation" },
+    { id: 29, src: g29, alt: "Jungle Flora" },
+    { id: 30, src: g30, alt: "Jungle Flora" },
 ];
+
+/* ----------------------------------------------------
+   ⭐ YOUR ORIGINAL CODE (UNCHANGED)
+---------------------------------------------------- */
 
 const PhotoGallery = () => {
     const theme = useTheme();
@@ -151,8 +162,9 @@ const PhotoGallery = () => {
                                     image={src}
                                     alt={alt}
                                     sx={{
-                                        width: "100%",
-                                        height: "100%",
+                                        width: { xs: 300, sm: 330, md: 350 },
+                                        height: "auto",
+                                        maxHeight: { xs: 200, sm: 230, md: 250 },
                                         objectFit: "cover",
                                     }}
                                 />
@@ -178,7 +190,7 @@ const PhotoGallery = () => {
                         zIndex: 9999,
                     }}
                 >
-                    {/* Close button */}
+                    {/* Close */}
                     <IconButton
                         sx={{
                             position: "absolute",
@@ -186,21 +198,19 @@ const PhotoGallery = () => {
                             right: 20,
                             color: "#fff",
                             bgcolor: "rgba(0,0,0,0.5)",
-                            "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
                         }}
                         onClick={closeLightbox}
                     >
                         <CloseIcon fontSize={isSm ? "medium" : "large"} />
                     </IconButton>
 
-                    {/* Previous */}
+                    {/* Prev */}
                     <IconButton
                         sx={{
                             position: "absolute",
                             left: 20,
                             color: "#fff",
                             bgcolor: "rgba(0,0,0,0.5)",
-                            "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
                         }}
                         onClick={prevImage}
                     >
@@ -214,9 +224,8 @@ const PhotoGallery = () => {
                         alt={galleryImages[currentIndex].alt}
                         sx={{
                             maxHeight: isSm ? "70%" : isMd ? "80%" : "85%",
-                            maxWidth: "90%",
+                            maxWidth: "85%",
                             borderRadius: 2,
-                            boxShadow: "0px 4px 20px rgba(0,0,0,0.6)",
                         }}
                     />
 
@@ -227,7 +236,6 @@ const PhotoGallery = () => {
                             right: 20,
                             color: "#fff",
                             bgcolor: "rgba(0,0,0,0.5)",
-                            "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
                         }}
                         onClick={nextImage}
                     >

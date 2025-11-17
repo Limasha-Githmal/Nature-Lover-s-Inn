@@ -110,7 +110,7 @@ const SanctuaryDashboard = () => {
                         lineHeight: 1.2,
                         letterSpacing: 'normal',
                     }}>
-                        Welcome to Nature Lover's Inn
+                        Welcomess to Nature Lover's Inn
                     </Typography>
 
                     <Typography variant="h5" component="h4" sx={{

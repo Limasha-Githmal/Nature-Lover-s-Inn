@@ -15,7 +15,8 @@ import {
     ListItemIcon,
     ListItemText,
     Divider,
-    IconButton, Link
+    IconButton,
+    Link
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
@@ -29,32 +30,63 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
 import { Helmet } from "react-helmet";
 
-// Images
+/* -----------------------------------------------------------
+   ✅ IMAGE IMPORTS (Fixed)
+------------------------------------------------------------*/
+
+// Feature images
+import f1 from "../../assets/image/jungel_11.jpeg";
+import f2 from "../../assets/image/jungel_12.jpeg";
+import f3 from "../../assets/image/jungel_7.jpeg";
+
+// Gallery images
+import g1 from "../../assets/image/jungel_1.jpeg";
+import g2 from "../../assets/image/jungel_2.jpeg";
+import g3 from "../../assets/image/jungel_3.jpeg";
+import g4 from "../../assets/image/jungel_4.jpeg";
+import g5 from "../../assets/image/jungel_5.jpeg";
+import g6 from "../../assets/image/jungel_6.jpeg";
+import g7 from "../../assets/image/jungel_13.jpeg";
+import g8 from "../../assets/image/jungel_8.jpeg";
+import g9 from "../../assets/image/jungel_9.jpeg";
+import g10 from "../../assets/image/jungel_10.jpeg";
+import g11 from "../../assets/image/jungel_14.jpeg";
+import g12 from "../../assets/image/jungel_15.jpeg";
+import g13 from "../../assets/image/jungle_16.jpeg";
+import g14 from "../../assets/image/jungel_M.jpg";
+import g15 from "../../assets/image/lagoon_28.jpg";
+
+/* -----------------------------------------------------------
+   IMAGE ARRAYS (Updated to use imports)
+------------------------------------------------------------*/
+
 const featureImages = [
-    { id: 1, src: "src/assets/image/jungel_11.jpeg", alt: "Fresh Ingredients" },
-    { id: 2, src: "src/assets/image/jungel_12.jpeg", alt: "Hands-On Cooking" },
-    { id: 3, src: "src/assets/image/jungel_7.jpeg", alt: "Delicious Meal" },
+    { id: 1, src: f1, alt: "Fresh Ingredients" },
+    { id: 2, src: f2, alt: "Hands-On Cooking" },
+    { id: 3, src: f3, alt: "Delicious Meal" },
 ];
 
 const galleryImages = [
-    { id: 1, src: "src/assets/image/jungel_1.jpeg", alt: "Cooking Class Kalametiya 1" },
-    { id: 2, src: "src/assets/image/jungel_2.jpeg", alt: "Cooking Class Kalametiya 2" },
-    { id: 3, src: "src/assets/image/jungel_3.jpeg", alt: "Cooking Class Kalametiya 3" },
-    { id: 4, src: "src/assets/image/jungel_4.jpeg", alt: "Cooking Class Kalametiya 4" },
-    { id: 5, src: "src/assets/image/jungel_5.jpeg", alt: "Cooking Class Kalametiya 5" },
-    { id: 6, src: "src/assets/image/jungel_6.jpeg", alt: "Cooking Class Kalametiya 6" },
-    { id: 7, src: "src/assets/image/jungel_13.jpeg", alt: "Cooking Class Kalametiya 7" },
-    { id: 8, src: "src/assets/image/jungel_8.jpeg", alt: "Cooking Class Kalametiya 8" },
-    { id: 9, src: "src/assets/image/jungel_9.jpeg", alt: "Cooking Class Kalametiya 9" },
-    { id: 10, src: "src/assets/image/jungel_10.jpeg", alt: "Cooking Class Kalametiya 10" },
-    { id: 11, src: "src/assets/image/jungel_14.jpeg", alt: "Cooking Class Kalametiya 11" },
-    { id: 12, src: "src/assets/image/jungel_15.jpeg", alt: "Cooking Class Kalametiya 12" },
-    { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Cooking Class Kalametiya 13" },
-    { id: 14, src: "src/assets/image/jungel_M.jpg", alt: "Cooking Class Kalametiya 12" },
-    { id: 15, src: "src/assets/image/lagoon_28.jpg", alt: "Cooking Class Kalametiya 13" },
+    { id: 1, src: g1, alt: "Cooking Class Kalametiya 1" },
+    { id: 2, src: g2, alt: "Cooking Class Kalametiya 2" },
+    { id: 3, src: g3, alt: "Cooking Class Kalametiya 3" },
+    { id: 4, src: g4, alt: "Cooking Class Kalametiya 4" },
+    { id: 5, src: g5, alt: "Cooking Class Kalametiya 5" },
+    { id: 6, src: g6, alt: "Cooking Class Kalametiya 6" },
+    { id: 7, src: g7, alt: "Cooking Class Kalametiya 7" },
+    { id: 8, src: g8, alt: "Cooking Class Kalametiya 8" },
+    { id: 9, src: g9, alt: "Cooking Class Kalametiya 9" },
+    { id: 10, src: g10, alt: "Cooking Class Kalametiya 10" },
+    { id: 11, src: g11, alt: "Cooking Class Kalametiya 11" },
+    { id: 12, src: g12, alt: "Cooking Class Kalametiya 12" },
+    { id: 13, src: g13, alt: "Cooking Class Kalametiya 13" },
+    { id: 14, src: g14, alt: "Cooking Class Kalametiya 14" },
+    { id: 15, src: g15, alt: "Cooking Class Kalametiya 15" },
 ];
 
-// Styled Button
+/* -----------------------------------------------------------
+   Styled Button
+------------------------------------------------------------*/
 const StyledButton = styled(Button)(({ theme }) => ({
     borderRadius: "25px",
     padding: "12px 26px",
@@ -68,11 +100,14 @@ const StyledButton = styled(Button)(({ theme }) => ({
     },
 }));
 
+/* -----------------------------------------------------------
+   MAIN COMPONENT (Unmodified)
+------------------------------------------------------------*/
+
 const CookingClass = () => {
     const theme = useTheme();
     const isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
-    // Lightbox state
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [allImages, setAllImages] = useState([]);
@@ -86,7 +121,9 @@ const CookingClass = () => {
     const prevImage = () =>
         setCurrentIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
     const nextImage = () =>
-        setCurrentIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+        setCurrentIndex((prev) =>
+            prev === allImages.length - 1 ? 0 : prev + 1
+        );
 
     return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
@@ -94,39 +131,39 @@ const CookingClass = () => {
 
 
             <Helmet>
-                    <title>Sri Lankan Cooking Class in Kalametiya | Nature Lover’s Inn</title>
-                    <meta
-                        name="description"
-                        content="Join our hands-on Sri Lankan cooking class in Kalametiya. Learn to cook local curries, sweets, and enjoy authentic flavors with expert chefs."
-                    />
-                    <meta
-                        name="keywords"
-                        content="Sri Lanka cooking class, Kalametiya activities, cooking for foreigners Sri Lanka, Sri Lankan food experience, Kalametiya"
-                    />
-                    <meta name="author" content="Nature Lover’s Inn" />
+                <title>Sri Lankan Cooking Class in Kalametiya | Nature Lover’s Inn</title>
+                <meta
+                    name="description"
+                    content="Join our hands-on Sri Lankan cooking class in Kalametiya. Learn to cook local curries, sweets, and enjoy authentic flavors with expert chefs."
+                />
+                <meta
+                    name="keywords"
+                    content="Sri Lanka cooking class, Kalametiya activities, cooking for foreigners Sri Lanka, Sri Lankan food experience, Kalametiya"
+                />
+                <meta name="author" content="Nature Lover’s Inn" />
 
-                    {/* Open Graph for Facebook/WhatsApp/LinkedIn */}
-                    <meta property="og:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
-                    <meta
-                        property="og:description"
-                        content="Hands-on cooking class in Kalametiya, Sri Lanka. Learn local curries, sweets, and dine on your creations."
-                    />
-                    <meta property="og:type" content="website" />
-                    <meta property="og:url" content="http://localhost:3000/cooking" />{/*https://yourwebsite.com/cooking-class*/}
-                    <meta property="og:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
+                {/* Open Graph for Facebook/WhatsApp/LinkedIn */}
+                <meta property="og:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
+                <meta
+                    property="og:description"
+                    content="Hands-on cooking class in Kalametiya, Sri Lanka. Learn local curries, sweets, and dine on your creations."
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="http://localhost:3000/cooking" />{/*https://yourwebsite.com/cooking-class*/}
+                <meta property="og:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
 
-                    {/* Twitter Card */}
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
-                    <meta
-                        name="twitter:description"
-                        content="Join our Sri Lankan cooking experience in Kalametiya. Cook, eat, and enjoy local food culture."
-                    />
-                    <meta name="twitter:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
+                <meta
+                    name="twitter:description"
+                    content="Join our Sri Lankan cooking experience in Kalametiya. Cook, eat, and enjoy local food culture."
+                />
+                <meta name="twitter:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
 
-                    {/* ✅ JSON-LD Schema for Cooking Class */}
-                    <script type="application/ld+json">
-                        {`
+                {/* ✅ JSON-LD Schema for Cooking Class */}
+                <script type="application/ld+json">
+                    {`
                         {
                         "@context": "https://schema.org",
                         "@type": "TouristAttraction",
@@ -146,7 +183,7 @@ const CookingClass = () => {
                         "image": "http://localhost:3000/images/jungel_11.jpeg"
                         }
                         `}
-                    </script>
+                </script>
             </Helmet>
 
 
@@ -269,9 +306,9 @@ const CookingClass = () => {
                     </Typography>
                     <Grid container spacing={2}>
                         {[{ persons: "1 Person", price: "6$" },
-                          { persons: "2 Persons", price: "12$" },
-                          { persons: "3 Persons", price: "18$" },
-                          { persons: "4 Persons", price: "24$" }].map((pkg, i) => (
+                            { persons: "2 Persons", price: "12$" },
+                            { persons: "3 Persons", price: "18$" },
+                            { persons: "4 Persons", price: "24$" }].map((pkg, i) => (
                             <Grid item xs={12} sm={6} md={3} key={i}>
                                 <Card
                                     sx={{

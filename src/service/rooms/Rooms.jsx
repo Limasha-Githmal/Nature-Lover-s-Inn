@@ -29,14 +29,22 @@ import {
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
+/* ---------------------------------------------------------
+   ✅ IMPORT ROOM IMAGES PROPERLY (Fix broken paths)
+---------------------------------------------------------- */
+import room1 from "../../assets/image/room_1.jpeg";
+
 const Rooms = () => {
-    const image1 = "src/assets/image/room_1.jpeg"
     const theme = useTheme();
+
+    /* Replace "src/assets/image/room_1.jpeg" with imported room1 */
+    const image1 = room1;
 
     const rooms = [
         {
             title: "Kingfisher Deluxe Room",
-            description: "Experience relaxing comfort in our Deluxe Room, equipped with a king-size bed, air conditioning, hot water, and a hot kettle with tea and sugar bags. Ideal for guests who value both convenience and a cozy stay near the serene Kalametiya Bird Lagoon.",
+            description:
+                "Experience relaxing comfort in our Deluxe Room, equipped with a king-size bed, air conditioning, hot water, and a hot kettle with tea and sugar bags. Ideal for guests who value both convenience and a cozy stay near the serene Kalametiya Bird Lagoon.",
             price: "$25 per night",
             features: [
                 "Air Conditioning",
@@ -54,7 +62,8 @@ const Rooms = () => {
         },
         {
             title: "Painted Stork Standard Room",
-            description: "Our comfortable Standard Room provides all the basic amenities you need for a relaxing stay. Enjoy a clean and peaceful space with warm Sri Lankan hospitality at an affordable rate.",
+            description:
+                "Our comfortable Standard Room provides all the basic amenities you need for a relaxing stay. Enjoy a clean and peaceful space with warm Sri Lankan hospitality at an affordable rate.",
             price: "$17 per night",
             features: [
                 "Ceiling Fan Cooling",
@@ -84,7 +93,6 @@ const Rooms = () => {
         { icon: <Tv fontSize="large" />, text: "Entertainment" },
         { icon: <LocalBar fontSize="large" />, text: "Refreshments" }
     ];
-
     return (
         <Container maxWidth="lg" sx={{
             py: 6,

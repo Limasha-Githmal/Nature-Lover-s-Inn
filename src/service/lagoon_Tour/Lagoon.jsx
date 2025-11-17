@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import {
-  Container,
-  Grid,
-  Typography,
-  Card,
-  CardMedia,
-  CardContent,
-  Button,
-  Stack,
-  useMediaQuery,
-  Box,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-  IconButton,
-  Link
+    Container,
+    Grid,
+    Typography,
+    Card,
+    CardMedia,
+    CardContent,
+    Button,
+    Stack,
+    useMediaQuery,
+    Box,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Divider,
+    IconButton,
+    Link
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -32,87 +32,156 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
 import { Helmet } from "react-helmet";
 
-// Top Featured Images
+/* -------------------------------------------------
+   ✅ IMPORT ALL LAGOON IMAGES PROPERLY
+--------------------------------------------------*/
+
+// Featured Images
+import f1 from "../../assets/image/lagoon_34.jpeg";
+import f2 from "../../assets/image/lagoon_35.jpeg";
+import f3 from "../../assets/image/lagoon_36.jpeg";
+import f4 from "../../assets/image/lagoon_32.jpeg";
+import f5 from "../../assets/image/lagoon_31.jpeg";
+import f6 from "../../assets/image/lagoon_33.jpeg";
+import f7 from "../../assets/image/lagoon_37.jpeg";
+import f8 from "../../assets/image/lagoon_1.jpg";
+import f9 from "../../assets/image/lagoon_38.jpeg";
+
+// Gallery Images
+import g2 from "../../assets/image/lagoon_2.jpg";
+import g4 from "../../assets/image/lagoon_4.jpg";
+import g5 from "../../assets/image/lagoon_5.jpg";
+import g6 from "../../assets/image/lagoon_6.jpg";
+import g7 from "../../assets/image/lagoon_7.jpg";
+import g8 from "../../assets/image/lagoon_8.jpg";
+import g21 from "../../assets/image/lagoon_21.jpg";
+import g22 from "../../assets/image/lagoon_22.jpg";
+import g23 from "../../assets/image/lagoon_23.jpg";
+import g24 from "../../assets/image/lagoon_24.jpg";
+import g25 from "../../assets/image/lagoon_25.jpg";
+import g26 from "../../assets/image/lagoon_26.jpg";
+import g27 from "../../assets/image/lagoon_27.jpg";
+import g28 from "../../assets/image/lagoon_28.jpg";
+import g9 from "../../assets/image/lagoon_9.jpg";
+import g10 from "../../assets/image/lagoon_10.jpg";
+import g11 from "../../assets/image/lagoon_11.jpg";
+import g12 from "../../assets/image/lagoon_12.jpg";
+import g13 from "../../assets/image/lagoon_13.jpg";
+import g14 from "../../assets/image/lagoon_14.jpg";
+import g15 from "../../assets/image/lagoon_15.jpg";
+import g16 from "../../assets/image/lagoon_16.jpg";
+import g17 from "../../assets/image/lagoon_17.jpg";
+import g18 from "../../assets/image/lagoon_18.jpg";
+import g19 from "../../assets/image/lagoon_19.jpg";
+import g20 from "../../assets/image/lagoon_20.jpg";
+import g29 from "../../assets/image/lagoon_29.jpg";
+import g30 from "../../assets/image/lagoon_30.jpg";
+
+import g50 from "../../assets/image/lagoon_50.jpeg";
+import g51 from "../../assets/image/lagoon_51.jpeg";
+
+/* -------------------------------------------------
+   ARRAYS (now using imported images)
+--------------------------------------------------*/
+
 const featuredImages = [
-  { id: 1, src: "src/assets/image/lagoon_34.jpeg", alt: "Gallery Photo 1" },
-  { id: 2, src: "src/assets/image/lagoon_35.jpeg", alt: "Gallery Photo 2" },
-  { id: 3, src: "src/assets/image/lagoon_36.jpeg", alt: "Gallery Photo 3" },
-  { id: 4, src: "src/assets/image/lagoon_32.jpeg", alt: "Gallery Photo 4" },
-  { id: 5, src: "src/assets/image/lagoon_31.jpeg", alt: "Gallery Photo 5" },
-  { id: 6, src: "src/assets/image/lagoon_33.jpeg", alt: "Gallery Photo 6" },
-  { id: 7, src: "src/assets/image/lagoon_37.jpeg", alt: "Gallery Photo 7" },
-  { id: 8, src: "src/assets/image/lagoon_1.jpg", alt: "Gallery Photo 8"},
-  { id: 9, src: "src/assets/image/lagoon_38.jpeg", alt: "Gallery Photo 9"},
+    { id: 1, src: f1, alt: "Gallery Photo 1" },
+    { id: 2, src: f2, alt: "Gallery Photo 2" },
+    { id: 3, src: f3, alt: "Gallery Photo 3" },
+    { id: 4, src: f4, alt: "Gallery Photo 4" },
+    { id: 5, src: f5, alt: "Gallery Photo 5" },
+    { id: 6, src: f6, alt: "Gallery Photo 6" },
+    { id: 7, src: f7, alt: "Gallery Photo 7" },
+    { id: 8, src: f8, alt: "Gallery Photo 8" },
+    { id: 9, src: f9, alt: "Gallery Photo 9" },
 ];
 
-// Last 20 Gallery Images
 const galleryImages = [
-  { id: 2, src: "src/assets/image/lagoon_2.jpg", alt: "Gallery Photo 2" },
-  { id: 4, src: "src/assets/image/lagoon_4.jpg", alt: "Gallery Photo 4" },
-  { id: 5, src: "src/assets/image/lagoon_5.jpg", alt: "Gallery Photo 5" },
-  { id: 6, src: "src/assets/image/lagoon_6.jpg", alt: "Gallery Photo 6" },
-  { id: 7, src: "src/assets/image/lagoon_7.jpg", alt: "Gallery Photo 7" },
-  { id: 8, src: "src/assets/image/lagoon_8.jpg", alt: "Gallery Photo 8"},
-  { id: 9, src: "src/assets/image/lagoon_21.jpg", alt: "Gallery Photo 9" },
-  { id: 10, src: "src/assets/image/lagoon_22.jpg", alt: "Gallery Photo 10" },
-  { id: 11, src: "src/assets/image/lagoon_23.jpg", alt: "Gallery Photo 11" },
-  { id: 12, src: "src/assets/image/lagoon_24.jpg", alt: "Gallery Photo 12" },
-  { id: 13, src: "src/assets/image/lagoon_25.jpg", alt: "Gallery Photo 13" },
-  { id: 14, src: "src/assets/image/lagoon_26.jpg", alt: "Gallery Photo 14" },
-  { id: 15, src: "src/assets/image/lagoon_27.jpg", alt: "Gallery Photo 15" },
-  { id: 16, src: "src/assets/image/lagoon_28.jpg", alt: "Gallery Photo 16" },
-  { id: 17, src: "src/assets/image/lagoon_9.jpg", alt: "Gallery Photo 17" },
-  { id: 18, src: "src/assets/image/lagoon_10.jpg", alt: "Gallery Photo 18" },
-  { id: 19, src: "src/assets/image/lagoon_11.jpg", alt: "Gallery Photo 19" },
-  { id: 20, src: "src/assets/image/lagoon_12.jpg", alt: "Gallery Photo 20" },
-  { id: 21, src: "src/assets/image/lagoon_13.jpg", alt: "Gallery Photo 21" },
-  { id: 22, src: "src/assets/image/lagoon_14.jpg", alt: "Gallery Photo 22" },
-  { id: 23, src: "src/assets/image/lagoon_15.jpg", alt: "Gallery Photo 23" },
-  { id: 24, src: "src/assets/image/lagoon_16.jpg", alt: "Gallery Photo 24" },
-  { id: 25, src: "src/assets/image/lagoon_17.jpg", alt: "Gallery Photo 25" },
-  { id: 26, src: "src/assets/image/lagoon_18.jpg", alt: "Gallery Photo 26" },
-  { id: 27, src: "src/assets/image/lagoon_19.jpg", alt: "Gallery Photo 27" },
-  { id: 28, src: "src/assets/image/lagoon_20.jpg", alt: "Gallery Photo 28" },
-  { id: 29, src: "src/assets/image/lagoon_29.jpg", alt: "Gallery Photo 29" },
-  { id: 30, src: "src/assets/image/lagoon_30.jpg", alt: "Gallery Photo 30" },
-    { id: 31, src: "src/assets/image/lagoon_50.jpeg", alt: "Gallery Photo 29" },
-    { id: 32, src: "src/assets/image/lagoon_51.jpeg", alt: "Gallery Photo 30" },
+    { id: 2, src: g2, alt: "Gallery Photo 2" },
+    { id: 4, src: g4, alt: "Gallery Photo 4" },
+    { id: 5, src: g5, alt: "Gallery Photo 5" },
+    { id: 6, src: g6, alt: "Gallery Photo 6" },
+    { id: 7, src: g7, alt: "Gallery Photo 7" },
+    { id: 8, src: g8, alt: "Gallery Photo 8" },
+    { id: 9, src: g21, alt: "Gallery Photo 9" },
+    { id: 10, src: g22, alt: "Gallery Photo 10" },
+    { id: 11, src: g23, alt: "Gallery Photo 11" },
+    { id: 12, src: g24, alt: "Gallery Photo 12" },
+    { id: 13, src: g25, alt: "Gallery Photo 13" },
+    { id: 14, src: g26, alt: "Gallery Photo 14" },
+    { id: 15, src: g27, alt: "Gallery Photo 15" },
+    { id: 16, src: g28, alt: "Gallery Photo 16" },
+    { id: 17, src: g9, alt: "Gallery Photo 17" },
+    { id: 18, src: g10, alt: "Gallery Photo 18" },
+    { id: 19, src: g11, alt: "Gallery Photo 19" },
+    { id: 20, src: g12, alt: "Gallery Photo 20" },
+    { id: 21, src: g13, alt: "Gallery Photo 21" },
+    { id: 22, src: g14, alt: "Gallery Photo 22" },
+    { id: 23, src: g15, alt: "Gallery Photo 23" },
+    { id: 24, src: g16, alt: "Gallery Photo 24" },
+    { id: 25, src: g17, alt: "Gallery Photo 25" },
+    { id: 26, src: g18, alt: "Gallery Photo 26" },
+    { id: 27, src: g19, alt: "Gallery Photo 27" },
+    { id: 28, src: g20, alt: "Gallery Photo 28" },
+    { id: 29, src: g29, alt: "Gallery Photo 29" },
+    { id: 30, src: g30, alt: "Gallery Photo 30" },
+    { id: 31, src: g50, alt: "Gallery Photo 31" },
+    { id: 32, src: g51, alt: "Gallery Photo 32" },
 ];
+
+/* -------------------------------------------------
+   Styled Button (unchanged)
+--------------------------------------------------*/
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  borderRadius: "25px",
-  padding: "12px 26px",
-  fontWeight: 600,
-  textTransform: "none",
-  transition: "all 0.3s ease",
-  boxShadow: theme.shadows[3],
-  "&:hover": {
-    transform: "translateY(-3px)",
-    boxShadow: theme.shadows[8],
-  },
+    borderRadius: "25px",
+    padding: "12px 26px",
+    fontWeight: 600,
+    textTransform: "none",
+    transition: "all 0.3s ease",
+    boxShadow: theme.shadows[3],
+    "&:hover": {
+        transform: "translateY(-3px)",
+        boxShadow: theme.shadows[8],
+    },
 }));
 
+/* -------------------------------------------------
+   Component Logic (unchanged)
+--------------------------------------------------*/
+
 const Lagoon = () => {
-  const theme = useTheme();
-  const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+    const theme = useTheme();
+    const isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Lightbox state
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [allImages, setAllImages] = useState([]);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [allImages, setAllImages] = useState([]);
 
-  const openLightbox = (images, index) => {
-    setAllImages(images);
-    setCurrentIndex(index);
-    setLightboxOpen(true);
-  };
-  const closeLightbox = () => setLightboxOpen(false);
-  const prevImage = () =>
-    setCurrentIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
-  const nextImage = () =>
-    setCurrentIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+    const openLightbox = (images, index) => {
+        setAllImages(images);
+        setCurrentIndex(index);
+        setLightboxOpen(true);
+    };
 
-  return (
+    const closeLightbox = () => setLightboxOpen(false);
+
+    const prevImage = () =>
+        setCurrentIndex((prev) =>
+            prev === 0 ? allImages.length - 1 : prev - 1
+        );
+
+    const nextImage = () =>
+        setCurrentIndex((prev) =>
+            prev === allImages.length - 1 ? 0 : prev + 1
+        );
+
+    /* ⛔ Your request: DO NOT modify anything below here */
+
+
+
+
+return (
     <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
 
         <Helmet>

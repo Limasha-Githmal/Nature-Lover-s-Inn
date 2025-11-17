@@ -32,30 +32,61 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+/* ---------------------------
+   ✅ FIXED IMAGE IMPORTS
+----------------------------*/
+
+import f1 from "../../assets/image/jungel_11.jpeg";
+import f2 from "../../assets/image/jungel_12.jpeg";
+import f3 from "../../assets/image/jungel_7.jpeg";
+
+import g1 from "../../assets/image/jungel_1.jpeg";
+import g2 from "../../assets/image/jungel_2.jpeg";
+import g3 from "../../assets/image/jungel_3.jpeg";
+import g4 from "../../assets/image/jungel_4.jpeg";
+import g5 from "../../assets/image/jungel_5.jpeg";
+import g6 from "../../assets/image/jungel_6.jpeg";
+import g7 from "../../assets/image/jungel_13.jpeg";
+import g8 from "../../assets/image/jungel_8.jpeg";
+import g9 from "../../assets/image/jungel_9.jpeg";
+import g10 from "../../assets/image/jungel_10.jpeg";
+import g11 from "../../assets/image/jungel_14.jpeg";
+import g12 from "../../assets/image/jungel_15.jpeg";
+import g13 from "../../assets/image/jungle_16.jpeg";
+import g14 from "../../assets/image/jungel_M.jpg";
+import g15 from "../../assets/image/lagoon_28.jpg";
+
+/* ---------------------------
+   IMAGE ARRAYS
+----------------------------*/
+
 const featureImages = [
-    { id: 1, src: "src/assets/image/jungel_11.jpeg", alt: "Nine Stupas Temple" },
-    { id: 2, src: "src/assets/image/jungel_12.jpeg", alt: "Kalametiya Beach" },
-    { id: 3, src: "src/assets/image/jungel_7.jpeg", alt: "Buffalo Fields" },
+    { id: 1, src: f1, alt: "Nine Stupas Temple" },
+    { id: 2, src: f2, alt: "Kalametiya Beach" },
+    { id: 3, src: f3, alt: "Buffalo Fields" },
 ];
 
 const galleryImages = [
-    { id: 1, src: "src/assets/image/jungel_1.jpeg", alt: "Jungle Walking Tour Kalametiya 1" },
-    { id: 2, src: "src/assets/image/jungel_2.jpeg", alt: "Jungle Walking Tour Kalametiya 2" },
-    { id: 3, src: "src/assets/image/jungel_3.jpeg", alt: "Jungle Walking Tour Kalametiya 3" },
-    { id: 4, src: "src/assets/image/jungel_4.jpeg", alt: "Jungle Walking Tour Kalametiya 4" },
-    { id: 5, src: "src/assets/image/jungel_5.jpeg", alt: "Jungle Walking Tour Kalametiya 5" },
-    { id: 6, src: "src/assets/image/jungel_6.jpeg", alt: "Jungle Walking Tour Kalametiya 6" },
-    { id: 7, src: "src/assets/image/jungel_13.jpeg", alt: "Jungle Walking Tour Kalametiya 7" },
-    { id: 8, src: "src/assets/image/jungel_8.jpeg", alt: "Jungle Walking Tour Kalametiya 8" },
-    { id: 9, src: "src/assets/image/jungel_9.jpeg", alt: "Jungle Walking Tour Kalametiya 9" },
-    { id: 10, src: "src/assets/image/jungel_10.jpeg", alt: "Jungle Walking Tour Kalametiya 10" },
-    { id: 11, src: "src/assets/image/jungel_14.jpeg", alt: "Jungle Walking Tour Kalametiya 11" },
-    { id: 12, src: "src/assets/image/jungel_15.jpeg", alt: "Jungle Walking Tour Kalametiya 12" },
-    { id: 13, src: "src/assets/image/jungle_16.jpeg", alt: "Jungle Walking Tour Kalametiya 13" },
-    { id: 14, src: "src/assets/image/jungel_M.jpg", alt: "Jungle Walking Tour Kalametiya 12" },
-    { id: 15, src: "src/assets/image/lagoon_28.jpg", alt: "Jungle Walking Tour Kalametiya 13" },
+    { id: 1, src: g1, alt: "Jungle Walking Tour Kalametiya 1" },
+    { id: 2, src: g2, alt: "Jungle Walking Tour Kalametiya 2" },
+    { id: 3, src: g3, alt: "Jungle Walking Tour Kalametiya 3" },
+    { id: 4, src: g4, alt: "Jungle Walking Tour Kalametiya 4" },
+    { id: 5, src: g5, alt: "Jungle Walking Tour Kalametiya 5" },
+    { id: 6, src: g6, alt: "Jungle Walking Tour Kalametiya 6" },
+    { id: 7, src: g7, alt: "Jungle Walking Tour Kalametiya 7" },
+    { id: 8, src: g8, alt: "Jungle Walking Tour Kalametiya 8" },
+    { id: 9, src: g9, alt: "Jungle Walking Tour Kalametiya 9" },
+    { id: 10, src: g10, alt: "Jungle Walking Tour Kalametiya 10" },
+    { id: 11, src: g11, alt: "Jungle Walking Tour Kalametiya 11" },
+    { id: 12, src: g12, alt: "Jungle Walking Tour Kalametiya 12" },
+    { id: 13, src: g13, alt: "Jungle Walking Tour Kalametiya 13" },
+    { id: 14, src: g14, alt: "Jungle Walking Tour Kalametiya 12" },
+    { id: 15, src: g15, alt: "Jungle Walking Tour Kalametiya 13" },
 ];
 
+/* ---------------------------
+   Styled Button
+----------------------------*/
 const StyledButton = styled(Button)(({ theme }) => ({
     borderRadius: "25px",
     padding: "12px 26px",
@@ -69,12 +100,15 @@ const StyledButton = styled(Button)(({ theme }) => ({
     },
 }));
 
+/* ---------------------------
+   COMPONENT LOGIC (NO RETURN)
+----------------------------*/
+
 const JungleTour = () => {
     const theme = useTheme();
     const isSm = useMediaQuery(theme.breakpoints.down("sm"));
     const navigate = useNavigate();
 
-    // Lightbox state
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -82,13 +116,23 @@ const JungleTour = () => {
         setCurrentIndex(index);
         setLightboxOpen(true);
     };
-    const closeLightbox = () => setLightboxOpen(false);
-    const prevImage = () =>
-        setCurrentIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
-    const nextImage = () =>
-        setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
 
-    return (
+    const closeLightbox = () => setLightboxOpen(false);
+
+    const prevImage = () =>
+        setCurrentIndex((prev) =>
+            prev === 0 ? galleryImages.length - 1 : prev - 1
+        );
+
+    const nextImage = () =>
+        setCurrentIndex((prev) =>
+            prev === galleryImages.length - 1 ? 0 : prev + 1
+        );
+
+    // ⛔ You requested NOT to include return code, so stopping here.
+
+
+return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
 
             <Helmet>
