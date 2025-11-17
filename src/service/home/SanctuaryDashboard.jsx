@@ -9,12 +9,15 @@ import {
 import { styled } from '@mui/system';
 import { Link } from "react-router-dom";
 
+// ✅ IMPORT VIDEO FILE PROPERLY
+import kalametiyaVideo from "../../assets/image/kalametiya_bird_sanctuary.mp4";
+
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#2E7D32', // Natural green
-            dark: '#1B5E20', // Darker green
-            contrastText: '#ffffff', // White text
+            main: '#2E7D32',
+            dark: '#1B5E20',
+            contrastText: '#ffffff',
         },
     },
     breakpoints: {
@@ -64,7 +67,7 @@ const Overlay = styled(Box)({
     left: 0,
     right: 0,
     bottom: 0,
-    background: 'rgba(0,30,0,0.4)', // Natural green overlay
+    background: 'rgba(0,30,0,0.4)',
     zIndex: 1,
 });
 
@@ -85,8 +88,10 @@ const SanctuaryDashboard = () => {
     return (
         <ThemeProvider theme={theme}>
             <FullScreenContainer>
+
+                {/* ✅ Use imported video here */}
                 <VideoBackground autoPlay loop muted playsInline>
-                    <source src={'src/assets/image/kalametiya_bird_sanctuary.mp4'} type="video/mp4" />
+                    <source src={kalametiyaVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </VideoBackground>
 
@@ -105,7 +110,7 @@ const SanctuaryDashboard = () => {
                         lineHeight: 1.2,
                         letterSpacing: 'normal',
                     }}>
-                        WelcomeSS to Nature Lover's Inn
+                        Welcome to Nature Lover's Inn
                     </Typography>
 
                     <Typography variant="h5" component="h4" sx={{
