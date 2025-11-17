@@ -65,7 +65,7 @@ export default function ResponsiveAppBar() {
                 {/* Logo */}
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Link to="/">
-                        <LogoImage src="/src/assets/image/logo.png" alt="Logo" />
+                        <LogoImage src="public/images/logo.png" alt="Logo" />
                     </Link>
                 </Box>
 
