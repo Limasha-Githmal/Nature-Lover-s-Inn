@@ -85,11 +85,13 @@ const App = () => {
                 spacing={3}
                 sx={{
                     justifyContent: "center",
-                    flexWrap: { xs: "wrap", md: "nowrap" },
+                    flexWrap: "wrap",
                 }}
             >
                 {tourData.map((tour) => (
-                    <Grid item key={tour.id} xs={12} sm={6} md={3}>
+                    <Grid item key={tour.id} xs={12} sm={6} md={3}
+                          sx={{ display: "flex", justifyContent: "center" }}
+                    >
                         <Card
                             component={Link}
                             to={tour.path}
