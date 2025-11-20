@@ -82,39 +82,26 @@ const App = () => {
             {/* Grid of Tours */}
             <Grid
                 container
-                spacing={{ xs: 0, sm: 2, md: 3 }}
+                spacing={3}
                 sx={{
                     justifyContent: "center",
-                    alignItems: "center",
                     flexWrap: "wrap",
-                    mx: "auto",
                 }}
             >
                 {tourData.map((tour) => (
-                    <Grid
-                        item
-                        key={tour.id}
-                        xs={12}
-                        sm={6}
-                        md={3}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
+                    <Grid item key={tour.id} xs={12} sm={6} md={3}
+                          sx={{ display: "flex", justifyContent: "center" }}
                     >
                         <Card
                             component={Link}
                             to={tour.path}
                             sx={{
-                                width: "100%",
-                                maxWidth: 320,    // ⭐ Perfect on all phones including iPhone SE
-                                borderRadius: 2,
-                                overflow: "hidden",
+                                height: "100%",
                                 display: "flex",
                                 flexDirection: "column",
-                                transition: "0.3s",
-                                textDecoration: "none",
-                                color: "inherit",
+                                transition: "transform 0.3s",
+                                textDecoration: "none", // remove underline
+                                color: "inherit", // keep text color
                                 "&:hover": {
                                     transform: "scale(1.03)",
                                     boxShadow: 4,
@@ -129,23 +116,38 @@ const App = () => {
                                 sx={{
                                     objectFit: "cover",
                                     width: "100%",
+                                    aspectRatio: "4/3",
                                 }}
                             />
-
                             <CardContent
                                 sx={{
                                     p: 2,
-                                    textAlign: "center",
+                                    flexGrow: 1,
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
                                 }}
                             >
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 600, mb: 1 }}
+                                    component="h3"
+                                    sx={{
+                                        fontWeight: "600",
+                                        mb: 1,
+                                        textAlign: "center",
+                                        fontSize: "1.1rem",
+                                    }}
                                 >
                                     {tour.title}
                                 </Typography>
-
-                                <Typography color="text.secondary">
+                                <Typography
+                                    variant="body1"
+                                    color="text.secondary"
+                                    sx={{
+                                        textAlign: "center",
+                                        fontSize: "0.9rem",
+                                    }}
+                                >
                                     {tour.description}
                                 </Typography>
                             </CardContent>
