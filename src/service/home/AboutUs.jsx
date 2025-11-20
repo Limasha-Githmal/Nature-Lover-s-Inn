@@ -75,7 +75,7 @@ const App = () => {
                         mb: 3,
                     }}
                 >
-                    About
+                   Our Services
                 </Typography>
             </Box>
 
