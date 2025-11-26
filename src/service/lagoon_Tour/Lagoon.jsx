@@ -185,64 +185,74 @@ return (
     <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
 
         <Helmet>
-            <title>Bird Watching Lagoon Tour in Kalametiya, Tangalle | Nature Lover’s Inn</title>
+            {/* Page Title */}
+            <title>Lagoon Bird Watching Tour in Kalametiya | Nature Lover’s Inn Sri Lanka</title>
+
+            {/* Description */}
             <meta
                 name="description"
-                content="Discover exotic birds and natural beauty on our lagoon bird watching tour in Kalametiya, Tangalle. Explore Sri Lanka’s rich biodiversity with expert local guides."
+                content="Experience the best lagoon bird watching tour in Kalametiya, Sri Lanka. Enjoy peaceful boat rides, spot rare birds, and explore the stunning Kalametiya wetlands with Nature Lover’s Inn."
             />
+
+            {/* SEO Keywords */}
             <meta
                 name="keywords"
-                content="Bird watching Sri Lanka, Kalametiya Lagoon tour, Tangalle nature tours, Sri Lanka bird sanctuary, eco-tourism Sri Lanka,Kalametiya,Bird watching Sri Lanka"
+                content="Lagoon tour Kalametiya, Bird watching Sri Lanka, Kalametiya Bird Sanctuary, Tangalle lagoon safari, Nature Lovers Inn, eco tourism Sri Lanka"
             />
-            <meta name="author" content="Nature Lover’s Inn" />
 
-            {/* Open Graph for Facebook/WhatsApp/LinkedIn */}
-            <meta property="og:title" content="Bird Watching Lagoon Tour | Nature Lover’s Inn" />
+            <meta name="author" content="Nature Lover’s Inn" />
+            <meta name="robots" content="index, follow" />
+
+            {/* Canonical URL */}
+            <link rel="canonical" href="https://www.natureloversinn.com/lagoon-tour" />
+
+            {/* Open Graph (Facebook / WhatsApp / LinkedIn) */}
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Lagoon Bird Watching Tour in Kalametiya | Nature Lover’s Inn" />
             <meta
                 property="og:description"
-                content="Join our bird watching lagoon tour in Kalametiya, Tangalle. Spot rare and migratory birds in a stunning natural habitat."
+                content="Join our guided lagoon bird watching tour in Kalametiya. Spot rare birds, enjoy boat rides, and explore natural wetlands in Sri Lanka."
             />
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content="http://localhost:3000/bird-watching" />
-            {/* Replace with https://yourwebsite.com/bird-watching */}
-            <meta property="og:image" content="http://localhost:3000/images/bird_watching.jpeg" />
-            {/* Replace with https://yourwebsite.com/images/bird_watching.jpeg */}
+            <meta property="og:url" content="https://www.natureloversinn.com/lagoon-tour" />
+            <meta property="og:image" content="https://www.natureloversinn.com/lagoon-tour" />
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Bird Watching Lagoon Tour | Nature Lover’s Inn" />
+            <meta name="twitter:title" content="Lagoon Bird Watching Tour in Kalametiya | Nature Lover’s Inn" />
             <meta
                 name="twitter:description"
-                content="Explore Kalametiya Lagoon in Tangalle with our bird watching tour. Experience Sri Lanka’s rare birds and beautiful landscapes."
+                content="Explore Kalametiya Lagoon in Tangalle with our bird watching tour. Discover exotic birds and the natural beauty of Sri Lanka."
             />
-            <meta name="twitter:image" content="http://localhost:3000/images/bird_watching.jpeg" />
-            {/* Replace with https://yourwebsite.com/images/bird_watching.jpeg */}
+            <meta name="twitter:image" content="https://www.natureloversinn.com/lagoon-tour" />
 
-            {/* ✅ JSON-LD Schema for Bird Watching Tour */}
+            {/* JSON-LD Schema */}
             <script type="application/ld+json">
                 {`
         {
-        "@context": "https://schema.org",
-        "@type": "TouristAttraction",
-        "name": "Bird Watching Lagoon Tour in Kalametiya, Tangalle",
-        "description": "Guided bird watching lagoon tour in Kalametiya, Tangalle. Guests can spot rare, migratory, and endemic birds while enjoying Sri Lanka's natural beauty.",
-        "touristType": "Nature Lovers, Bird Watchers, Eco-tourists",
-        "provider": {
-            "@type": "LocalBusiness",
+          "@context": "https://schema.org",
+          "@type": "TouristAttraction",
+          "name": "Kalametiya Lagoon Bird Watching Tour",
+          "description": "Guided lagoon bird watching tour in Kalametiya. Spot rare and migratory birds with expert local guides.",
+          "touristType": "Bird Watchers, Eco-tourists, Nature Lovers",
+          "provider": {
+            "@type": "Hotel",
             "name": "Nature Lover’s Inn",
             "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Kalametiya, Tangalle",
-                "addressCountry": "Sri Lanka"
+              "@type": "PostalAddress",
+              "streetAddress": "Kalametiya",
+              "addressLocality": "Tangalle",
+              "addressCountry": "Sri Lanka"
             },
             "telephone": "+94-760169518",
-            "url": "http://localhost:3000/bird-watching"
-        },
-        "image": "http://localhost:3000/images/jungel_11.jpeg"
+            "url": "https://www.natureloversinn.com/lagoon-tour"
+          },
+          "image": "https://www.natureloversinn.com/lagoon-tour"
         }
         `}
             </script>
         </Helmet>
+
+
 
 
 

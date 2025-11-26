@@ -133,65 +133,103 @@ const JungleTour = () => {
 
 
 return (
+
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
 
             <Helmet>
-                <title>Jungle Walking Tour in Kalametiya, Tangalle | Nature Lover’s Inn</title>
+                {/* Page Title */}
+                <title>Jungle Walking Tour in Kalametiya | Nature Lover’s Inn Sri Lanka</title>
+
+                {/* Meta Description */}
                 <meta
                     name="description"
-                    content="Experience an exciting jungle walking tour in Kalametiya, Tangalle. Discover hidden trails, wildlife, and the beauty of Sri Lanka’s natural forests with expert local guides."
+                    content="Discover the Kalametiya Jungle Walking Tour with Nature Lover’s Inn. Explore hidden trails, wildlife, ancient temples, beaches, and Sri Lanka’s natural beauty with expert local guides."
                 />
+
+                {/* Keywords */}
                 <meta
                     name="keywords"
-                    content="Jungle walking Sri Lanka, Kalametiya tours, Tangalle eco tours, Sri Lanka jungle trekking, eco-tourism Sri Lanka, Walking Tour, Kalametiya"
+                    content="jungle walking Sri Lanka, Kalametiya jungle tour, Tangalle nature tours, Sri Lanka jungle trekking, eco-tourism Sri Lanka"
                 />
-                <meta name="author" content="Nature Lover’s Inn" />
 
-                {/* Open Graph for Facebook/WhatsApp/LinkedIn */}
+                {/* Robots */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Canonical URL */}
+                <link rel="canonical" href="https://www.natureloversinn.com/jungle" />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
                 <meta property="og:title" content="Jungle Walking Tour | Nature Lover’s Inn" />
                 <meta
                     property="og:description"
-                    content="Join our guided jungle walking tour in Kalametiya, Tangalle. Explore hidden paths, spot wildlife, and connect with nature."
+                    content="Join our guided jungle walking tour in Kalametiya. Explore hidden paths, spot wildlife, and connect with nature."
                 />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="http://localhost:3000/jungle-walking" />
-                {/* Replace with https://yourwebsite.com/jungle-walking */}
-                <meta property="og:image" content="http://localhost:3000/images/jungel_11.jpeg" />
-                {/* Replace with https://yourwebsite.com/images/jungle_walking.jpeg */}
+                <meta property="og:url" content="https://www.natureloversinn.com/jungle" />
+                <meta property="og:image" content="https://www.natureloversinn.com/jungle" />
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Jungle Walking Tour | Nature Lover’s Inn" />
                 <meta
                     name="twitter:description"
-                    content="Walk through Sri Lanka’s wild jungles in Kalametiya, Tangalle. A guided eco-tour full of adventure, wildlife, and natural beauty."
+                    content="Walk through Sri Lanka’s jungles in Kalametiya, Tangalle. A guided eco-tour full of adventure, wildlife, and natural beauty."
                 />
-                <meta name="twitter:image" content="http://localhost:3000/images/jungel_11.jpeg" />
-                {/* Replace with https://yourwebsite.com/images/jungle_walking.jpeg */}
+                <meta name="twitter:image" content="https://www.natureloversinn.com/jungle" />
 
-                {/* ✅ JSON-LD Schema for Jungle Walking Tour */}
+                {/* JSON-LD Schema for the Tour */}
                 <script type="application/ld+json">
                     {`
-        {
+      {
         "@context": "https://schema.org",
         "@type": "TouristAttraction",
-        "name": "Jungle Walking Tour in Kalametiya, Tangalle",
-        "description": "Guided jungle walking tour in Kalametiya, Tangalle. Guests will discover hidden trails, wildlife, and the beauty of Sri Lanka's forests.",
-        "touristType": "Nature Lovers, Adventure Seekers, Eco-tourists",
+        "name": "Jungle Walking Tour – Nature Lover’s Inn",
+        "description": "Guided jungle walking tour in Kalametiya, Tangalle. Guests will discover hidden trails, wildlife, and Sri Lanka's natural forest landscapes.",
+        "url": "https://www.natureloversinn.com/jungle",
+        "image": [
+          "https://www.natureloversinn.com/jungle"
+        ],
+        "touristType": "Nature Lovers, Eco-Tourists, Adventure Seekers",
         "provider": {
-            "@type": "LocalBusiness",
-            "name": "Nature Lover’s Inn",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Kalametiya, Tangalle",
-                "addressCountry": "Sri Lanka"
-            },
-            "telephone": "+94-760169518",
-            "url": "http://localhost:3000/jungle-walking"
-        },
-        "http://localhost:3000/images/jungel_11.jpeg"
+          "@type": "LocalBusiness",
+          "name": "Nature Lover’s Inn",
+          "telephone": "+94-760169518",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Kalametiya",
+            "addressLocality": "Tangalle",
+            "addressRegion": "Southern Province",
+            "addressCountry": "Sri Lanka"
+          }
         }
-        `}
+      }
+    `}
+                </script>
+
+                {/* LocalBusiness Schema (for Google Maps / Knowledge) */}
+                <script type="application/ld+json">
+                    {`
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Nature Lover’s Inn",
+        "url": "https://www.natureloversinn.com/jungle",
+        "image": "https://www.natureloversinn.com/jungle",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kalametiya",
+          "addressLocality": "Tangalle",
+          "addressRegion": "Southern Province",
+          "addressCountry": "LK"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 6.103423,
+          "longitude": 80.861502
+        },
+        "telephone": "+94-760169518"
+      }
+    `}
                 </script>
             </Helmet>
 

@@ -48,6 +48,7 @@ import g27 from "../../assets/image/gallery_27.jpeg";
 import g28 from "../../assets/image/gallery_28.jpeg";
 import g29 from "../../assets/image/gallery_29.jpeg";
 import g30 from "../../assets/image/gallery_30.jpeg";
+import {Helmet} from "react-helmet";
 
 /* ----------------------------------------------------
    ✅ FIXED galleryImages ARRAY
@@ -111,6 +112,71 @@ const PhotoGallery = () => {
 
     return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: { xs: 6, sm: 8, md: 10 } }}>
+            <Helmet>
+                {/* Page Title */}
+                <title>Nature Lover’s Inn | Kalametiya Bird Sanctuary Eco Stay in Sri Lanka</title>
+
+                {/* Meta Description */}
+                <meta
+                    name="description"
+                    content="Nature Lover’s Inn is located next to the Kalametiya Bird Sanctuary in Sri Lanka. Enjoy bird watching tours, lagoon safaris, jungle walking, cooking classes, and peaceful beachfront accommodation."
+                />
+
+                {/* Keywords */}
+                <meta
+                    name="keywords"
+                    content="Kalametiya Bird Sanctuary hotel, Nature Lovers Inn, bird watching Sri Lanka, Kalametiya lagoon tour, eco stay Sri Lanka, Tangalle nature tours"
+                />
+
+                {/* Robots */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Canonical */}
+                <link rel="canonical" href="https://www.natureloversinn.com/" />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Nature Lover’s Inn | Next to Kalametiya Bird Sanctuary" />
+                <meta
+                    property="og:description"
+                    content="Stay at Nature Lover’s Inn, located right next to the famous Kalametiya Bird Sanctuary. Enjoy lagoon tours, bird watching, jungle trekking and authentic Sri Lankan hospitality."
+                />
+                <meta property="og:url" content="https://www.natureloversinn.com/" />
+
+                {/* ✔️ EXACTLY AS YOU REQUESTED — DO NOT CHANGE THIS */}
+                <meta property="og:image" content="https://www.natureloversinn.com/" />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Nature Lover’s Inn | Kalametiya Bird Sanctuary" />
+                <meta
+                    name="twitter:description"
+                    content="Eco-friendly stays, bird watching tours, lagoon boat rides and jungle walks at Kalametiya Bird Sanctuary."
+                />
+                <meta name="twitter:image" content="https://www.natureloversinn.com/" />
+
+                {/* JSON-LD Schema */}
+                <script type="application/ld+json">
+                    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Nature Lover’s Inn",
+      "description": "Eco hotel near Kalametiya Bird Sanctuary with bird watching tours, lagoon boat rides, and jungle walking experiences.",
+      "url": "https://www.natureloversinn.com/",
+      "image": "https://www.natureloversinn.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kalametiya",
+        "addressLocality": "Tangalle",
+        "addressRegion": "Southern Province",
+        "addressCountry": "Sri Lanka"
+      },
+      "telephone": "+94-760169518"
+    }
+    `}
+                </script>
+            </Helmet>
             {/* Hero Section */}
             <Box
                 sx={{

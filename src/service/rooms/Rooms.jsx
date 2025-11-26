@@ -102,66 +102,71 @@ const Rooms = () => {
         }}>
 
             <Helmet>
-            {/* Page Title */}
-            <title>Hotel Rooms & Accommodation in Kalametiya | Nature Lover’s Inn</title>
+                {/* 🔹 SEO Title */}
+                <title>Hotel Rooms in Kalametiya | Affordable Accommodation | Nature Lover’s Inn</title>
 
-            {/* Meta Description */}
-            <meta
-                name="description"
-                content="Stay in our comfortable rooms near Kalametiya Bird Lagoon. Enjoy modern amenities, bird watching tours, cooking classes, and authentic Sri Lankan hospitality."
-            />
+                {/* 🔹 Meta Description */}
+                <meta
+                    name="description"
+                    content="Book affordable rooms near Kalametiya Bird Sanctuary. Enjoy A/C rooms, hot water, WiFi, bird watching tours & authentic Sri Lankan hospitality at Nature Lover’s Inn."
+                />
 
-            {/* Keywords */}
-            <meta
-                name="keywords"
-                content="Kalametiya hotel, Sri Lanka accommodation, Nature Lover's Inn, bird watching, cooking classes, hotel rooms"
-            />
+                {/* 🔹 Keywords */}
+                <meta
+                    name="keywords"
+                    content="Kalametiya hotel rooms, Nature Lovers Inn rooms, Kalametiya accommodation, Tangalle hotels, Sri Lanka eco stay, bird watching hotel"
+                />
 
-            {/* Open Graph for social media */}
-            <meta property="og:title" content="Hotel Rooms in Kalametiya | Nature Lover’s Inn" />
-            <meta
-                property="og:description"
-                content="Book a stay at Nature Lover’s Inn and enjoy comfortable rooms with modern amenities near Kalametiya Bird Lagoon."
-            />
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content="http://localhost:3000/rooms" /> {/* update for production */}
-            <meta property="og:image" content="http://localhost:3000/images/room_1.jpeg" /> {/* main room image */}
+                {/* 🔹 Canonical URL */}
+                <link rel="canonical" href="https://www.natureloversinn.com/rooms" />
 
-            {/* Twitter Card */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Hotel Rooms in Kalametiya | Nature Lover’s Inn" />
-            <meta
-                name="twitter:description"
-                content="Stay in our rooms and enjoy bird watching tours, cooking classes, and authentic Sri Lankan hospitality."
-            />
-            <meta name="twitter:image" content="http://localhost:3000/images/room_1.jpeg" />
+                {/* 🔹 Open Graph (Facebook / WhatsApp / Instagram / LinkedIn) */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Hotel Rooms in Kalametiya | Nature Lover’s Inn" />
+                <meta
+                    property="og:description"
+                    content="Stay in comfortable, budget-friendly rooms near Kalametiya Bird Sanctuary. Perfect for bird watchers, nature lovers & families."
+                />
+                <meta property="og:url" content="https://www.natureloversinn.com/rooms" />
+                <meta property="og:image" content="https://www.natureloversinn.com/rooms" />
 
-            {/* JSON-LD Schema for Hotel */}
-            <script type="application/ld+json">
-                {`
-                {
-                    "@context": "https://schema.org",
-                    "@type": "Hotel",
-                    "name": "Nature Lover’s Inn",
-                    "description": "Stay in comfortable rooms near Kalametiya Bird Lagoon. Enjoy modern amenities, bird watching tours, cooking classes, and authentic Sri Lankan hospitality.",
-                    "image": "http://localhost:3000/images/room_1.jpeg",
-                    "url": "http://localhost:3000/rooms",
-                    "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Kalametiya",
-                    "addressCountry": "Sri Lanka"
-                    },
-                    "telephone": "+94-760169518",
-                    "amenityFeature": [
-                    { "@type": "LocationFeatureSpecification", "name": "Air Conditioning" },
-                    { "@type": "LocationFeatureSpecification", "name": "Free WiFi" },
-                    { "@type": "LocationFeatureSpecification", "name": "Hot Water Showers" },
-                    { "@type": "LocationFeatureSpecification", "name": "On-Site Restaurant" }
-                    ]
-                }
-                `}
-            </script>
+                {/* 🔹 Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Hotel Rooms in Kalametiya | Nature Lover’s Inn" />
+                <meta
+                    name="twitter:description"
+                    content="Comfortable rooms near the Kalametiya Bird Lagoon with modern amenities and eco-friendly activities."
+                />
+                <meta name="twitter:image" content="https://www.natureloversinn.com/rooms" />
+
+                {/* 🔹 JSON-LD Schema (Hotel) */}
+                <script type="application/ld+json">
+                    {`
+        {
+            "@context": "https://schema.org",
+            "@type": "Hotel",
+            "name": "Nature Lover’s Inn",
+            "image": "https://www.natureloversinn.com/rooms",
+            "description": "Comfortable and affordable hotel rooms located near the Kalametiya Bird Sanctuary with modern amenities and nature activities.",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kalametiya",
+                "addressRegion": "Southern Province",
+                "addressCountry": "Sri Lanka"
+            },
+            "telephone": "+94-760169518",
+            "url": "https://www.natureloversinn.com/rooms",
+            "amenityFeature": [
+                { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Hot Water", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "On-site Restaurant", "value": true }
+            ]
+        }
+        `}
+                </script>
             </Helmet>
+
 
 
             {/* Header Section with proper spacing */}

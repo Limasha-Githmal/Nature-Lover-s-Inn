@@ -28,8 +28,9 @@ function Dashboard() {
                 <meta property="og:description" content="Experience the Kalametiya Bird Sanctuary with boat tours, bird watching and eco stay at Nature Lover's Inn." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.natureloversinn.com" />
-                <meta property="og:image" content="https://www.natureloversinn.com/images/og-image.jpg" />
+                <meta property="og:image" content="https://www.natureloversinn.com/" />
             </Helmet>
+
 
 
 

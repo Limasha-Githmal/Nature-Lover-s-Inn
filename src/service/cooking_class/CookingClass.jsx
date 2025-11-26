@@ -131,58 +131,68 @@ const CookingClass = () => {
 
 
             <Helmet>
-                <title>Sri Lankan Cooking Class in Kalametiya | Nature Lover’s Inn</title>
+                {/* Page Title */}
+                <title>Nature Lover’s Inn | Kalametiya Bird Sanctuary Eco Stay in Sri Lanka</title>
+
+                {/* Meta Description */}
                 <meta
                     name="description"
-                    content="Join our hands-on Sri Lankan cooking class in Kalametiya. Learn to cook local curries, sweets, and enjoy authentic flavors with expert chefs."
+                    content="Nature Lover’s Inn is located next to the Kalametiya Bird Sanctuary in Sri Lanka. Enjoy bird watching tours, lagoon safaris, jungle walking, cooking classes, and peaceful beachfront accommodation."
                 />
+
+                {/* Keywords */}
                 <meta
                     name="keywords"
-                    content="Sri Lanka cooking class, Kalametiya activities, cooking for foreigners Sri Lanka, Sri Lankan food experience, Kalametiya"
+                    content="Kalametiya Bird Sanctuary hotel, Nature Lovers Inn, bird watching Sri Lanka, Kalametiya lagoon tour, eco stay Sri Lanka, Tangalle nature tours"
                 />
-                <meta name="author" content="Nature Lover’s Inn" />
 
-                {/* Open Graph for Facebook/WhatsApp/LinkedIn */}
-                <meta property="og:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
+                {/* Robots */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Canonical */}
+                <link rel="canonical" href="https://www.natureloversinn.com/" />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Nature Lover’s Inn | Next to Kalametiya Bird Sanctuary" />
                 <meta
                     property="og:description"
-                    content="Hands-on cooking class in Kalametiya, Sri Lanka. Learn local curries, sweets, and dine on your creations."
+                    content="Stay at Nature Lover’s Inn, located right next to the famous Kalametiya Bird Sanctuary. Enjoy lagoon tours, bird watching, jungle trekking and authentic Sri Lankan hospitality."
                 />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="http://localhost:3000/cooking" />{/*https://yourwebsite.com/cooking-class*/}
-                <meta property="og:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
+                <meta property="og:url" content="https://www.natureloversinn.com/" />
+
+                {/* ✔️ EXACTLY AS YOU REQUESTED — DO NOT CHANGE THIS */}
+                <meta property="og:image" content="https://www.natureloversinn.com/" />
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Sri Lankan Cooking Class | Nature Lover’s Inn" />
+                <meta name="twitter:title" content="Nature Lover’s Inn | Kalametiya Bird Sanctuary" />
                 <meta
                     name="twitter:description"
-                    content="Join our Sri Lankan cooking experience in Kalametiya. Cook, eat, and enjoy local food culture."
+                    content="Eco-friendly stays, bird watching tours, lagoon boat rides and jungle walks at Kalametiya Bird Sanctuary."
                 />
-                <meta name="twitter:image" content="http://localhost:3000/images/jungel_11.jpeg" />{/*https://yourwebsite.com/images/jungel_11.jpeg"*/}
+                <meta name="twitter:image" content="https://www.natureloversinn.com/" />
 
-                {/* ✅ JSON-LD Schema for Cooking Class */}
+                {/* JSON-LD Schema */}
                 <script type="application/ld+json">
                     {`
-                        {
-                        "@context": "https://schema.org",
-                        "@type": "TouristAttraction",
-                        "name": "Sri Lankan Cooking Class in Kalametiya, Tangalle",
-                        "description": "Hands-on Sri Lankan cooking class in Kalametiya, where guests learn to prepare local curries, sweets, and enjoy authentic flavors.",
-                        "provider": {
-                            "@type": "LocalBusiness",
-                            "name": "Nature Lover’s Inn",
-                            "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Kalametiya, Tangalle",
-                            "addressCountry": "Sri Lanka"
-                            },
-                            "telephone": "+94-760169518",
-                            "url": "http://localhost:3000/cooking"
-                        },
-                        "image": "http://localhost:3000/images/jungel_11.jpeg"
-                        }
-                        `}
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Nature Lover’s Inn",
+      "description": "Eco hotel near Kalametiya Bird Sanctuary with bird watching tours, lagoon boat rides, and jungle walking experiences.",
+      "url": "https://www.natureloversinn.com/",
+      "image": "https://www.natureloversinn.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kalametiya",
+        "addressLocality": "Tangalle",
+        "addressRegion": "Southern Province",
+        "addressCountry": "Sri Lanka"
+      },
+      "telephone": "+94-760169518"
+    }
+    `}
                 </script>
             </Helmet>
 

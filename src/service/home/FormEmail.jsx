@@ -108,6 +108,7 @@ const ContactForm = () => {
 
     return (
         <Box
+
             sx={{
                 py: { xs: 6, sm: 8, md: 10 },
                 background: 'linear-gradient(135deg, #f9f9f9 0%, #e3f2fd 100%)',
@@ -117,22 +118,69 @@ const ContactForm = () => {
             }}
         >
             <Helmet>
-                <title>Contact Nature Lover's Inn | Book a Room, Tours & Activities</title>
+                {/* Page Title */}
+                <title>Nature Lover’s Inn | Kalametiya Bird Sanctuary Eco Stay in Sri Lanka</title>
+
+                {/* Meta Description */}
                 <meta
                     name="description"
-                    content="Get in touch with Nature Lover's Inn to book rooms, bird watching tours, jungle walks, and cooking classes in Kalametiya, Sri Lanka."
+                    content="Nature Lover’s Inn is located next to the Kalametiya Bird Sanctuary in Sri Lanka. Enjoy bird watching tours, lagoon safaris, jungle walking, cooking classes, and peaceful beachfront accommodation."
                 />
+
+                {/* Keywords */}
                 <meta
                     name="keywords"
-                    content="Contact, Nature Lover's Inn, Book Room, Bird Watching, Jungle Walk, Cooking Class, Kalametiya"
+                    content="Kalametiya Bird Sanctuary hotel, Nature Lovers Inn, bird watching Sri Lanka, Kalametiya lagoon tour, eco stay Sri Lanka, Tangalle nature tours"
                 />
-                <meta property="og:title" content="Contact Nature Lover's Inn | Book Your Stay or Tour" />
+
+                {/* Robots */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Canonical */}
+                <link rel="canonical" href="https://www.natureloversinn.com/" />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Nature Lover’s Inn | Next to Kalametiya Bird Sanctuary" />
                 <meta
                     property="og:description"
-                    content="Fill out our contact form to book rooms, lagoon tours, cooking classes, or jungle walking experiences at Nature Lover's Inn."
+                    content="Stay at Nature Lover’s Inn, located right next to the famous Kalametiya Bird Sanctuary. Enjoy lagoon tours, bird watching, jungle trekking and authentic Sri Lankan hospitality."
                 />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="http://localhost:3000/contact" />
+                <meta property="og:url" content="https://www.natureloversinn.com/" />
+
+                {/* ✔️ EXACTLY AS YOU REQUESTED — DO NOT CHANGE THIS */}
+                <meta property="og:image" content="https://www.natureloversinn.com/" />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Nature Lover’s Inn | Kalametiya Bird Sanctuary" />
+                <meta
+                    name="twitter:description"
+                    content="Eco-friendly stays, bird watching tours, lagoon boat rides and jungle walks at Kalametiya Bird Sanctuary."
+                />
+                <meta name="twitter:image" content="https://www.natureloversinn.com/" />
+
+                {/* JSON-LD Schema */}
+                <script type="application/ld+json">
+                    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Nature Lover’s Inn",
+      "description": "Eco hotel near Kalametiya Bird Sanctuary with bird watching tours, lagoon boat rides, and jungle walking experiences.",
+      "url": "https://www.natureloversinn.com/",
+      "image": "https://www.natureloversinn.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kalametiya",
+        "addressLocality": "Tangalle",
+        "addressRegion": "Southern Province",
+        "addressCountry": "Sri Lanka"
+      },
+      "telephone": "+94-760169518"
+    }
+    `}
+                </script>
             </Helmet>
 
             <Container maxWidth="md">

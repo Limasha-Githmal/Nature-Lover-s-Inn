@@ -9,13 +9,100 @@ export default function PrivacyPolicy() {
     return (
         <Box sx={{ bgcolor: "#f8fbfc", minHeight: "100vh", py: { xs: 6, md: 10 } }}>
             <Helmet>
-                <title>Privacy Policy | Nature Lover's Inn - Kalametiya</title>
+                {/* Page Title */}
+                <title>Privacy Policy | Nature Lover’s Inn – Kalametiya, Sri Lanka</title>
+
+                {/* Meta Description */}
                 <meta
                     name="description"
-                    content="Privacy Policy for Nature Lover's Inn — how we collect, use and protect your personal information for bookings and tours in Kalametiya, Sri Lanka."
+                    content="Read the Privacy Policy for Nature Lover's Inn in Kalametiya, Sri Lanka. Learn how we collect, use, and protect your personal information for room bookings and nature tours."
                 />
-                <meta name="robots" content="index,follow" />
+
+                {/* Keywords */}
+                <meta
+                    name="keywords"
+                    content="Nature Lovers Inn privacy policy, data protection Sri Lanka, Kalametiya hotel privacy, booking privacy policy, Sri Lanka tourism privacy"
+                />
+
+                {/* Robots */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Canonical URL */}
+                <link rel="canonical" href="https://www.natureloversinn.com/privacy" />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Privacy Policy | Nature Lover’s Inn – Sri Lanka" />
+                <meta
+                    property="og:description"
+                    content="Learn how Nature Lover’s Inn collects, uses, and protects your data for bookings, inquiries, and tours."
+                />
+                <meta property="og:url" content="https://www.natureloversinn.com/privacy" />
+                <meta property="og:image" content="https://www.natureloversinn.com/images/og-privacy.jpg" />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Privacy Policy | Nature Lover’s Inn – Sri Lanka" />
+                <meta
+                    name="twitter:description"
+                    content="Detailed privacy policy for guests booking rooms or tours at Nature Lover’s Inn, Kalametiya."
+                />
+                <meta name="twitter:image" content="https://www.natureloversinn.com/images/og-privacy.jpg" />
+
+                {/* JSON-LD Schema for WebPage */}
+                <script type="application/ld+json">
+                    {`
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Privacy Policy - Nature Lover’s Inn",
+          "description": "Official Privacy Policy explaining how Nature Lover’s Inn collects and uses guest data for bookings, tours, and communication.",
+          "url": "https://www.natureloversinn.com/privacy",
+          "publisher": {
+            "@type": "Hotel",
+            "name": "Nature Lover’s Inn",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Kalametiya",
+              "addressLocality": "Tangalle",
+              "addressRegion": "Southern Province",
+              "addressCountry": "Sri Lanka"
+            },
+            "telephone": "+94-760169518",
+            "email": "natureloversinn10@gmail.com"
+          }
+        }
+        `}
+                </script>
+
+                {/* LocalBusiness + Geo Schema */}
+                <script type="application/ld+json">
+                    {`
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Nature Lover’s Inn",
+          "url": "https://www.natureloversinn.com/privacy",
+          "image": "https://www.natureloversinn.com/images/og-privacy.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Kalametiya",
+            "addressLocality": "Tangalle",
+            "addressRegion": "Southern Province",
+            "addressCountry": "LK"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 6.103423,
+            "longitude": 80.861502
+          },
+          "telephone": "+94-760169518"
+        }
+        `}
+                </script>
             </Helmet>
+
+
 
             <Container maxWidth="md">
                 <Typography variant="h3" fontWeight={800} gutterBottom>

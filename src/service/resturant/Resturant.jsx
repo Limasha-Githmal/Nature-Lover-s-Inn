@@ -117,57 +117,69 @@ const Restaurants = () => {
     >
 
       <Helmet>
-        <title>Nature Lover's Restaurant | Fresh Sri Lankan Cuisine in Mannar</title>
+        {/* 🔹 SEO Title */}
+        <title>Nature Lover’s Inn Restaurant | Authentic Sri Lankan Food in Kalametiya</title>
+
+        {/* 🔹 Meta Description */}
         <meta
-          name="description"
-          content="Explore the menu at Nature Lover's Restaurant in Mannar. Enjoy fresh juices, Sri Lankan curries, seafood, and international dishes in a serene environment."
+            name="description"
+            content="Enjoy fresh juices, seafood, Sri Lankan curries and homemade meals at Nature Lover’s Inn Restaurant, located near the Kalametiya Bird Sanctuary. Healthy food made fresh daily."
         />
+
+        {/* 🔹 Keywords */}
         <meta
-          name="keywords"
-          content="Nature Lover's Restaurant, Mannar restaurant, Sri Lankan cuisine, fresh juices, seafood, curries, local food"
+            name="keywords"
+            content="Kalametiya restaurant, Tangalle restaurant, Sri Lankan food, seafood Sri Lanka, Nature Lovers Inn restaurant, fresh juice Sri Lanka, homestyle cooking Kalametiya"
         />
+
+        {/* 🔹 Author */}
         <meta name="author" content="Nature Lover’s Inn" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Nature Lover's Restaurant | Mannar" />
-        <meta
-          property="og:description"
-          content="Discover our wide selection of fresh juices, seafood, and Sri Lankan delicacies at Nature Lover's Restaurant in Mannar."
-        />
+        {/* 🔹 Canonical URL */}
+        <link rel="canonical" href="https://www.natureloversinn.com/restaurant" />
+
+        {/* 🔹 Open Graph for Facebook / WhatsApp / LinkedIn */}
         <meta property="og:type" content="restaurant" />
-        <meta property="og:url" content="http://localhost:3000/restaurants" />
-        <meta property="og:image" content="http://localhost:3000/images/restaurant_main.jpeg" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Nature Lover's Restaurant | Mannar" />
+        <meta property="og:title" content="Nature Lover’s Inn Restaurant | Sri Lankan Cuisine in Kalametiya" />
         <meta
-          name="twitter:description"
-          content="Fresh juices, local Sri Lankan dishes, and seafood at Nature Lover's Restaurant in Mannar."
+            property="og:description"
+            content="Taste fresh seafood, traditional Sri Lankan curries, juices, desserts and Asian fusion dishes at Nature Lover’s Inn Restaurant in Kalametiya."
         />
-        <meta name="twitter:image" content="http://localhost:3000/images/restaurant_main.jpeg" />
+        <meta property="og:url" content="https://www.natureloversinn.com/restaurant" />
+        <meta property="og:image" content="https://www.natureloversinn.com/restaurant" />
 
-        {/* JSON-LD Schema */}
+        {/* 🔹 Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Nature Lover’s Inn Restaurant | Sri Lankan Food in Kalametiya" />
+        <meta
+            name="twitter:description"
+            content="Fresh seafood, juices, and Sri Lankan curries at Nature Lover’s Inn Restaurant near Kalametiya Bird Sanctuary."
+        />
+        <meta name="twitter:image" content="https://www.natureloversinn.com/restaurant" />
+
+        {/* 🔹 JSON-LD Schema: Restaurant */}
         <script type="application/ld+json">
           {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "name": "Nature Lover's Restaurant",
-            "image": "http://localhost:3000/images/restaurant_main.jpeg",
-            "description": "Enjoy fresh juices, seafood, Sri Lankan and international dishes in Mannar.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Near Kalametiya Bird Lagoon",
-              "addressLocality": "Mannar",
-              "addressRegion": "Northern Province",
-              "addressCountry": "Sri Lanka"
-            },
-            "telephone": "+94-760169518",
-            "url": "http://localhost:3000/restaurants",
-            "servesCuisine": ["Sri Lankan", "Seafood", "Asian", "Western"]
-          }
-          `}
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Nature Lover’s Inn Restaurant",
+          "image": "https://www.natureloversinn.com/restaurant",
+          "servesCuisine": ["Sri Lankan", "Seafood", "Asian", "Western", "Juices"],
+          "description": "Enjoy Sri Lankan curries, seafood, fruit juices and homestyle meals near the Kalametiya Bird Sanctuary.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Kalametiya",
+            "addressLocality": "Tangalle",
+            "addressRegion": "Southern Province",
+            "addressCountry": "Sri Lanka"
+          },
+          "telephone": "+94-760169518",
+          "url": "https://www.natureloversinn.com/restaurant",
+          "priceRange": "$$",
+          "hasMenu": "https://www.natureloversinn.com/restaurant"
+        }
+        `}
         </script>
       </Helmet>
 
