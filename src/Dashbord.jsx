@@ -11,16 +11,27 @@ import { Helmet } from "react-helmet";
 function Dashboard() {
     return (
         <>
-        <Helmet>
-                <title>Nature Lover's Inn | Eco-Tourism & Accommodation in Kalametiya</title>
-                <meta name="description" content="Explore bird watching, jungle walking, cooking classes, and eco-friendly stays at Nature Lover's Inn in Kalametiya, Sri Lanka." />
-                <meta name="keywords" content="Nature Lover's Inn, Kalametiya, Sri Lanka, Bird Watching Tours, Jungle Walking, Cooking Class, Accommodation, Eco-Tourism" />
-                <meta property="og:title" content="Nature Lover's Inn | Eco-Tourism in Kalametiya" />
-                <meta property="og:description" content="Experience eco-tourism with bird sanctuaries, jungle walks, and cooking classes in Kalametiya, Sri Lanka." />
+            <Helmet>
+                <title>Nature Lover's Inn | Kalamatiya Bird Sanctuary Tours & Eco Stay</title>
+
+                <meta
+                    name="description"
+                    content="Stay at Nature Lover's Inn and explore the Kalamatiya Bird Sanctuary, boat tours, bird watching, eco accommodation and adventures in Kalametiya, Sri Lanka."
+                />
+
+                <meta
+                    name="keywords"
+                    content="Kalametiya Bird Sanctuary, Kalamatiya Sanctuary, Kalamatiya Eco Tours, Bird Watching Sri Lanka, Nature Lover's Inn, Kalametiya Hotel"
+                />
+
+                <meta property="og:title" content="Kalamatiya Bird Sanctuary Tours | Nature Lover's Inn" />
+                <meta property="og:description" content="Experience the Kalametiya Bird Sanctuary with boat tours, bird watching and eco stay at Nature Lover's Inn." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://yourwebsite.com" />
-                <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg" />
+                <meta property="og:url" content="https://www.natureloversinn.com" />
+                <meta property="og:image" content="https://www.natureloversinn.com/images/og-image.jpg" />
             </Helmet>
+
+
 
             <SanctuaryDashboard/>
 
