@@ -116,6 +116,7 @@ const Offers = () => {
       "telephone": "+94-760169518"
     }
     `}
+
                 </script>
             </Helmet>
             <Container maxWidth="lg">
