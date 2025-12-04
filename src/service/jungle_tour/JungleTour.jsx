@@ -135,10 +135,33 @@ const JungleTour = () => {
                     content="A guided jungle trekking tour in Kalametiya with wildlife, temples and beach views."
                 />
                 <meta name="twitter:image" content="https://www.natureloversinn.com/images/jungel_10.jpeg" />
-            </Helmet>
+
+                <script type="application/ld+json">
+                    {`
+                {
+                  "@context": "https://schema.org",
+                  "@type": "TouristAttraction",
+                  "name": "Kalametiya Jungle Walking Tour",
+                  "description": "A guided jungle walking tour in Kalametiya, Sri Lanka. Explore wildlife, temples, lagoon views and hidden forest trails with Nature Lover’s Inn.",
+                  "url": "https://www.natureloversinn.com/jungle",
+                  "image": "https://www.natureloversinn.com/images/jungel_10.jpeg",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Kalametiya",
+                    "addressRegion": "Southern Province",
+                    "addressCountry": "Sri Lanka"
+                  },
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "Nature Lover's Inn",
+                    "url": "https://www.natureloversinn.com/"
+                  }
+                }
+                `}
+                </script>
 
 
-            {/* Hero Section */}
+                {/* Hero Section */}
             <Box
                 sx={{
                     textAlign: "center",
@@ -152,7 +175,7 @@ const JungleTour = () => {
                 }}
             >
                 <Typography variant={isSm ? "h5" : "h3"} fontWeight={800} gutterBottom>
-                    Kelametiya Jungle Walking Tour 🌿
+                    Kalametiya Jungle Walking Tour 🌿
                 </Typography>
                 <Typography
                     variant={isSm ? "body1" : "h6"}
