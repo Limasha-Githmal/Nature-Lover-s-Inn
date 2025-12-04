@@ -37,96 +37,51 @@ import { Helmet } from "react-helmet";
 --------------------------------------------------*/
 
 // Featured Images
-import f1 from "../../assets/image/lagoon_34.jpeg";
-import f2 from "../../assets/image/lagoon_35.jpeg";
-import f3 from "../../assets/image/lagoon_36.jpeg";
-import f4 from "../../assets/image/lagoon_32.jpeg";
-import f5 from "../../assets/image/lagoon_31.jpeg";
-import f6 from "../../assets/image/lagoon_33.jpeg";
-import f7 from "../../assets/image/lagoon_37.jpeg";
-import f8 from "../../assets/image/lagoon_1.jpg";
-import f9 from "../../assets/image/lagoon_38.jpeg";
-
-// Gallery Images
-import g2 from "../../assets/image/lagoon_2.jpg";
-import g4 from "../../assets/image/lagoon_4.jpg";
-import g5 from "../../assets/image/lagoon_5.jpg";
-import g6 from "../../assets/image/lagoon_6.jpg";
-import g7 from "../../assets/image/lagoon_7.jpg";
-import g8 from "../../assets/image/lagoon_8.jpg";
-import g21 from "../../assets/image/lagoon_21.jpg";
-import g22 from "../../assets/image/lagoon_22.jpg";
-import g23 from "../../assets/image/lagoon_23.jpg";
-import g24 from "../../assets/image/lagoon_24.jpg";
-import g25 from "../../assets/image/lagoon_25.jpg";
-import g26 from "../../assets/image/lagoon_26.jpg";
-import g27 from "../../assets/image/lagoon_27.jpg";
-import g28 from "../../assets/image/lagoon_28.jpg";
-import g9 from "../../assets/image/lagoon_9.jpg";
-import g10 from "../../assets/image/lagoon_10.jpg";
-import g11 from "../../assets/image/lagoon_11.jpg";
-import g12 from "../../assets/image/lagoon_12.jpg";
-import g13 from "../../assets/image/lagoon_13.jpg";
-import g14 from "../../assets/image/lagoon_14.jpg";
-import g15 from "../../assets/image/lagoon_15.jpg";
-import g16 from "../../assets/image/lagoon_16.jpg";
-import g17 from "../../assets/image/lagoon_17.jpg";
-import g18 from "../../assets/image/lagoon_18.jpg";
-import g19 from "../../assets/image/lagoon_19.jpg";
-import g20 from "../../assets/image/lagoon_20.jpg";
-import g29 from "../../assets/image/lagoon_29.jpg";
-import g30 from "../../assets/image/lagoon_30.jpg";
-
-import g50 from "../../assets/image/lagoon_50.jpeg";
-import g51 from "../../assets/image/lagoon_51.jpeg";
-
-/* -------------------------------------------------
-   ARRAYS (now using imported images)
---------------------------------------------------*/
-
+// Featured Images
 const featuredImages = [
-    { id: 1, src: f1, alt: "Gallery Photo 1" },
-    { id: 2, src: f2, alt: "Gallery Photo 2" },
-    { id: 3, src: f3, alt: "Gallery Photo 3" },
-    { id: 4, src: f4, alt: "Gallery Photo 4" },
-    { id: 5, src: f5, alt: "Gallery Photo 5" },
-    { id: 6, src: f6, alt: "Gallery Photo 6" },
-    { id: 7, src: f7, alt: "Gallery Photo 7" },
-    { id: 8, src: f8, alt: "Gallery Photo 8" },
-    { id: 9, src: f9, alt: "Gallery Photo 9" },
+    { id: 1, src: "/images/lagoon_34.jpeg", alt: "Gallery Photo 1" },
+    { id: 2, src: "/images/lagoon_35.jpeg", alt: "Gallery Photo 2" },
+    { id: 3, src: "/images/lagoon_36.jpeg", alt: "Gallery Photo 3" },
+    { id: 4, src: "/images/lagoon_32.jpeg", alt: "Gallery Photo 4" },
+    { id: 5, src: "/images/lagoon_31.jpeg", alt: "Gallery Photo 5" },
+    { id: 6, src: "/images/lagoon_33.jpeg", alt: "Gallery Photo 6" },
+    { id: 7, src: "/images/lagoon_37.jpeg", alt: "Gallery Photo 7" },
+    { id: 8, src: "/images/lagoon_1.jpg", alt: "Gallery Photo 8" },
+    { id: 9, src: "/images/lagoon_38.jpeg", alt: "Gallery Photo 9" },
 ];
 
+// Gallery Images
 const galleryImages = [
-    { id: 2, src: g2, alt: "Gallery Photo 2" },
-    { id: 4, src: g4, alt: "Gallery Photo 4" },
-    { id: 5, src: g5, alt: "Gallery Photo 5" },
-    { id: 6, src: g6, alt: "Gallery Photo 6" },
-    { id: 7, src: g7, alt: "Gallery Photo 7" },
-    { id: 8, src: g8, alt: "Gallery Photo 8" },
-    { id: 9, src: g21, alt: "Gallery Photo 9" },
-    { id: 10, src: g22, alt: "Gallery Photo 10" },
-    { id: 11, src: g23, alt: "Gallery Photo 11" },
-    { id: 12, src: g24, alt: "Gallery Photo 12" },
-    { id: 13, src: g25, alt: "Gallery Photo 13" },
-    { id: 14, src: g26, alt: "Gallery Photo 14" },
-    { id: 15, src: g27, alt: "Gallery Photo 15" },
-    { id: 16, src: g28, alt: "Gallery Photo 16" },
-    { id: 17, src: g9, alt: "Gallery Photo 17" },
-    { id: 18, src: g10, alt: "Gallery Photo 18" },
-    { id: 19, src: g11, alt: "Gallery Photo 19" },
-    { id: 20, src: g12, alt: "Gallery Photo 20" },
-    { id: 21, src: g13, alt: "Gallery Photo 21" },
-    { id: 22, src: g14, alt: "Gallery Photo 22" },
-    { id: 23, src: g15, alt: "Gallery Photo 23" },
-    { id: 24, src: g16, alt: "Gallery Photo 24" },
-    { id: 25, src: g17, alt: "Gallery Photo 25" },
-    { id: 26, src: g18, alt: "Gallery Photo 26" },
-    { id: 27, src: g19, alt: "Gallery Photo 27" },
-    { id: 28, src: g20, alt: "Gallery Photo 28" },
-    { id: 29, src: g29, alt: "Gallery Photo 29" },
-    { id: 30, src: g30, alt: "Gallery Photo 30" },
-    { id: 31, src: g50, alt: "Gallery Photo 31" },
-    { id: 32, src: g51, alt: "Gallery Photo 32" },
+    { id: 2, src: "/images/lagoon_2.jpg", alt: "Gallery Photo 2" },
+    { id: 4, src: "/images/lagoon_4.jpg", alt: "Gallery Photo 4" },
+    { id: 5, src: "/images/lagoon_5.jpg", alt: "Gallery Photo 5" },
+    { id: 6, src: "/images/lagoon_6.jpg", alt: "Gallery Photo 6" },
+    { id: 7, src: "/images/lagoon_7.jpg", alt: "Gallery Photo 7" },
+    { id: 8, src: "/images/lagoon_8.jpg", alt: "Gallery Photo 8" },
+    { id: 9, src: "/images/lagoon_21.jpg", alt: "Gallery Photo 9" },
+    { id: 10, src: "/images/lagoon_22.jpg", alt: "Gallery Photo 10" },
+    { id: 11, src: "/images/lagoon_23.jpg", alt: "Gallery Photo 11" },
+    { id: 12, src: "/images/lagoon_24.jpg", alt: "Gallery Photo 12" },
+    { id: 13, src: "/images/lagoon_25.jpg", alt: "Gallery Photo 13" },
+    { id: 14, src: "/images/lagoon_26.jpg", alt: "Gallery Photo 14" },
+    { id: 15, src: "/images/lagoon_27.jpg", alt: "Gallery Photo 15" },
+    { id: 16, src: "/images/lagoon_28.jpg", alt: "Gallery Photo 16" },
+    { id: 17, src: "/images/lagoon_9.jpg", alt: "Gallery Photo 17" },
+    { id: 18, src: "/images/lagoon_10.jpg", alt: "Gallery Photo 18" },
+    { id: 19, src: "/images/lagoon_11.jpg", alt: "Gallery Photo 19" },
+    { id: 20, src: "/images/lagoon_12.jpg", alt: "Gallery Photo 20" },
+    { id: 21, src: "/images/lagoon_13.jpg", alt: "Gallery Photo 21" },
+    { id: 22, src: "/images/lagoon_14.jpg", alt: "Gallery Photo 22" },
+    { id: 23, src: "/images/lagoon_15.jpg", alt: "Gallery Photo 23" },
+    { id: 24, src: "/images/lagoon_16.jpg", alt: "Gallery Photo 24" },
+    { id: 25, src: "/images/lagoon_17.jpg", alt: "Gallery Photo 25" },
+    { id: 26, src: "/images/lagoon_18.jpg", alt: "Gallery Photo 26" },
+    { id: 27, src: "/images/lagoon_19.jpg", alt: "Gallery Photo 27" },
+    { id: 28, src: "/images/lagoon_20.jpg", alt: "Gallery Photo 28" },
+    { id: 29, src: "/images/lagoon_29.jpg", alt: "Gallery Photo 29" },
+    { id: 30, src: "/images/lagoon_30.jpg", alt: "Gallery Photo 30" },
+    { id: 31, src: "/images/lagoon_50.jpeg", alt: "Gallery Photo 31" },
+    { id: 32, src: "/images/lagoon_51.jpeg", alt: "Gallery Photo 32" },
 ];
 
 /* -------------------------------------------------
@@ -197,7 +152,7 @@ return (
             {/* SEO Keywords */}
             <meta
                 name="keywords"
-                content="Lagoon tour Kalametiya, Bird watching Sri Lanka, Kalametiya Bird Sanctuary, Tangalle lagoon safari, Nature Lovers Inn, eco tourism Sri Lanka"
+                content="Kalametiya Bird watching, Lagoon tour Kalametiya, Bird watching Sri Lanka, Kalametiya Bird Sanctuary, Tangalle lagoon safari, Nature Lovers Inn, eco tourism Sri Lanka, Bird watching sri lanka"
             />
 
             <meta name="author" content="Nature Lover’s Inn" />
@@ -214,7 +169,10 @@ return (
                 content="Join our guided lagoon bird watching tour in Kalametiya. Spot rare birds, enjoy boat rides, and explore natural wetlands in Sri Lanka."
             />
             <meta property="og:url" content="https://www.natureloversinn.com/lagoon-tour" />
-            <meta property="og:image" content="https://www.natureloversinn.com/lagoon-tour" />
+            <meta
+                property="og:image"
+                content="/images/lagoon_32.jpeg"
+            />
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
@@ -223,37 +181,41 @@ return (
                 name="twitter:description"
                 content="Explore Kalametiya Lagoon in Tangalle with our bird watching tour. Discover exotic birds and the natural beauty of Sri Lanka."
             />
-            <meta name="twitter:image" content="https://www.natureloversinn.com/lagoon-tour" />
+            <meta
+                name="twitter:image"
+                content="/images/lagoon_32.jpeg"
+            />
 
-            {/* JSON-LD Schema */}
+            {/* ACTIVITY JSON-LD SCHEMA */}
             <script type="application/ld+json">
                 {`
-        {
-          "@context": "https://schema.org",
-          "@type": "TouristAttraction",
-          "name": "Kalametiya Lagoon Bird Watching Tour",
-          "description": "Guided lagoon bird watching tour in Kalametiya. Spot rare and migratory birds with expert local guides.",
-          "touristType": "Bird Watchers, Eco-tourists, Nature Lovers",
-          "provider": {
-            "@type": "Hotel",
-            "name": "Nature Lover’s Inn",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Kalametiya",
-              "addressLocality": "Tangalle",
-              "addressCountry": "Sri Lanka"
-            },
-            "telephone": "+94-760169518",
-            "url": "https://www.natureloversinn.com/lagoon-tour"
-          },
-          "image": "https://www.natureloversinn.com/lagoon-tour"
-        }
-        `}
+            {
+              "@context": "https://schema.org",
+              "@type": "TouristAttraction",
+              "name": "Kalametiya Lagoon Bird Watching Tour",
+              "description": "Guided lagoon bird watching tour in Kalametiya. Spot rare and migratory birds with expert local guides.",
+              "url": "https://www.natureloversinn.com/lagoon-tour",
+              "image": "/images/lagoon_32.jpeg",
+              "touristType": [
+                "Bird Watchers",
+                "Eco Tourists",
+                "Nature Lovers"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kalametiya",
+                "addressRegion": "Tangalle",
+                "addressCountry": "Sri Lanka"
+              },
+              "provider": {
+                "@type": "Organization",
+                "name": "Nature Lover’s Inn",
+                "url": "https://www.natureloversinn.com"
+              }
+            }
+            `}
             </script>
         </Helmet>
-
-
-
 
 
         {/* Hero Section */}
