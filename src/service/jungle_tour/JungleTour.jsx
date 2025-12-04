@@ -32,61 +32,33 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-/* ---------------------------
-   ✅ FIXED IMAGE IMPORTS
-----------------------------*/
-
-import f1 from "../../assets/image/jungel_11.jpeg";
-import f2 from "../../assets/image/jungel_12.jpeg";
-import f3 from "../../assets/image/jungel_7.jpeg";
-
-import g1 from "../../assets/image/jungel_1.jpeg";
-import g2 from "../../assets/image/jungel_2.jpeg";
-import g3 from "../../assets/image/jungel_3.jpeg";
-import g4 from "../../assets/image/jungel_4.jpeg";
-import g5 from "../../assets/image/jungel_5.jpeg";
-import g6 from "../../assets/image/jungel_6.jpeg";
-import g7 from "../../assets/image/jungel_13.jpeg";
-import g8 from "../../assets/image/jungel_8.jpeg";
-import g9 from "../../assets/image/jungel_9.jpeg";
-import g10 from "../../assets/image/jungel_10.jpeg";
-import g11 from "../../assets/image/jungel_14.jpeg";
-import g12 from "../../assets/image/jungel_15.jpeg";
-import g13 from "../../assets/image/jungle_16.jpeg";
-import g14 from "../../assets/image/jungel_M.jpg";
-import g15 from "../../assets/image/lagoon_28.jpg";
-
-/* ---------------------------
-   IMAGE ARRAYS
-----------------------------*/
+/* ✅ IMAGES FROM PUBLIC */
 
 const featureImages = [
-    { id: 1, src: f1, alt: "Nine Stupas Temple" },
-    { id: 2, src: f2, alt: "Kalametiya Beach" },
-    { id: 3, src: f3, alt: "Buffalo Fields" },
+    { id: 1, src: "/images/jungel_11.jpeg", alt: "Nine Stupas Temple" },
+    { id: 2, src: "/images/jungel_12.jpeg", alt: "Kalametiya Beach" },
+    { id: 3, src: "/images/jungel_7.jpeg", alt: "Buffalo Fields" },
 ];
 
 const galleryImages = [
-    { id: 1, src: g1, alt: "Jungle Walking Tour Kalametiya 1" },
-    { id: 2, src: g2, alt: "Jungle Walking Tour Kalametiya 2" },
-    { id: 3, src: g3, alt: "Jungle Walking Tour Kalametiya 3" },
-    { id: 4, src: g4, alt: "Jungle Walking Tour Kalametiya 4" },
-    { id: 5, src: g5, alt: "Jungle Walking Tour Kalametiya 5" },
-    { id: 6, src: g6, alt: "Jungle Walking Tour Kalametiya 6" },
-    { id: 7, src: g7, alt: "Jungle Walking Tour Kalametiya 7" },
-    { id: 8, src: g8, alt: "Jungle Walking Tour Kalametiya 8" },
-    { id: 9, src: g9, alt: "Jungle Walking Tour Kalametiya 9" },
-    { id: 10, src: g10, alt: "Jungle Walking Tour Kalametiya 10" },
-    { id: 11, src: g11, alt: "Jungle Walking Tour Kalametiya 11" },
-    { id: 12, src: g12, alt: "Jungle Walking Tour Kalametiya 12" },
-    { id: 13, src: g13, alt: "Jungle Walking Tour Kalametiya 13" },
-    { id: 14, src: g14, alt: "Jungle Walking Tour Kalametiya 12" },
-    { id: 15, src: g15, alt: "Jungle Walking Tour Kalametiya 13" },
+    { id: 1, src: "/images/jungel_1.jpeg", alt: "Jungle Walking Tour Kalametiya 1" },
+    { id: 2, src: "/images/jungel_2.jpeg", alt: "Jungle Walking Tour Kalametiya 2" },
+    { id: 3, src: "/images/jungel_3.jpeg", alt: "Jungle Walking Tour Kalametiya 3" },
+    { id: 4, src: "/images/jungel_4.jpeg", alt: "Jungle Walking Tour Kalametiya 4" },
+    { id: 5, src: "/images/jungel_5.jpeg", alt: "Jungle Walking Tour Kalametiya 5" },
+    { id: 6, src: "/images/jungel_6.jpeg", alt: "Jungle Walking Tour Kalametiya 6" },
+    { id: 7, src: "/images/jungel_13.jpeg", alt: "Jungle Walking Tour Kalametiya 7" },
+    { id: 8, src: "/images/jungel_8.jpeg", alt: "Jungle Walking Tour Kalametiya 8" },
+    { id: 9, src: "/images/jungel_9.jpeg", alt: "Jungle Walking Tour Kalametiya 9" },
+    { id: 10, src: "/images/jungel_10.jpeg", alt: "Jungle Walking Tour Kalametiya 10" },
+    { id: 11, src: "/images/jungel_14.jpeg", alt: "Jungle Walking Tour Kalametiya 11" },
+    { id: 12, src: "/images/jungel_15.jpeg", alt: "Jungle Walking Tour Kalametiya 12" },
+    { id: 13, src: "/images/jungle_16.jpeg", alt: "Jungle Walking Tour Kalametiya 13" },
+    { id: 14, src: "/images/jungel_M.jpg", alt: "Jungle Walking Tour Kalametiya 14" },
+    { id: 15, src: "/images/lagoon_28.jpg", alt: "Jungle Walking Tour Kalametiya 15" },
 ];
 
-/* ---------------------------
-   Styled Button
-----------------------------*/
+/* Button */
 const StyledButton = styled(Button)(({ theme }) => ({
     borderRadius: "25px",
     padding: "12px 26px",
@@ -99,10 +71,6 @@ const StyledButton = styled(Button)(({ theme }) => ({
         boxShadow: theme.shadows[8],
     },
 }));
-
-/* ---------------------------
-   COMPONENT LOGIC (NO RETURN)
-----------------------------*/
 
 const JungleTour = () => {
     const theme = useTheme();
@@ -129,108 +97,44 @@ const JungleTour = () => {
             prev === galleryImages.length - 1 ? 0 : prev + 1
         );
 
-    // ⛔ You requested NOT to include return code, so stopping here.
-
-
-return (
-
+    return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
 
+            {/* ✅ PERFECT SEO FIXED */}
             <Helmet>
-                {/* Page Title */}
                 <title>Jungle Walking Tour in Kalametiya | Nature Lover’s Inn Sri Lanka</title>
 
-                {/* Meta Description */}
                 <meta
                     name="description"
-                    content="Discover the Kalametiya Jungle Walking Tour with Nature Lover’s Inn. Explore hidden trails, wildlife, ancient temples, beaches, and Sri Lanka’s natural beauty with expert local guides."
+                    content="Join the Kalametiya Jungle Walking Tour with Nature Lover’s Inn. Explore wildlife, ancient temples, beaches, and hidden forest trails with expert local guides."
                 />
 
-                {/* Keywords */}
                 <meta
                     name="keywords"
-                    content="jungle walking Sri Lanka, Kalametiya jungle tour, Tangalle nature tours, Sri Lanka jungle trekking, eco-tourism Sri Lanka"
+                    content="Kalametiya jungle walk, Sri Lanka jungle tour, eco jungle trekking, Tangalle nature tour, Nature Lovers Inn jungle walk, walking tours sri lanka"
                 />
 
-                {/* Robots */}
                 <meta name="robots" content="index, follow" />
-
-                {/* Canonical URL */}
                 <link rel="canonical" href="https://www.natureloversinn.com/jungle" />
 
-                {/* Open Graph */}
+                {/* ✅ Open Graph */}
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Jungle Walking Tour | Nature Lover’s Inn" />
                 <meta
                     property="og:description"
-                    content="Join our guided jungle walking tour in Kalametiya. Explore hidden paths, spot wildlife, and connect with nature."
+                    content="Explore Sri Lanka’s untouched jungle landscapes with our guided Kalametiya jungle walking experience."
                 />
                 <meta property="og:url" content="https://www.natureloversinn.com/jungle" />
-                <meta property="og:image" content="https://www.natureloversinn.com/jungle" />
+                <meta property="og:image" content="https://www.natureloversinn.com/images/jungel_10.jpeg" />
 
-                {/* Twitter Card */}
+                {/* ✅ Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Jungle Walking Tour | Nature Lover’s Inn" />
+                <meta name="twitter:title" content="Kalametiya Jungle Walk | Nature Lover’s Inn" />
                 <meta
                     name="twitter:description"
-                    content="Walk through Sri Lanka’s jungles in Kalametiya, Tangalle. A guided eco-tour full of adventure, wildlife, and natural beauty."
+                    content="A guided jungle trekking tour in Kalametiya with wildlife, temples and beach views."
                 />
-                <meta name="twitter:image" content="https://www.natureloversinn.com/jungle" />
-
-                {/* JSON-LD Schema for the Tour */}
-                <script type="application/ld+json">
-                    {`
-      {
-        "@context": "https://schema.org",
-        "@type": "TouristAttraction",
-        "name": "Jungle Walking Tour – Nature Lover’s Inn",
-        "description": "Guided jungle walking tour in Kalametiya, Tangalle. Guests will discover hidden trails, wildlife, and Sri Lanka's natural forest landscapes.",
-        "url": "https://www.natureloversinn.com/jungle",
-        "image": [
-          "https://www.natureloversinn.com/jungle"
-        ],
-        "touristType": "Nature Lovers, Eco-Tourists, Adventure Seekers",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Nature Lover’s Inn",
-          "telephone": "+94-760169518",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Kalametiya",
-            "addressLocality": "Tangalle",
-            "addressRegion": "Southern Province",
-            "addressCountry": "Sri Lanka"
-          }
-        }
-      }
-    `}
-                </script>
-
-                {/* LocalBusiness Schema (for Google Maps / Knowledge) */}
-                <script type="application/ld+json">
-                    {`
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Nature Lover’s Inn",
-        "url": "https://www.natureloversinn.com/jungle",
-        "image": "https://www.natureloversinn.com/jungle",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Kalametiya",
-          "addressLocality": "Tangalle",
-          "addressRegion": "Southern Province",
-          "addressCountry": "LK"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 6.103423,
-          "longitude": 80.861502
-        },
-        "telephone": "+94-760169518"
-      }
-    `}
-                </script>
+                <meta name="twitter:image" content="https://www.natureloversinn.com/images/jungel_10.jpeg" />
             </Helmet>
 
 
@@ -248,7 +152,7 @@ return (
                 }}
             >
                 <Typography variant={isSm ? "h5" : "h3"} fontWeight={800} gutterBottom>
-                    Kalametiya Jungle Walking Tour 🌿
+                    Kelametiya Jungle Walking Tour 🌿
                 </Typography>
                 <Typography
                     variant={isSm ? "body1" : "h6"}

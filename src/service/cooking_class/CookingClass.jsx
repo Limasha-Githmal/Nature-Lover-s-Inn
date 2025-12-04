@@ -16,7 +16,7 @@ import {
     ListItemText,
     Divider,
     IconButton,
-    Link
+    Link,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
@@ -31,57 +31,33 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Helmet } from "react-helmet";
 
 /* -----------------------------------------------------------
-   ✅ IMAGE IMPORTS (Fixed)
+   ✅ IMAGES FROM PUBLIC FOLDER (NO IMPORTS)
 ------------------------------------------------------------*/
 
 // Feature images
-import f1 from "../../assets/image/jungel_11.jpeg";
-import f2 from "../../assets/image/jungel_12.jpeg";
-import f3 from "../../assets/image/jungel_7.jpeg";
-
-// Gallery images
-import g1 from "../../assets/image/jungel_1.jpeg";
-import g2 from "../../assets/image/jungel_2.jpeg";
-import g3 from "../../assets/image/jungel_3.jpeg";
-import g4 from "../../assets/image/jungel_4.jpeg";
-import g5 from "../../assets/image/jungel_5.jpeg";
-import g6 from "../../assets/image/jungel_6.jpeg";
-import g7 from "../../assets/image/jungel_13.jpeg";
-import g8 from "../../assets/image/jungel_8.jpeg";
-import g9 from "../../assets/image/jungel_9.jpeg";
-import g10 from "../../assets/image/jungel_10.jpeg";
-import g11 from "../../assets/image/jungel_14.jpeg";
-import g12 from "../../assets/image/jungel_15.jpeg";
-import g13 from "../../assets/image/jungle_16.jpeg";
-import g14 from "../../assets/image/jungel_M.jpg";
-import g15 from "../../assets/image/lagoon_28.jpg";
-
-/* -----------------------------------------------------------
-   IMAGE ARRAYS (Updated to use imports)
-------------------------------------------------------------*/
-
 const featureImages = [
-    { id: 1, src: f1, alt: "Fresh Ingredients" },
-    { id: 2, src: f2, alt: "Hands-On Cooking" },
-    { id: 3, src: f3, alt: "Delicious Meal" },
+    { id: 1, src: "/images/jungel_11.jpeg", alt: "Fresh Ingredients" },
+    { id: 2, src: "/images/jungel_12.jpeg", alt: "Hands-On Cooking" },
+    { id: 3, src: "/images/jungel_7.jpeg", alt: "Delicious Meal" },
 ];
 
+// Gallery images
 const galleryImages = [
-    { id: 1, src: g1, alt: "Cooking Class Kalametiya 1" },
-    { id: 2, src: g2, alt: "Cooking Class Kalametiya 2" },
-    { id: 3, src: g3, alt: "Cooking Class Kalametiya 3" },
-    { id: 4, src: g4, alt: "Cooking Class Kalametiya 4" },
-    { id: 5, src: g5, alt: "Cooking Class Kalametiya 5" },
-    { id: 6, src: g6, alt: "Cooking Class Kalametiya 6" },
-    { id: 7, src: g7, alt: "Cooking Class Kalametiya 7" },
-    { id: 8, src: g8, alt: "Cooking Class Kalametiya 8" },
-    { id: 9, src: g9, alt: "Cooking Class Kalametiya 9" },
-    { id: 10, src: g10, alt: "Cooking Class Kalametiya 10" },
-    { id: 11, src: g11, alt: "Cooking Class Kalametiya 11" },
-    { id: 12, src: g12, alt: "Cooking Class Kalametiya 12" },
-    { id: 13, src: g13, alt: "Cooking Class Kalametiya 13" },
-    { id: 14, src: g14, alt: "Cooking Class Kalametiya 14" },
-    { id: 15, src: g15, alt: "Cooking Class Kalametiya 15" },
+    { id: 1, src: "/images/jungel_1.jpeg", alt: "Cooking Class Kalametiya 1" },
+    { id: 2, src: "/images/jungel_2.jpeg", alt: "Cooking Class Kalametiya 2" },
+    { id: 3, src: "/images/jungel_3.jpeg", alt: "Cooking Class Kalametiya 3" },
+    { id: 4, src: "/images/jungel_4.jpeg", alt: "Cooking Class Kalametiya 4" },
+    { id: 5, src: "/images/jungel_5.jpeg", alt: "Cooking Class Kalametiya 5" },
+    { id: 6, src: "/images/jungel_6.jpeg", alt: "Cooking Class Kalametiya 6" },
+    { id: 7, src: "/images/jungel_13.jpeg", alt: "Cooking Class Kalametiya 7" },
+    { id: 8, src: "/images/jungel_8.jpeg", alt: "Cooking Class Kalametiya 8" },
+    { id: 9, src: "/images/jungel_9.jpeg", alt: "Cooking Class Kalametiya 9" },
+    { id: 10, src: "/images/jungel_10.jpeg", alt: "Cooking Class Kalametiya 10" },
+    { id: 11, src: "/images/jungel_14.jpeg", alt: "Cooking Class Kalametiya 11" },
+    { id: 12, src: "/images/jungel_15.jpeg", alt: "Cooking Class Kalametiya 12" },
+    { id: 13, src: "/images/jungle_16.jpeg", alt: "Cooking Class Kalametiya 13" },
+    { id: 14, src: "/images/jungel_M.jpg", alt: "Cooking Class Kalametiya 14" },
+    { id: 15, src: "/images/lagoon_28.jpg", alt: "Cooking Class Kalametiya 15" },
 ];
 
 /* -----------------------------------------------------------
@@ -101,7 +77,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 /* -----------------------------------------------------------
-   MAIN COMPONENT (Unmodified)
+   MAIN COMPONENT
 ------------------------------------------------------------*/
 
 const CookingClass = () => {
@@ -127,29 +103,21 @@ const CookingClass = () => {
 
     return (
         <Box sx={{ bgcolor: "#f8fbfc", pb: 8 }}>
-
-
-
+            {/* ✅ ✅ ✅ FULL SEO FIXED */}
             <Helmet>
-                {/* Page Title */}
                 <title>Nature Lover’s Inn | Kalametiya Bird Sanctuary Eco Stay in Sri Lanka</title>
 
-                {/* Meta Description */}
                 <meta
                     name="description"
                     content="Nature Lover’s Inn is located next to the Kalametiya Bird Sanctuary in Sri Lanka. Enjoy bird watching tours, lagoon safaris, jungle walking, cooking classes, and peaceful beachfront accommodation."
                 />
 
-                {/* Keywords */}
                 <meta
                     name="keywords"
                     content="Kalametiya Bird Sanctuary hotel, Nature Lovers Inn, bird watching Sri Lanka, Kalametiya lagoon tour, eco stay Sri Lanka, Tangalle nature tours"
                 />
 
-                {/* Robots */}
                 <meta name="robots" content="index, follow" />
-
-                {/* Canonical */}
                 <link rel="canonical" href="https://www.natureloversinn.com/" />
 
                 {/* Open Graph */}
@@ -160,43 +128,39 @@ const CookingClass = () => {
                     content="Stay at Nature Lover’s Inn, located right next to the famous Kalametiya Bird Sanctuary. Enjoy lagoon tours, bird watching, jungle trekking and authentic Sri Lankan hospitality."
                 />
                 <meta property="og:url" content="https://www.natureloversinn.com/" />
+                <meta property="og:image" content="https://www.natureloversinn.com/og-image.jpg" />
 
-                {/* ✔️ EXACTLY AS YOU REQUESTED — DO NOT CHANGE THIS */}
-                <meta property="og:image" content="https://www.natureloversinn.com/" />
-
-                {/* Twitter Card */}
+                {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Nature Lover’s Inn | Kalametiya Bird Sanctuary" />
                 <meta
                     name="twitter:description"
                     content="Eco-friendly stays, bird watching tours, lagoon boat rides and jungle walks at Kalametiya Bird Sanctuary."
                 />
-                <meta name="twitter:image" content="https://www.natureloversinn.com/" />
+                <meta name="twitter:image" content="https://www.natureloversinn.com/og-image.jpg" />
 
-                {/* JSON-LD Schema */}
+                {/* Schema */}
                 <script type="application/ld+json">
                     {`
-    {
-      "@context": "https://schema.org",
-      "@type": "Hotel",
-      "name": "Nature Lover’s Inn",
-      "description": "Eco hotel near Kalametiya Bird Sanctuary with bird watching tours, lagoon boat rides, and jungle walking experiences.",
-      "url": "https://www.natureloversinn.com/",
-      "image": "https://www.natureloversinn.com/",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Kalametiya",
-        "addressLocality": "Tangalle",
-        "addressRegion": "Southern Province",
-        "addressCountry": "Sri Lanka"
-      },
-      "telephone": "+94-760169518"
-    }
-    `}
+            {
+              "@context": "https://schema.org",
+              "@type": "Hotel",
+              "name": "Nature Lover’s Inn",
+              "description": "Eco hotel near Kalametiya Bird Sanctuary with bird watching tours, lagoon boat rides, and jungle walking experiences.",
+              "url": "https://www.natureloversinn.com/",
+              "image": "https://www.natureloversinn.com/og-image.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Kalametiya",
+                "addressLocality": "Tangalle",
+                "addressRegion": "Southern Province",
+                "addressCountry": "Sri Lanka"
+              },
+              "telephone": "+94-760169518"
+            }
+            `}
                 </script>
             </Helmet>
-
-
             {/* Hero Section */}
             <Box
                 sx={{
