@@ -159,6 +159,7 @@ const JungleTour = () => {
                 }
                 `}
                 </script>
+            </Helmet>
 
 
                 {/* Hero Section */}
