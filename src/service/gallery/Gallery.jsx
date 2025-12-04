@@ -18,73 +18,37 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
    ✅ IMPORT ALL IMAGES (ONLY CHANGE)
 ---------------------------------------------------- */
 
-import g1 from "../../assets/image/gallery1.png";
-import g2 from "../../assets/image/gallery_7 _.jpeg";     // FIX filename (no space)
-import g3 from "../../assets/image/gallery_6.jpeg";
-import g4 from "../../assets/image/gallery_4.jpeg";
-import g5 from "../../assets/image/gallery_5.jpeg";
-import g6 from "../../assets/image/gallery_3.jpeg";
-import g7 from "../../assets/image/gallery_2.jpeg";
-import g8 from "../../assets/image/gallery_8.jpeg";
-import g9 from "../../assets/image/gallery_9.jpeg";
-import g10 from "../../assets/image/gallery_10.jpeg";
-import g11 from "../../assets/image/gallery_11.jpeg";
-import g12 from "../../assets/image/gallery_12.jpeg";
-import g13 from "../../assets/image/gallery_14.jpeg";
-import g14 from "../../assets/image/gallery_13.jpeg";
-import g15 from "../../assets/image/gallery_15.jpeg";
-import g16 from "../../assets/image/gallery_16.jpeg";
-import g17 from "../../assets/image/gallery_17.jpeg";
-import g18 from "../../assets/image/gallery_18.jpeg";
-import g19 from "../../assets/image/gallery_19.jpeg";
-import g20 from "../../assets/image/gallery_20.jpeg";
-import g21 from "../../assets/image/gallery_21.jpeg";
-import g22 from "../../assets/image/gallery_22.jpeg";
-import g23 from "../../assets/image/gallery_23.jpeg";
-import g24 from "../../assets/image/gallery_24.jpeg";
-import g25 from "../../assets/image/gallery_25.jpeg";
-import g26 from "../../assets/image/gallery_26.jpeg";
-import g27 from "../../assets/image/gallery_27.jpeg";
-import g28 from "../../assets/image/gallery_28.jpeg";
-import g29 from "../../assets/image/gallery_29.jpeg";
-import g30 from "../../assets/image/gallery_30.jpeg";
-import {Helmet} from "react-helmet";
-
-/* ----------------------------------------------------
-   ✅ FIXED galleryImages ARRAY
----------------------------------------------------- */
-
 const galleryImages = [
-    { id: 1, src: g1, alt: "Jungle Scenery" },
-    { id: 2, src: g2, alt: "Jungle" },
-    { id: 3, src: g3, alt: "Local Wildlife" },
-    { id: 4, src: g4, alt: "Lush Greenery" },
-    { id: 5, src: g5, alt: "Lagoon View" },
-    { id: 6, src: g6, alt: "Boat Safari" },
-    { id: 7, src: g7, alt: "Bird Watching" },
-    { id: 8, src: g8, alt: "Rock Formation" },
-    { id: 9, src: g9, alt: "Jungle Flora" },
-    { id: 10, src: g10, alt: "Exploring Nature" },
-    { id: 11, src: g11, alt: "Buffalo in a Field" },
-    { id: 12, src: g12, alt: "Jungle River" },
-    { id: 13, src: g13, alt: "Peaceful Walk" },
-    { id: 14, src: g14, alt: "Beautiful Sunset" },
-    { id: 15, src: g15, alt: "Scenic Waters" },
-    { id: 16, src: g16, alt: "Photography Spot" },
-    { id: 17, src: g17, alt: "Hidden Temple" },
-    { id: 18, src: g18, alt: "Ancient Ruins" },
-    { id: 19, src: g19, alt: "Local Culture" },
-    { id: 20, src: g20, alt: "Sandy Beach" },
-    { id: 21, src: g21, alt: "Jungle Scenery" },
-    { id: 22, src: g22, alt: "Trail Path" },
-    { id: 23, src: g23, alt: "Local Wildlife" },
-    { id: 24, src: g24, alt: "Lush Greenery" },
-    { id: 25, src: g25, alt: "Lagoon View" },
-    { id: 26, src: g26, alt: "Boat Safari" },
-    { id: 27, src: g27, alt: "Bird Watching" },
-    { id: 28, src: g28, alt: "Rock Formation" },
-    { id: 29, src: g29, alt: "Jungle Flora" },
-    { id: 30, src: g30, alt: "Jungle Flora" },
+    { id: 1, src: "/images/gallery1.png", alt: "Jungle Scenery" },
+    { id: 2, src: "/images/gallery_7.jpeg", alt: "Jungle" },
+    { id: 3, src: "/images/gallery_6.jpeg", alt: "Local Wildlife" },
+    { id: 4, src: "/images/gallery_4.jpeg", alt: "Lush Greenery" },
+    { id: 5, src: "/images/gallery_5.jpeg", alt: "Lagoon View" },
+    { id: 6, src: "/images/gallery_3.jpeg", alt: "Boat Safari" },
+    { id: 7, src: "/images/gallery_2.jpeg", alt: "Bird Watching" },
+    { id: 8, src: "/images/gallery_8.jpeg", alt: "Rock Formation" },
+    { id: 9, src: "/images/gallery_9.jpeg", alt: "Jungle Flora" },
+    { id: 10, src: "/images/gallery_10.jpeg", alt: "Exploring Nature" },
+    { id: 11, src: "/images/gallery_11.jpeg", alt: "Buffalo in a Field" },
+    { id: 12, src: "/images/gallery_12.jpeg", alt: "Jungle River" },
+    { id: 13, src: "/images/gallery_14.jpeg", alt: "Peaceful Walk" },
+    { id: 14, src: "/images/gallery_13.jpeg", alt: "Beautiful Sunset" },
+    { id: 15, src: "/images/gallery_15.jpeg", alt: "Scenic Waters" },
+    { id: 16, src: "/images/gallery_16.jpeg", alt: "Photography Spot" },
+    { id: 17, src: "/images/gallery_17.jpeg", alt: "Hidden Temple" },
+    { id: 18, src: "/images/gallery_18.jpeg", alt: "Ancient Ruins" },
+    { id: 19, src: "/images/gallery_19.jpeg", alt: "Local Culture" },
+    { id: 20, src: "/images/gallery_20.jpeg", alt: "Sandy Beach" },
+    { id: 21, src: "/images/gallery_21.jpeg", alt: "Jungle Scenery" },
+    { id: 22, src: "/images/gallery_22.jpeg", alt: "Trail Path" },
+    { id: 23, src: "/images/gallery_23.jpeg", alt: "Local Wildlife" },
+    { id: 24, src: "/images/gallery_24.jpeg", alt: "Lush Greenery" },
+    { id: 25, src: "/images/gallery_25.jpeg", alt: "Lagoon View" },
+    { id: 26, src: "/images/gallery_26.jpeg", alt: "Boat Safari" },
+    { id: 27, src: "/images/gallery_27.jpeg", alt: "Bird Watching" },
+    { id: 28, src: "/images/gallery_28.jpeg", alt: "Rock Formation" },
+    { id: 29, src: "/images/gallery_29.jpeg", alt: "Jungle Flora" },
+    { id: 30, src: "/images/gallery_30.jpeg", alt: "Jungle Flora" },
 ];
 
 /* ----------------------------------------------------

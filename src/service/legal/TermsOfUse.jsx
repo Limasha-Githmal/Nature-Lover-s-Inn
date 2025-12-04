@@ -8,99 +8,42 @@ export default function TermsOfUse() {
     return (
         <Box sx={{ bgcolor: "#f8fbfc", minHeight: "100vh", py: { xs: 6, md: 10 } }}>
             <Helmet>
-                {/* Page Title */}
-                <title>Terms of Use | Nature Lover’s Inn – Kalametiya, Sri Lanka</title>
+                {/* Organization JSON-LD */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        name: "Nature Lover’s Inn",
+                        url: "https://www.natureloversinn.com",
+                        logo: "https://www.natureloversinn.com/images/logo.png",
+                        sameAs: [
+                            "https://www.facebook.com/natureloversinn",
+                            "https://www.instagram.com/natureloversinn",
+                            "https://www.tiktok.com/@natureloversinn"
+                        ],
+                        contactPoint: {
+                            "@type": "ContactPoint",
+                            telephone: "+94760169518",
+                            contactType: "Customer Service",
+                            email: "natureloversinn10@gmail.com",
+                        },
+                        address: {
+                            "@type": "PostalAddress",
+                            streetAddress: "Kalametiya, Tangalle",
+                            addressLocality: "Kalametiya",
+                            addressRegion: "Tangalle",
+                            postalCode: "",
+                            addressCountry: "Sri Lanka",
+                        },
+                    })}
+                </script>
 
-                {/* Meta Description */}
-                <meta
-                    name="description"
-                    content="Read the Terms of Use for Nature Lover's Inn in Kalametiya, Sri Lanka. Learn about bookings, payments, cancellations, safety rules, and legal guidelines."
-                />
-
-                {/* Keywords */}
+                {/* Meta keywords for site-wide relevance */}
                 <meta
                     name="keywords"
-                    content="Nature Lovers Inn terms of use, Kalametiya hotel terms, booking terms Sri Lanka, tourism terms and conditions, bird watching tours terms"
+                    content="Kalametiya Bird Watching, Nature Lover’s Inn, Sri Lanka Tours, Lagoon Bird Watching, Kalametiya Tour, Eco Tourism, Tangalle Safari, Bird Photography, Paddle Boat Safari, Jungle Walk,Jungle Walk Kalametiya, kalametiya Jungle Walk, Kalametiya Restaurant, Kalametiya Rooms, Kalametiya Cookery Class, Eco Tours Sri Lanka, Wetlands Tour, Nature Experiences, Bird Watching Tours, Sri Lanka Nature Lodges"
                 />
-
-                {/* Robots */}
-                <meta name="robots" content="index, follow" />
-
-                {/* Canonical URL */}
-                <link rel="canonical" href="https://www.natureloversinn.com/terms" />
-
-                {/* Open Graph */}
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Terms of Use | Nature Lover’s Inn – Sri Lanka" />
-                <meta
-                    property="og:description"
-                    content="Terms and conditions for using Nature Lover’s Inn website, booking rooms, lagoon tours, cooking classes and jungle walks."
-                />
-                <meta property="og:url" content="https://www.natureloversinn.com/terms" />
-                <meta property="og:image" content="https://www.natureloversinn.com/terms" />
-
-                {/* Twitter Card */}
-                <meta name="twitter:card" content="summary" />
-                <meta name="twitter:title" content="Terms of Use | Nature Lover’s Inn – Sri Lanka" />
-                <meta
-                    name="twitter:description"
-                    content="Review the official Terms of Use for room bookings, lagoon tours, and other services at Nature Lover’s Inn."
-                />
-                <meta name="twitter:image" content="https://www.natureloversinn.com/terms" />
-
-                {/* JSON-LD Schema - WebPage */}
-                <script type="application/ld+json">
-                    {`
-        {
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Terms of Use - Nature Lover’s Inn",
-          "description": "Official Terms of Use for Nature Lover’s Inn, covering bookings, cancellations, payments, safety and legal guidelines.",
-          "url": "https://www.natureloversinn.com/terms",
-          "publisher": {
-            "@type": "Hotel",
-            "name": "Nature Lover’s Inn",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Kalametiya",
-              "addressLocality": "Tangalle",
-              "addressRegion": "Southern Province",
-              "addressCountry": "Sri Lanka"
-            },
-            "telephone": "+94-760169518",
-            "email": "natureloversinn10@gmail.com"
-          }
-        }
-        `}
-                </script>
-
-                {/* JSON-LD Schema - LocalBusiness */}
-                <script type="application/ld+json">
-                    {`
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Nature Lover’s Inn",
-          "url": "https://www.natureloversinn.com/terms",
-          "image": "https://www.natureloversinn.com/terms",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Kalametiya",
-            "addressLocality": "Tangalle",
-            "addressRegion": "Southern Province",
-            "addressCountry": "LK"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 6.103423,
-            "longitude": 80.861502
-          },
-          "telephone": "+94-760169518"
-        }
-        `}
-                </script>
             </Helmet>
-
 
             <Container maxWidth="md">
                 <Typography variant="h3" fontWeight={800} gutterBottom>

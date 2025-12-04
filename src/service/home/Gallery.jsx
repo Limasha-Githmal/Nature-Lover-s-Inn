@@ -217,7 +217,7 @@ export default function Gallery() {
                 </Grid>
 
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
-                    <Button variant="contained" color="success" component={Link} to="/gallery1">
+                    <Button variant="contained" color="success" component={Link} to="/gallery">
                         More
                     </Button>
                 </Box>

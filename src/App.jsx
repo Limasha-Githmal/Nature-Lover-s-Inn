@@ -2,7 +2,6 @@ import { Box } from "@mui/material"
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from "./Dashbord.jsx"
 import ContactForm from "./service/home/FormEmail.jsx"
-import Gallery from "./service/home/Gallery.jsx"
 import AboutUs from "./service/home/AboutUs.jsx"
 import Offers from "./service/home/Offers.jsx"
 import CookingClass from "./service/cooking_class/CookingClass.jsx"
@@ -14,7 +13,7 @@ import Lagoon from "./service/lagoon_Tour/Lagoon.jsx";
 import Rooms from "./service/rooms/Rooms.jsx";
 import JungleTour from "./service/jungle_tour/JungleTour.jsx"
 import Restaurants from "./service/resturant/Resturant.jsx";
-import Galaery1 from "./service/gallery/galaery1.jsx";
+import Gallery from "./service/gallery/Gallery.jsx";
 import ScrollToTop from "./component/ScrollToTop.jsx";
 import TermsOfUse from "./service/legal/TermsOfUse.jsx";
 import PrivacyPolicy from "./service/legal/PrivacyPolicy.jsx";
@@ -76,7 +75,7 @@ function App() {
                     <Route path="/rooms" element={<Rooms />} />
                     <Route path="/restaurant" element={<Restaurants />} />
                     <Route path="/offers" element={<Offers />} />
-                    <Route path="/gallery1" element={<Galaery1 />} />
+                    <Route path="/gallery" element={<Gallery />} />
                     <Route path="/cooking" element={<Dashboard />} />
                     <Route path="/jungle" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
