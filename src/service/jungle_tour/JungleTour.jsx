@@ -295,36 +295,8 @@ const JungleTour = () => {
 
                     <Divider sx={{ my: 3 }} />
 
-                    <Typography variant="h6" fontWeight={700} gutterBottom>
-                        Packages
-                    </Typography>
-                    <Grid container spacing={2}>
-                        {[
-                            { persons: "1 Person", price: "24$" },
-                            { persons: "2 Persons", price: "27$" },
-                            { persons: "3 Persons", price: "30$" },
-                            { persons: "4 Persons", price: "34$" },
-                        ].map((pkg, i) => (
-                            <Grid item xs={12} sm={6} md={3} key={i}>
-                                <Card
-                                    sx={{
-                                        borderRadius: 3,
-                                        boxShadow: 3,
-                                        p: 2,
-                                        textAlign: "center",
-                                        "&:hover": { backgroundColor: "action.hover" },
-                                    }}
-                                >
-                                    <Typography variant="body1" fontWeight={600}>
-                                        {pkg.persons}
-                                    </Typography>
-                                    <Typography variant="h6" color="primary.main" fontWeight={700}>
-                                        {pkg.price}
-                                    </Typography>
-                                </Card>
-                            </Grid>
-                        ))}
-                    </Grid>
+
+
                 </Card>
 
                 {/* Contact Buttons */}
