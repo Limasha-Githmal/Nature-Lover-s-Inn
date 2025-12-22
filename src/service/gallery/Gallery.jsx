@@ -13,6 +13,7 @@ import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Helmet } from "react-helmet";
 
 /* ----------------------------------------------------
    ✅ IMPORT ALL IMAGES (ONLY CHANGE)
@@ -20,7 +21,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const galleryImages = [
     { id: 1, src: "/images/gallery1.png", alt: "Jungle Scenery" },
-    { id: 2, src: "/images/gallery_7.jpeg", alt: "Jungle" },
+    { id: 2, src: "/images/gallery_7 _.jpeg", alt: "Jungle" },
     { id: 3, src: "/images/gallery_6.jpeg", alt: "Local Wildlife" },
     { id: 4, src: "/images/gallery_4.jpeg", alt: "Lush Greenery" },
     { id: 5, src: "/images/gallery_5.jpeg", alt: "Lagoon View" },

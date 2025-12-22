@@ -3,7 +3,7 @@ import { Box } from "@mui/material"
 import SanctuaryDashboard from "./service/home/SanctuaryDashboard.jsx"
 import AboutUs from "./service/home/AboutUs.jsx"
 import Offers from "./service/home/Offers.jsx"
-import Gallery from "./service/home/Gallery.jsx"
+import Gallery1 from "./service/home/Gallery.jsx"
 import Services from "./service/home/Services.jsx"
 import ContactForm from "./service/home/FormEmail.jsx"
 import { Helmet } from "react-helmet";
@@ -44,8 +44,8 @@ function Dashboard() {
                 <Offers/>
             </Box>
 
-            <Box id="gallery">
-                <Gallery/>
+            <Box id="gallery1">
+                <Gallery1/>
             </Box>
 
             <Box id="services">
