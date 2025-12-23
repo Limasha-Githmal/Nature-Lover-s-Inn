@@ -36,28 +36,28 @@ import { Helmet } from "react-helmet";
 
 // Feature images
 const featureImages = [
-    { id: 1, src: "/images/jungel_11.jpeg", alt: "Fresh Ingredients" },
-    { id: 2, src: "/images/jungel_12.jpeg", alt: "Hands-On Cooking" },
-    { id: 3, src: "/images/jungel_7.jpeg", alt: "Delicious Meal" },
+    { id: 1, src: "/images/kalametiyacookeryclass_16.jpeg", alt: "Hands-On Cooking" },
+    { id: 2, src: "/images/kalametiyacookeryclass_17.jpeg", alt: "Fresh Ingredients" },
+    { id: 3, src: "/images/kalametiyacookeryclass_18.jpeg", alt: "Get New Experience" },
 ];
 
 // Gallery images
 const galleryImages = [
-    { id: 1, src: "/images/jungel_1.jpeg", alt: "Cooking Class Kalametiya 1" },
-    { id: 2, src: "/images/jungel_2.jpeg", alt: "Cooking Class Kalametiya 2" },
-    { id: 3, src: "/images/jungel_3.jpeg", alt: "Cooking Class Kalametiya 3" },
-    { id: 4, src: "/images/jungel_4.jpeg", alt: "Cooking Class Kalametiya 4" },
-    { id: 5, src: "/images/jungel_5.jpeg", alt: "Cooking Class Kalametiya 5" },
-    { id: 6, src: "/images/jungel_6.jpeg", alt: "Cooking Class Kalametiya 6" },
-    { id: 7, src: "/images/jungel_13.jpeg", alt: "Cooking Class Kalametiya 7" },
-    { id: 8, src: "/images/jungel_8.jpeg", alt: "Cooking Class Kalametiya 8" },
-    { id: 9, src: "/images/jungel_9.jpeg", alt: "Cooking Class Kalametiya 9" },
-    { id: 10, src: "/images/jungel_10.jpeg", alt: "Cooking Class Kalametiya 10" },
-    { id: 11, src: "/images/jungel_14.jpeg", alt: "Cooking Class Kalametiya 11" },
-    { id: 12, src: "/images/jungel_15.jpeg", alt: "Cooking Class Kalametiya 12" },
-    { id: 13, src: "/images/jungle_16.jpeg", alt: "Cooking Class Kalametiya 13" },
-    { id: 14, src: "/images/jungel_M.jpg", alt: "Cooking Class Kalametiya 14" },
-    { id: 15, src: "/images/lagoon_28.jpg", alt: "Cooking Class Kalametiya 15" },
+    { id: 1, src: "/images/kalametiyacookeryclass_01.jpeg", alt: "Cooking Class Kalametiya 1" },
+    { id: 2, src: "/images/kalametiyacookeryclass_02.jpeg", alt: "Cooking Class Kalametiya 2" },
+    { id: 3, src: "/images/kalametiyacookeryclass_03.jpeg", alt: "Cooking Class Kalametiya 3" },
+    { id: 4, src: "/images/kalametiyacookeryclass_04.jpeg", alt: "Cooking Class Kalametiya 4" },
+    { id: 5, src: "/images/kalametiyacookeryclass_05.jpeg", alt: "Cooking Class Kalametiya 5" },
+    { id: 6, src: "/images/kalametiyacookeryclass_06.jpeg", alt: "Cooking Class Kalametiya 6" },
+    { id: 7, src: "/images/kalametiyacookeryclass_07.jpeg", alt: "Cooking Class Kalametiya 7" },
+    { id: 8, src: "/images/kalametiyacookeryclass_08.jpeg", alt: "Cooking Class Kalametiya 8" },
+    { id: 9, src: "/images/kalametiyacookeryclass_09.jpeg", alt: "Cooking Class Kalametiya 9" },
+    { id: 10, src: "/images/kalametiyacookeryclass_10.jpeg", alt: "Cooking Class Kalametiya 10" },
+    { id: 11, src: "/images/kalametiyacookeryclass_11.jpeg", alt: "Cooking Class Kalametiya 11" },
+    { id: 12, src: "/images/kalametiyacookeryclass_12.jpeg", alt: "Cooking Class Kalametiya 12" },
+    { id: 13, src: "/images/kalametiyacookeryclass_13.jpeg", alt: "Cooking Class Kalametiya 13" },
+    { id: 14, src: "/images/kalametiyacookeryclass_14.jpeg", alt: "Cooking Class Kalametiya 14" },
+    { id: 15, src: "/images/kalametiyacookeryclass_15.jpeg", alt: "Cooking Class Kalametiya 15" },
 ];
 
 /* -----------------------------------------------------------
@@ -240,12 +240,13 @@ const CookingClass = () => {
 
                     <List>
                         {[
-                            "Hands-on cooking of 1 main dish & 5 vegetable curries",
+                            "Hands-on cooking of 1 main dish & 5 vegetable curries using fresh garden vegetables",
+                            "Guests pick vegetables directly from the garden before cooking",
                             "Learn to make traditional Sri Lankan sweets",
                             "Guidance from experienced local chefs",
-                            "All ingredients and spices provided",
-                            "Enjoy the delicious meal you prepared",
-                            "Recipe booklet to take home",
+                            "All spices and cooking essentials provided",
+                            "Enjoy the delicious meal prepared with your freshly harvested ingredients",
+
                         ].map((item, i) => (
                             <ListItem key={i} disableGutters>
                                 <ListItemIcon>
@@ -275,34 +276,7 @@ const CookingClass = () => {
 
                     <Divider sx={{ my: 3 }} />
 
-                    <Typography variant="h6" fontWeight={700} gutterBottom>
-                        Packages
-                    </Typography>
-                    <Grid container spacing={2}>
-                        {[{ persons: "1 Person", price: "6$" },
-                            { persons: "2 Persons", price: "12$" },
-                            { persons: "3 Persons", price: "18$" },
-                            { persons: "4 Persons", price: "24$" }].map((pkg, i) => (
-                            <Grid item xs={12} sm={6} md={3} key={i}>
-                                <Card
-                                    sx={{
-                                        borderRadius: 3,
-                                        boxShadow: 3,
-                                        p: 2,
-                                        textAlign: "center",
-                                        "&:hover": { backgroundColor: "action.hover" },
-                                    }}
-                                >
-                                    <Typography variant="body1" fontWeight={600}>
-                                        {pkg.persons}
-                                    </Typography>
-                                    <Typography variant="h6" color="primary.main" fontWeight={700}>
-                                        {pkg.price}
-                                    </Typography>
-                                </Card>
-                            </Grid>
-                        ))}
-                    </Grid>
+
                 </Card>
 
                 {/* Contact Buttons */}

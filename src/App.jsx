@@ -71,12 +71,12 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/about" element={<AboutUs />} />
-                    <Route path="/lagoon-tour" element={<Lagoon />} />
+                    <Route path="/kalametiyabirdwatching" element={<Lagoon />} />
                     <Route path="/rooms" element={<Rooms />} />
                     <Route path="/restaurant" element={<Restaurants />} />
                     <Route path="/offers" element={<Offers />} />
                     <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/cooking" element={<Dashboard />} />
+                    <Route path="/kalametiyacookeryclass" element={<CookingClass />} />
                     <Route path="/jungle" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
                     <Route path="/terms" element={<TermsOfUse />} />

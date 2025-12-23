@@ -18,10 +18,10 @@ import {Helmet} from "react-helmet";
 
 const pages = [
     { name: 'Home', path: '/' },
-    { name: 'Lagoon Tour', path: '/lagoon-tour' },
+    { name: 'Lagoon Tour', path: '/kalametiyabirdwatching' },
     { name: 'Rooms', path: '/rooms' },
     { name: 'Restaurant', path: '/restaurant' },
-    { name: 'Cooking Class', path: '/cooking' },
+    { name: 'Cooking Class', path: '/kalametiyacookeryclass' },
     { name: 'Jungle Tour', path: '/jungle' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' }
