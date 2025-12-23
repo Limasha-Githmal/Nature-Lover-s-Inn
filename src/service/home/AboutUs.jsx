@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import image1 from "../../assets/image/lagoonC.jpeg";
 import image2 from "../../assets/image/room_1.jpeg";
 import image3 from "../../assets/image/gallery_3.jpeg";
+import image4 from "../../assets/image/kalametiyacookeryclass_16.jpeg";
 import image5 from "../../assets/image/jungel_2.jpeg";
 import {Helmet} from "react-helmet";
 
@@ -41,8 +42,7 @@ const App = () => {
         },
         {
             id: 4,
-            image:
-                "https://www.falcortravels.com/wp-content/uploads/2018/11/professional_cooking_courses_for_groups_in_italy-1500x900.jpg",
+            image: image4,
             title: "Cooking Classes",
             description: "Learn local recipes",
             path: "/kalametiyacookeryclass",
