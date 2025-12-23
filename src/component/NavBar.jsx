@@ -22,7 +22,7 @@ const pages = [
     { name: 'Rooms', path: '/rooms' },
     { name: 'Restaurant', path: '/restaurant' },
     { name: 'Cooking Class', path: '/kalametiyacookeryclass' },
-    { name: 'Jungle Tour', path: '/jungle' },
+    { name: 'Jungle Tour', path: '/kalametiyajunglewalking' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' }
 ];

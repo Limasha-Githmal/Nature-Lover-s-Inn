@@ -77,7 +77,7 @@ function App() {
                     <Route path="/offers" element={<Offers />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/kalametiyacookeryclass" element={<CookingClass />} />
-                    <Route path="/jungle" element={<JungleTour />} />
+                    <Route path="/kalametiyajunglewalking" element={<JungleTour />} />
                     <Route path="/contact" element={<ContactForm />} />
                     <Route path="/terms" element={<TermsOfUse />} />
                     <Route path="/privacy" element={<PrivacyPolicy />} />

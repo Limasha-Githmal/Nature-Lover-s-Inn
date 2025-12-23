@@ -23,7 +23,7 @@ const App = () => {
             image: image1,
             title: "Lagoon Tour",
             description: "Bird watching in Sri Lanka",
-            path: "/lagoon-tour",
+            path: "/kalametiyabirdwatching",
         },
         {
             id: 2,
@@ -45,14 +45,14 @@ const App = () => {
                 "https://www.falcortravels.com/wp-content/uploads/2018/11/professional_cooking_courses_for_groups_in_italy-1500x900.jpg",
             title: "Cooking Classes",
             description: "Learn local recipes",
-            path: "/cooking",
+            path: "/kalametiyacookeryclass",
         },
         {
             id: 5,
             image: image5,
             title: "Jungle Walking Tour",
             description: "Explore Kalametiya's wild beauty",
-            path: "/jungle",
+            path: "/kalametiyajunglewalking",
         },
     ];
 
