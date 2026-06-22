@@ -99,9 +99,9 @@ const FooterBottom = () => {
                                 cursor: 'pointer',
                                 '&:hover': { textDecoration: 'underline' }
                             }}
-                            onClick={() => window.open("https://www.facebook.com/YourPageHere", "_blank")}
+                            onClick={() => window.open("https://www.facebook.com/share/1BKHznMTFA/?mibextid=wwXIfr", "_blank")}
                         >
-                            Kozaa
+                            Nature Lover's Inn
                         </Box>. All rights reserved.
                     </Typography>
                 </Box>
